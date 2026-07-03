@@ -1,4 +1,9 @@
-export async function callGemini({ system, user }) {
+interface GeminiParams {
+  system: string;
+  user: string;
+}
+
+export async function callGemini({ system, user }: GeminiParams) {
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!apiKey) {
