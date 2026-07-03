@@ -20,10 +20,20 @@ export const metadata: Metadata = {
   title: "Français Vivant — parlez un français qui vous ressemble",
   description:
     "Une pratique quotidienne pour transformer un français fonctionnel en français naturel, à partir de situations de vie réelles.",
+  manifest: "/manifest.json",
   icons: {
     icon: "/favicon-32.png",
     apple: "/apple-touch-icon-180.png",
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Français Vivant",
+  },
+};
+
+export const viewport = {
+  themeColor: "#8B0000",
 };
 
 export default function RootLayout({
