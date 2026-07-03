@@ -28,8 +28,8 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
   if (!situation) {
     return (
-      <div className="rounded-2xl border border-ink/10 bg-white/60 p-6 text-center">
-        <p className="text-ink/70">Cette situation n'existe pas (ou plus).</p>
+      <div className="rounded-2xl border border-ink/10 bg-white/60 p-6 text-center dark:border-sand/10 dark:bg-ink/40">
+        <p className="text-ink/70 dark:text-sand/70">Cette situation n'existe pas (ou plus).</p>
         <button
           onClick={() => router.push("/")}
           className="mt-4 rounded-full bg-zellige px-5 py-2 text-sm font-semibold text-sand"
@@ -70,17 +70,17 @@ export default function SituationFlowClient({ id }: { id: string }) {
       <StepIndicator step={step} />
 
       <div className="flex items-center gap-3">
-        <span className="grid h-10 w-10 place-items-center rounded-xl bg-saffron/15 text-saffronDeep">
+        <span className="grid h-10 w-10 place-items-center rounded-xl bg-saffron/15 text-saffronDeep dark:bg-saffron/10 dark:text-saffron">
           <Icon name={situation.icon} />
         </span>
-        <h1 className="font-display text-2xl font-semibold text-ink">
+        <h1 className="font-display text-2xl font-semibold text-ink dark:text-sand">
           {situation.title}
         </h1>
       </div>
 
       {step === "context" && (
-        <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6">
-          <p className="text-ink/80 leading-relaxed">{situation.context}</p>
+        <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
+          <p className="text-ink/80 leading-relaxed dark:text-sand/80">{situation.context}</p>
           <button
             onClick={() => setStep("comprehension")}
             className="rounded-full bg-zellige px-5 py-2.5 text-sm font-semibold text-sand transition-transform hover:scale-[1.02]"
@@ -91,11 +91,11 @@ export default function SituationFlowClient({ id }: { id: string }) {
       )}
 
       {step === "comprehension" && (
-        <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6">
-          <p className="rounded-xl bg-mist p-4 italic text-ink/80">
+        <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
+          <p className="rounded-xl bg-mist p-4 italic text-ink/80 dark:bg-ink/60 dark:text-sand/80">
             {situation.comprehension.prompt}
           </p>
-          <p className="font-medium text-ink">{situation.comprehension.question}</p>
+          <p className="font-medium text-ink dark:text-sand">{situation.comprehension.question}</p>
           <div className="space-y-2">
             {situation.comprehension.options.map((opt, i) => {
               const isCorrect = i === situation.comprehension.answerIndex;
@@ -107,10 +107,10 @@ export default function SituationFlowClient({ id }: { id: string }) {
                   disabled={showAnswer}
                   className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
                     showAnswer && isCorrect
-                      ? "border-zellige bg-zellige/10 text-zellige2 font-semibold"
+                      ? "border-zellige bg-zellige/10 text-zellige2 font-semibold dark:border-zellige dark:bg-zellige/20 dark:text-sand"
                       : showAnswer && isSelected && !isCorrect
-                      ? "border-clay bg-clay/10 text-clay font-semibold"
-                      : "border-ink/10 bg-white hover:border-zellige/30"
+                      ? "border-clay bg-clay/10 text-clay font-semibold dark:border-clay dark:bg-clay/20 dark:text-rose"
+                      : "border-ink/10 bg-white text-ink hover:border-zellige/30 dark:border-sand/10 dark:bg-ink/60 dark:text-sand dark:hover:border-saffron/30"
                   }`}
                 >
                   {opt}
@@ -130,15 +130,16 @@ export default function SituationFlowClient({ id }: { id: string }) {
       )}
 
       {step === "input" && (
-        <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6">
-          <p className="font-medium text-ink">{situation.task}</p>
-          <p className="text-sm text-ink/50">{situation.starterHint}</p>
+        <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
+          <p className="font-medium text-ink dark:text-sand">{situation.task}</p>
+          <p className="text-sm text-ink/50 dark:text-sand/50">{situation.starterHint}</p>
           <textarea
             value={userSentence}
             onChange={(e) => setUserSentence(e.target.value)}
             rows={4}
             placeholder="Écrivez votre réponse ici, comme vous la diriez à l'oral..."
-            className="w-full rounded-xl border border-ink/15 bg-white p-4 text-ink placeholder:text-ink/30 focus:border-zellige"
+            style={{ colorScheme: "light" }}
+            className="w-full rounded-xl border border-ink/15 bg-white p-4 text-ink placeholder:text-ink/30 focus:border-zellige dark:border-sand/15 dark:bg-ink/60 dark:text-sand dark:placeholder:text-sand/30 dark:focus:border-saffron"
           />
           <button
             onClick={handleAnalyze}
@@ -162,13 +163,13 @@ export default function SituationFlowClient({ id }: { id: string }) {
                 Enregistrer ma progression
               </button>
             ) : (
-              <span className="rounded-full bg-zellige/10 px-5 py-2.5 text-sm font-semibold text-zellige2">
+              <span className="rounded-full bg-zellige/10 px-5 py-2.5 text-sm font-semibold text-zellige2 dark:bg-zellige/20 dark:text-saffron">
                 Progression enregistrée
               </span>
             )}
             <button
               onClick={() => router.push("/")}
-              className="rounded-full border border-ink/15 px-5 py-2.5 text-sm font-semibold text-ink/70 hover:bg-white"
+              className="rounded-full border border-ink/15 px-5 py-2.5 text-sm font-semibold text-ink/70 hover:bg-white dark:border-sand/15 dark:text-sand/70 dark:hover:bg-ink/60"
             >
               Retour à l'accueil
             </button>
@@ -188,7 +189,7 @@ function StepIndicator({ step }: { step: Step }) {
         <div
           key={s}
           className={`h-1.5 flex-1 rounded-full transition-colors ${
-            i <= currentIndex ? "bg-zellige" : "bg-ink/10"
+            i <= currentIndex ? "bg-zellige" : "bg-ink/10 dark:bg-sand/10"
           }`}
         />
       ))}
