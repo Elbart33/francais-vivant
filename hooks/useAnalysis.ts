@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { AnalysisResult } from "@/types";
+import { AnalysisResult, AppliedNote } from "@/types";
 import { runLocalPipeline } from "@/lib/engine/correctionEngine";
-import { tryAIEnrichment } from "@/lib/engine/aiLayer";
+import { tryAIAnalysis } from "@/lib/engine/aiLayer";
 import { wordDiff } from "@/lib/engine/diff";
 
 export function useAnalysis() {
@@ -15,32 +15,70 @@ export function useAnalysis() {
       setLoading(true);
 
       // 1) Moteur local — toujours exécuté, garantit un résultat même sans réseau.
+      // C'est la base de secours : si l'IA échoue, ce résultat est utilisé tel quel.
       const local = runLocalPipeline(rawSentence, situationIdiomIds);
 
+      let corrected = local.corrected;
       let improved = local.improved;
+      let correctionNotes: AppliedNote[] = local.correctionNotes;
+      let improvementNotes: AppliedNote[] = local.improvementNotes;
+      let correctionDiff = local.correctionDiff;
       let improvementDiff = local.improvementDiff;
       let usedAI = false;
-      let aiExplanationDarija: string | undefined;
 
-      // 2) Couche IA optionnelle — tentative silencieuse, jamais bloquante.
-      const ai = await tryAIEnrichment(local.corrected, situationTitle);
-      if (ai && ai.improved && ai.improved.trim().length > 0) {
-        improved = ai.improved;
-        improvementDiff = wordDiff(local.corrected, improved, "improved");
+      // 2) Couche IA — reçoit la phrase BRUTE (pas la version déjà filtrée par le
+      // moteur local), pour pouvoir détecter des erreurs que les règles regex ne
+      // couvrent pas. Tentative silencieuse, jamais bloquante : en cas d'échec on
+      // garde le résultat local calculé ci-dessus.
+      const ai = await tryAIAnalysis(rawSentence, situationTitle);
+
+      if (ai) {
         usedAI = true;
-        aiExplanationDarija = ai.darijaNote;
+        corrected = ai.corrected;
+        improved = ai.improved;
+
+        correctionNotes = ai.correctionChanged
+          ? [
+              {
+                ruleId: `ai-correction-${ai.provider}`,
+                before: rawSentence,
+                after: ai.corrected,
+                explanationFr:
+                  ai.correctionExplanationFr || "Une petite correction a été apportée.",
+                explanationDarija: ai.correctionExplanationDarija,
+                stage: "correction",
+              },
+            ]
+          : [];
+
+        improvementNotes = ai.improvementChanged
+          ? [
+              {
+                ruleId: `ai-improvement-${ai.provider}`,
+                before: ai.corrected,
+                after: ai.improved,
+                explanationFr:
+                  ai.improvementExplanationFr ||
+                  "Reformulation proposée pour sonner plus naturel.",
+                explanationDarija: ai.improvementExplanationDarija,
+                stage: "amelioration",
+              },
+            ]
+          : [];
+
+        correctionDiff = wordDiff(rawSentence, corrected, "corrected");
+        improvementDiff = wordDiff(corrected, improved, "improved");
       }
 
       const finalResult: AnalysisResult = {
         original: local.original,
-        corrected: local.corrected,
+        corrected,
         improved,
-        correctionNotes: local.correctionNotes,
-        improvementNotes: local.improvementNotes,
-        correctionDiff: local.correctionDiff,
+        correctionNotes,
+        improvementNotes,
+        correctionDiff,
         improvementDiff,
         usedAI,
-        aiExplanationDarija,
         matchedIdioms: local.matchedIdioms,
       };
 
