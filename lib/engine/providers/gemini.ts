@@ -28,11 +28,11 @@ export async function callGemini({ system, user }: GeminiParams) {
           },
         ],
         generationConfig: {
-          temperature: 0.3,
+          temperature: 0.4,
           maxOutputTokens: 2048,
           responseMimeType: "application/json",
           thinkingConfig: {
-            thinkingBudget: 0,
+            thinkingBudget: 512,
           },
         },
       }),
