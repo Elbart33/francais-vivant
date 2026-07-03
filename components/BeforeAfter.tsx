@@ -4,7 +4,7 @@ import CoachNote from "./CoachNote";
 
 export default function BeforeAfter({ result }: { result: AnalysisResult }) {
   const hasCorrections = result.correctionNotes.length > 0;
-  const hasImprovements = result.improvementNotes.length > 0 || result.usedAI;
+  const hasImprovements = result.improvementNotes.length > 0;
 
   return (
     <div className="space-y-5 animate-fadeUp">
@@ -63,13 +63,6 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
                 tone="amelioration"
               />
             ))}
-            {result.usedAI && result.aiExplanationDarija && (
-              <CoachNote
-                explanationFr="Reformulation proposée pour sonner plus naturel."
-                explanationDarija={result.aiExplanationDarija}
-                tone="amelioration"
-              />
-            )}
           </div>
         ) : (
           <p className="mt-3 text-sm text-ink/50">
