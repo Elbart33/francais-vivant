@@ -15,7 +15,7 @@
   },
   {
     "id": "depuis-que",
-    "expression": "depuis (+ durée)",
+    "expression": "depuis (3 jours)",
     "meaningFr": "Indique le début d'une situation qui continue encore maintenant.",
     "meaningDarija": "Kaywri bidayat chi 7ala li mazal kaystamr.",
     "example": "Internet ne fonctionne plus depuis hier soir."
@@ -64,7 +64,7 @@
   },
   {
     "id": "il-y-a",
-    "expression": "il y a (+ durée) que / il y a (+ durée)",
+    "expression": "il y a (3 jours) que / il y a (3 jours)",
     "meaningFr": "Indique un moment précis dans le passé.",
     "meaningDarija": "Kaywri wa9t m3ayen f lmadi.",
     "example": "J'ai perdu ma carte il y a deux heures."
