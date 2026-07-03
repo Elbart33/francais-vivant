@@ -1,24 +1,31 @@
-export interface AIEnrichmentResult {
+export interface AIAnalysisResult {
+  corrected: string;
+  correctionChanged: boolean;
+  correctionExplanationFr: string;
+  correctionExplanationDarija: string;
   improved: string;
-  darijaNote: string;
+  improvementChanged: boolean;
+  improvementExplanationFr: string;
+  improvementExplanationDarija: string;
   provider: string;
 }
 
 /**
- * Optional AI enrichment layer.
- * Tries the configured cloud/local provider through /api/ai.
- * Returns null on ANY failure — callers must always have a local fallback ready.
- * The app is 100% functional if this always returns null.
+ * Couche IA optionnelle : correction + enrichissement en un seul appel.
+ * Tente le provider configuré (Mistral / Groq / Ollama) via /api/ai.
+ * Retourne null en cas d'échec (réseau, quota, provider mal configuré...) —
+ * les appelants doivent toujours avoir le moteur local en secours.
+ * L'app est 100% fonctionnelle si cette fonction retourne toujours null.
  */
-export async function tryAIEnrichment(
-  sentence: string,
+export async function tryAIAnalysis(
+  rawSentence: string,
   situationTitle: string
-): Promise<AIEnrichmentResult | null> {
+): Promise<AIAnalysisResult | null> {
   try {
     const res = await fetch("/api/ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sentence, situationTitle }),
+      body: JSON.stringify({ sentence: rawSentence, situationTitle }),
     });
 
     if (!res.ok) return null;
@@ -27,12 +34,18 @@ export async function tryAIEnrichment(
     if (!data?.ok) return null;
 
     return {
+      corrected: data.corrected,
+      correctionChanged: Boolean(data.correctionChanged),
+      correctionExplanationFr: data.correctionExplanationFr || "",
+      correctionExplanationDarija: data.correctionExplanationDarija || "",
       improved: data.improved,
-      darijaNote: data.darijaNote || "",
+      improvementChanged: Boolean(data.improvementChanged),
+      improvementExplanationFr: data.improvementExplanationFr || "",
+      improvementExplanationDarija: data.improvementExplanationDarija || "",
       provider: data.provider || "ia",
     };
   } catch {
-    // Réseau indisponible, quota dépassé, Ollama non lancé... peu importe :
+    // Réseau indisponible, quota dépassé, provider non configuré... peu importe :
     // l'app continue avec le moteur local uniquement.
     return null;
   }
