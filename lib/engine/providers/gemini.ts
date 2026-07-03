@@ -25,6 +25,7 @@ export async function callGemini({ system, user }) {
         generationConfig: {
           temperature: 0.3,
           maxOutputTokens: 500,
+          responseMimeType: "application/json",
         },
       }),
     }
@@ -36,10 +37,8 @@ export async function callGemini({ system, user }) {
   }
 
   const data = await response.json();
-
   const candidate = data.candidates?.[0];
 
-  // Réponse bloquée par les filtres de sécurité (pas une erreur HTTP)
   if (candidate?.finishReason === "SAFETY" || data.promptFeedback?.blockReason) {
     throw new Error(
       `Réponse bloquée par Gemini (finishReason: ${candidate?.finishReason || data.promptFeedback?.blockReason})`
