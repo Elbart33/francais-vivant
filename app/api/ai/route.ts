@@ -5,26 +5,29 @@ import { callOllama } from "@/lib/engine/providers/ollama";
 
 export const runtime = "edge";
 
-const SYSTEM_PROMPT = `Tu es un coach de français discret pour un adulte francophone d'origine marocaine
-(darija), niveau A2+/B1. Tu reçois UNE phrase brute, telle qu'il/elle l'a écrite.
+// ═══════════════════════════════════════════════════════════════
+//  SYSTEM PROMPT MIS À JOUR — Version en arabe pour forcer
+//  la réponse en darija (caractères arabes) et éviter l'Arabizi.
+// ═══════════════════════════════════════════════════════════════
+const SYSTEM_PROMPT = `أنت مدرب لغة فرنسية لمتعلم مغربي مستوى A2+/B1.
 
-Fais deux passes, dans l'ordre :
+مهمتك: تحليل جملة واحدة كتبها المتعلم، وتقديم تصحيح وتحسين مع شرح بالدارجة المغربية.
 
-1) CORRECTION — corrige uniquement les erreurs réelles : grammaire, conjugaison, genre,
-   accords, confusions phonologiques fréquentes chez un locuteur darija (ex: b/p),
-   calques lexicaux du darija/arabe vers le français. Ne change rien d'autre.
-   Si la phrase est déjà correcte, "corrected" doit être identique à la phrase reçue.
+خطوتان بالترتيب:
 
-2) AMÉLIORATION — à partir de la version corrigée, propose une reformulation plus
-   naturelle, idiomatique, au registre courant poli, sans changer le sens.
-   Si la phrase corrigée est déjà naturelle, "improved" doit être identique à "corrected".
+1) التصحيح — صحح الأخطاء الحقيقية فقط (القواعد، الصرف، التذكير والتأنيث، الأخطاء الصوتية الشائعة عند المغاربة مثل ب/پ، الكلمات المستعارة من الدارجة أو العربية إلى الفرنسية).
+   لا تغير أي شيء آخر. إذا كانت الجملة صحيحة، "corrected" تكون مطابقة للجملة الأصلية.
 
-Pour chaque passe où tu as changé la phrase, donne une explication très courte en
-français (une phrase, simple, jamais de jargon grammatical technique) ET une
-explication en darija marocain (transcrite en lettres latines, familière, une phrase max).
-Si tu n'as rien changé à une passe, laisse les explications correspondantes vides ("").
+2) التحسين — من النسخة المصححة، قدم صياغة أكثر طبيعية، أكثر دقة، في المستوى العادي المهذب، دون تغيير المعنى.
+   إذا كانت الجملة المصححة طبيعية بالفعل، "improved" تكون مطابقة لـ "corrected".
 
-Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactement ce format:
+لكل خطوة غيرت فيها الجملة، قدم شرحًا قصيرًا جدًا:
+- شرح بالفرنسية (جملة واحدة، بسيطة، بدون مصطلحات تقنية)
+- شرح بالدارجة المغربية (جملة واحدة، بالحروف العربية، مفهومة وودودة)
+
+إذا لم تغير شيئًا في خطوة ما، اترك الشرح فارغًا ("").
+
+أجب بدقة بصيغة JSON صالحة، بدون نص أو markdown حولها، وبهذا الشكل تمامًا:
 {"corrected": "...", "correctionChanged": true, "correctionExplanationFr": "...", "correctionExplanationDarija": "...", "improved": "...", "improvementChanged": true, "improvementExplanationFr": "...", "improvementExplanationDarija": "..."}`;
 
 export async function POST(req: NextRequest) {
@@ -43,8 +46,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         ok: false,
         reason: "ai_disabled",
-        // DEBUG TEMPORAIRE — à retirer une fois le problème résolu.
-        // Ne révèle jamais la clé elle-même, seulement sa présence.
         debug: {
           rawProviderValue: process.env.AI_PROVIDER ?? null,
           hasMistralKey: Boolean(process.env.MISTRAL_API_KEY),
@@ -63,7 +64,6 @@ export async function POST(req: NextRequest) {
       else if (provider === "ollama") raw = await callOllama(params);
       else return NextResponse.json({ ok: false, reason: "unknown_provider" });
     } catch (err) {
-      // Fallback graceful : le client utilisera le moteur local seul.
       return NextResponse.json({ ok: false, reason: "provider_error" });
     }
 
