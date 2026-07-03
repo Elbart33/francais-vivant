@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 
 export default function CoachNote({
@@ -21,18 +20,32 @@ export default function CoachNote({
           : "border-zellige/20 bg-zellige/5 text-ink/90"
       }`}
     >
-      <p>{explanationFr}</p>
+      {explanationFr && <p>{explanationFr}</p>}
+
       {explanationDarija && (
-        <div className="mt-1.5">
+        <div className={explanationFr ? "mt-3" : ""}>
           {showDarija ? (
-            <p className="text-ink/60 italic">{explanationDarija}</p>
+            <p
+              dir="rtl"
+              lang="ar"
+              className="text-lg leading-relaxed text-ink"
+            >
+              {explanationDarija}
+            </p>
           ) : (
             <button
               type="button"
               onClick={() => setShowDarija(true)}
-              className="text-xs font-semibold text-ink/50 underline decoration-dotted underline-offset-2 hover:text-ink/80"
+              className={`flex w-full items-center justify-between gap-3 rounded-lg border-2 px-4 py-3 text-left transition-colors ${
+                tone === "correction"
+                  ? "border-clay/40 bg-clay/10 hover:border-clay/60 hover:bg-clay/15"
+                  : "border-zellige/40 bg-zellige/10 hover:border-zellige/60 hover:bg-zellige/15"
+              }`}
             >
-              Voir en darija
+              <span className="text-base font-semibold text-ink">
+                👉 Voir l'explication en darija
+              </span>
+              <span className="text-xl">💬</span>
             </button>
           )}
         </div>
