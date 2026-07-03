@@ -74,7 +74,6 @@ export interface AnalysisResult {
   correctionDiff: DiffSegment[];
   improvementDiff: DiffSegment[];
   usedAI: boolean;
-  aiExplanationDarija?: string;
   matchedIdioms: Idiom[];
 }
 
