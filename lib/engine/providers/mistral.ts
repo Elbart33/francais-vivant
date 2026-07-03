@@ -15,8 +15,8 @@ export async function callMistral({ system, user }: CallParams): Promise<string>
     },
     body: JSON.stringify({
       model: "mistral-small-latest",
-      temperature: 0.4,
-      max_tokens: 300,
+      temperature: 0.3,
+      max_tokens: 500,
       messages: [
         { role: "system", content: system },
         { role: "user", content: user },
