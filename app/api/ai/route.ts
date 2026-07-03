@@ -5,12 +5,27 @@ import { callOllama } from "@/lib/engine/providers/ollama";
 
 export const runtime = "edge";
 
-const SYSTEM_PROMPT = `Tu es un assistant discret qui aide un francophone débutant (origine Maroc, darija) à
-reformuler une phrase en français plus naturel et fluide, sans changer le sens.
-Réponds STRICTEMENT en JSON, sans texte autour, avec ce format:
-{"improved": "version naturelle de la phrase", "darija_note": "courte explication en darija (transcrite en lettres latines), une phrase max"}
-La phrase donnée est déjà grammaticalement correcte : ton travail est uniquement de l'enrichir
-(expressions idiomatiques, registre plus naturel), pas de la corriger.`;
+const SYSTEM_PROMPT = `Tu es un coach de français discret pour un adulte francophone d'origine marocaine
+(darija), niveau A2+/B1. Tu reçois UNE phrase brute, telle qu'il/elle l'a écrite.
+
+Fais deux passes, dans l'ordre :
+
+1) CORRECTION — corrige uniquement les erreurs réelles : grammaire, conjugaison, genre,
+   accords, confusions phonologiques fréquentes chez un locuteur darija (ex: b/p),
+   calques lexicaux du darija/arabe vers le français. Ne change rien d'autre.
+   Si la phrase est déjà correcte, "corrected" doit être identique à la phrase reçue.
+
+2) AMÉLIORATION — à partir de la version corrigée, propose une reformulation plus
+   naturelle, idiomatique, au registre courant poli, sans changer le sens.
+   Si la phrase corrigée est déjà naturelle, "improved" doit être identique à "corrected".
+
+Pour chaque passe où tu as changé la phrase, donne une explication très courte en
+français (une phrase, simple, jamais de jargon grammatical technique) ET une
+explication en darija marocain (transcrite en lettres latines, familière, une phrase max).
+Si tu n'as rien changé à une passe, laisse les explications correspondantes vides ("").
+
+Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactement ce format:
+{"corrected": "...", "correctionChanged": true, "correctionExplanationFr": "...", "correctionExplanationDarija": "...", "improved": "...", "improvementChanged": true, "improvementExplanationFr": "...", "improvementExplanationDarija": "..."}`;
 
 export async function POST(req: NextRequest) {
   try {
@@ -43,21 +58,36 @@ export async function POST(req: NextRequest) {
     }
 
     const cleaned = raw.replace(/```json|```/g, "").trim();
-    let parsed: { improved?: string; darija_note?: string };
+    let parsed: {
+      corrected?: string;
+      correctionChanged?: boolean;
+      correctionExplanationFr?: string;
+      correctionExplanationDarija?: string;
+      improved?: string;
+      improvementChanged?: boolean;
+      improvementExplanationFr?: string;
+      improvementExplanationDarija?: string;
+    };
     try {
       parsed = JSON.parse(cleaned);
     } catch {
       return NextResponse.json({ ok: false, reason: "parse_error" });
     }
 
-    if (!parsed.improved) {
+    if (!parsed.corrected && !parsed.improved) {
       return NextResponse.json({ ok: false, reason: "no_content" });
     }
 
     return NextResponse.json({
       ok: true,
-      improved: parsed.improved,
-      darijaNote: parsed.darija_note || "",
+      corrected: parsed.corrected || sentence,
+      correctionChanged: Boolean(parsed.correctionChanged),
+      correctionExplanationFr: parsed.correctionExplanationFr || "",
+      correctionExplanationDarija: parsed.correctionExplanationDarija || "",
+      improved: parsed.improved || parsed.corrected || sentence,
+      improvementChanged: Boolean(parsed.improvementChanged),
+      improvementExplanationFr: parsed.improvementExplanationFr || "",
+      improvementExplanationDarija: parsed.improvementExplanationDarija || "",
       provider,
     });
   } catch (err) {
