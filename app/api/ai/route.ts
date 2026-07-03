@@ -8,8 +8,6 @@ export const runtime = "edge";
 
 // ═══════════════════════════════════════════════════════════════
 //  PROMPT POUR MISTRAL (fallback)
-//  — En français, pour que Mistral corrige correctement
-//  — Les explications sont en français (traduites en darija si Gemini est utilisé)
 // ═══════════════════════════════════════════════════════════════
 const SYSTEM_PROMPT_MISTRAL = `Tu es un coach de français discret pour un adulte francophone d'origine marocaine (darija), niveau A2+/B1.
 
@@ -29,8 +27,6 @@ Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactem
 
 // ═══════════════════════════════════════════════════════════════
 //  PROMPT POUR GEMINI (en darija)
-//  — Gemini comprend le français et peut corriger
-//  — Il répond en darija (caractères arabes) directement
 // ═══════════════════════════════════════════════════════════════
 const SYSTEM_PROMPT_GEMINI = `أنت مدرب دارجة مغربية و فرونسي. خدمتك هي تصحيح الجمل ديال الناس اللي كيتعلمو الفرنسية.
 
@@ -88,32 +84,23 @@ export async function POST(req: NextRequest) {
     let usedProvider: string = provider;
 
     try {
-      // ─── GEMINI (provider principal pour le darija) ───
       if (provider === "gemini") {
         const params = { system: SYSTEM_PROMPT_GEMINI, user: userPrompt };
         raw = await callGemini(params);
         usedProvider = "gemini";
-      }
-      // ─── MISTRAL (fallback) ───
-      else if (provider === "mistral") {
+      } else if (provider === "mistral") {
         const params = { system: SYSTEM_PROMPT_MISTRAL, user: userPrompt };
         raw = await callMistral(params);
         usedProvider = "mistral";
-      }
-      // ─── GROQ ───
-      else if (provider === "groq") {
+      } else if (provider === "groq") {
         const params = { system: SYSTEM_PROMPT_MISTRAL, user: userPrompt };
         raw = await callGroq(params);
         usedProvider = "groq";
-      }
-      // ─── OLLAMA ───
-      else if (provider === "ollama") {
+      } else if (provider === "ollama") {
         const params = { system: SYSTEM_PROMPT_MISTRAL, user: userPrompt };
         raw = await callOllama(params);
         usedProvider = "ollama";
-      }
-      // ─── PROVIDER INCONNU ───
-      else {
+      } else {
         return NextResponse.json({ ok: false, reason: "unknown_provider" });
       }
     } catch (err) {
@@ -121,14 +108,20 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, reason: "provider_error" });
     }
 
-    // Nettoyage et parsing JSON
+    // Nettoyage et parsing JSON (robuste)
     const cleaned = raw.replace(/```json|```/g, "").trim();
+    const firstBrace = cleaned.indexOf("{");
+    const lastBrace = cleaned.lastIndexOf("}");
+    const jsonSlice =
+      firstBrace !== -1 && lastBrace !== -1
+        ? cleaned.slice(firstBrace, lastBrace + 1)
+        : cleaned;
 
     let parsed: any;
     try {
-      parsed = JSON.parse(cleaned);
+      parsed = JSON.parse(jsonSlice);
     } catch {
-      console.error("Parse error. Raw:", cleaned);
+      console.error("Parse error. Raw:", raw);
       return NextResponse.json({ ok: false, reason: "parse_error" });
     }
 
@@ -136,28 +129,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, reason: "no_content" });
     }
 
-    // ─── CONSTRUCTION DE LA RÉPONSE ───
-    // Selon le provider, les champs sont différents :
-    // - Gemini : correctionExplanationDarija + improvementExplanationDarija (directement en darija)
-    // - Mistral : correctionExplanationFr + improvementExplanationFr (en français)
-
     let correctionExplanationFr = "";
     let correctionExplanationDarija = "";
     let improvementExplanationFr = "";
     let improvementExplanationDarija = "";
 
     if (usedProvider === "gemini") {
-      // Gemini répond directement en darija
       correctionExplanationDarija = parsed.correctionExplanationDarija || "";
       improvementExplanationDarija = parsed.improvementExplanationDarija || "";
-      correctionExplanationFr = ""; // Pas d'explication en français
-      improvementExplanationFr = "";
     } else {
-      // Mistral / Groq / Ollama répondent en français
       correctionExplanationFr = parsed.correctionExplanationFr || "";
       improvementExplanationFr = parsed.improvementExplanationFr || "";
-      correctionExplanationDarija = ""; // Pas d'explication en darija
-      improvementExplanationDarija = "";
     }
 
     return NextResponse.json({
