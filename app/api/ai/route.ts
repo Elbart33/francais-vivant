@@ -2,13 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { callMistral } from "@/lib/engine/providers/mistral";
 import { callGroq } from "@/lib/engine/providers/groq";
 import { callOllama } from "@/lib/engine/providers/ollama";
-import { callGemini } from "@/lib/engine/providers/gemini"; // ← NOUVEAU
+import { callGemini } from "@/lib/engine/providers/gemini";
 
 export const runtime = "edge";
 
-// ═══════════════════════════════════════════════════════════════
-//  PROMPT POUR MISTRAL (fallback)
-// ═══════════════════════════════════════════════════════════════
 const SYSTEM_PROMPT_MISTRAL = `Tu es un coach de français discret pour un adulte francophone d'origine marocaine (darija), niveau A2+/B1.
 
 Tu reçois UNE phrase en français, telle que l'utilisateur l'a écrite.
@@ -25,9 +22,6 @@ Si tu n'as rien changé à une passe, laisse l'explication correspondante vide (
 Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactement ce format:
 {"corrected": "...", "correctionChanged": true, "correctionExplanationFr": "...", "improved": "...", "improvementChanged": true, "improvementExplanationFr": "..."}`;
 
-// ═══════════════════════════════════════════════════════════════
-//  PROMPT POUR GEMINI (en darija)
-// ═══════════════════════════════════════════════════════════════
 const SYSTEM_PROMPT_GEMINI = `أنت مدرب دارجة مغربية و فرونسي. خدمتك هي تصحيح الجمل ديال الناس اللي كيتعلمو الفرنسية.
 
 مهمتك:
@@ -108,7 +102,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, reason: "provider_error" });
     }
 
-    // Nettoyage et parsing JSON (robuste)
     const cleaned = raw.replace(/```json|```/g, "").trim();
     const firstBrace = cleaned.indexOf("{");
     const lastBrace = cleaned.lastIndexOf("}");
@@ -122,7 +115,7 @@ export async function POST(req: NextRequest) {
       parsed = JSON.parse(jsonSlice);
     } catch {
       console.error("Parse error. Raw:", raw);
-      return NextResponse.json({ ok: false, reason: "parse_error" });
+      return NextResponse.json({ ok: false, reason: "parse_error", debugRaw: raw });
     }
 
     if (!parsed.corrected && !parsed.improved) {
