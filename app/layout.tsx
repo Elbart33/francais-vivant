@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -9,7 +10,6 @@ const display = Fraunces({
   style: ["normal", "italic"],
   variable: "--font-display",
 });
-
 const body = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -30,6 +30,22 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${display.variable} ${body.variable}`}>
       <body className="font-body min-h-screen antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+        <ThemeToggle />
         <Header />
         <main className="mx-auto max-w-3xl px-4 pb-24 pt-6 sm:px-6">{children}</main>
       </body>
