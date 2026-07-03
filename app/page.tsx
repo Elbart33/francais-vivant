@@ -2,7 +2,8 @@ import situationsData from "@/data/situations.json";
 import { Situation } from "@/types";
 import SituationCard from "@/components/SituationCard";
 
-export const dynamic = "force-dynamic"; // ← recalcule à chaque visite au lieu de figer au build
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 const situations = situationsData as Situation[];
 
