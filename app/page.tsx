@@ -16,20 +16,33 @@ export default function HomePage() {
   const rest = situations.filter((s) => s.id !== today.id);
 
   return (
-    <div className="space-y-10">
-      <section className="animate-fadeUp pt-2">
-        <p className="text-sm font-semibold uppercase tracking-wide text-zellige">
-          Aujourd'hui
+    <div className="space-y-12">
+      <section className="animate-fadeUp relative overflow-hidden rounded-3xl border border-zellige/15 bg-white/50 px-6 py-10 dark:border-sand/10 dark:bg-ink/40 sm:px-10 sm:py-14">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-saffron/10 blur-2xl dark:bg-saffron/5"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-zellige/10 blur-2xl dark:bg-zellige/10"
+        />
+
+        <p className="relative inline-flex items-center gap-2 rounded-full bg-zellige/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-zellige dark:bg-sand/10 dark:text-saffron">
+          <span className="h-1.5 w-1.5 rounded-full bg-zellige dark:bg-saffron" />
+          Situation du jour
         </p>
-        <h1 className="mt-2 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
-          Un français qui vous ressemble,
-          <br />
-          une situation à la fois.
+
+        <h1 className="relative mt-4 max-w-xl font-display text-3xl font-semibold leading-tight text-ink dark:text-sand sm:text-4xl md:text-5xl">
+          Aujourd&apos;hui, on parle de{" "}
+          <span className="italic text-zellige dark:text-saffron">
+            {today.title.toLowerCase()}
+          </span>
+          .
         </h1>
-        <p className="mt-3 max-w-lg text-ink/60">
-          Pratiquez à partir de vraies situations de vie. Pas de règles à apprendre,
-          pas de niveaux à afficher — juste des conversations, corrigées et enrichies
-          en douceur.
+
+        <p className="relative mt-4 max-w-md text-base leading-relaxed text-ink/70 dark:text-sand/70">
+          Une phrase à la fois. On corrige ensemble, on explique en darija si besoin,
+          et on avance — sans leçon, sans pression.
         </p>
       </section>
 
@@ -38,9 +51,12 @@ export default function HomePage() {
       </section>
 
       <section>
-        <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-ink/40">
-          Autres situations
-        </p>
+        <div className="mb-5 flex items-center gap-3">
+          <p className="text-xs font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
+            Autres situations
+          </p>
+          <span className="h-px flex-1 bg-ink/10 dark:bg-sand/10" />
+        </div>
         <div className="grid gap-4 sm:grid-cols-2">
           {rest.map((s) => (
             <SituationCard key={s.id} situation={s} />
