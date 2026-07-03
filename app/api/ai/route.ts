@@ -40,7 +40,17 @@ export async function POST(req: NextRequest) {
     const provider = (process.env.AI_PROVIDER || "none").toLowerCase();
 
     if (provider === "none") {
-      return NextResponse.json({ ok: false, reason: "ai_disabled" });
+      return NextResponse.json({
+        ok: false,
+        reason: "ai_disabled",
+        // DEBUG TEMPORAIRE — à retirer une fois le problème résolu.
+        // Ne révèle jamais la clé elle-même, seulement sa présence.
+        debug: {
+          rawProviderValue: process.env.AI_PROVIDER ?? null,
+          hasMistralKey: Boolean(process.env.MISTRAL_API_KEY),
+          hasGroqKey: Boolean(process.env.GROQ_API_KEY),
+        },
+      });
     }
 
     const userPrompt = `Situation: ${situationTitle}\nPhrase: "${sentence}"`;
