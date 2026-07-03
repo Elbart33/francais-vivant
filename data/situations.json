@@ -1,0 +1,97 @@
+[
+  {
+    "id": "medecin-rdv",
+    "title": "Prendre un rendez-vous chez le médecin",
+    "icon": "stethoscope",
+    "context": "Vous appelez le cabinet du docteur Bennani pour prendre un rendez-vous cette semaine.",
+    "comprehension": {
+      "prompt": "La secrétaire vous dit : « Le docteur peut vous recevoir jeudi à 15h30, ça vous convient ? »",
+      "question": "Qu'est-ce que la secrétaire vous propose ?",
+      "options": [
+        "Un rendez-vous jeudi après-midi",
+        "Un rendez-vous vendredi matin",
+        "D'annuler le rendez-vous"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Répondez à la secrétaire pour confirmer le rendez-vous et expliquez pourquoi vous consultez.",
+    "starterHint": "Vous pouvez commencer par : « Oui, ... »",
+    "idiomIds": ["prendre-rdv", "avoir-mal-a"]
+  },
+  {
+    "id": "telephone-panne",
+    "title": "Signaler une panne au téléphone",
+    "icon": "phone",
+    "context": "Internet ne fonctionne plus chez vous depuis hier soir. Vous appelez le service technique.",
+    "comprehension": {
+      "prompt": "Le technicien vous dit : « Est-ce que le voyant sur la box est rouge ou vert ? »",
+      "question": "Qu'est-ce que le technicien veut savoir ?",
+      "options": [
+        "La couleur de la lumière sur votre box internet",
+        "Le prix de votre abonnement",
+        "Votre adresse complète"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Expliquez au technicien depuis quand internet ne fonctionne plus et ce que vous avez déjà essayé.",
+    "starterHint": "Vous pouvez commencer par : « Depuis hier soir, ... »",
+    "idiomIds": ["depuis-que", "ca-ne-marche-pas"]
+  },
+  {
+    "id": "administration-dossier",
+    "title": "Déposer un dossier à la préfecture",
+    "icon": "file",
+    "context": "Vous devez déposer un dossier de renouvellement de titre de séjour. L'agent vous demande des précisions.",
+    "comprehension": {
+      "prompt": "L'agent vous dit : « Il vous manque un justificatif de domicile de moins de trois mois. »",
+      "question": "Que devez-vous apporter en plus ?",
+      "options": [
+        "Un justificatif de domicile récent",
+        "Une photo d'identité",
+        "Un extrait de casier judiciaire"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Demandez à l'agent quels documents exactement vous devez rapporter et pour quelle date.",
+    "starterHint": "Vous pouvez commencer par : « Excusez-moi, est-ce que ... »",
+    "idiomIds": ["il-manque", "dans-les-plus-brefs-delais"]
+  },
+  {
+    "id": "courses-marche",
+    "title": "Faire les courses au marché",
+    "icon": "basket",
+    "context": "Vous êtes au marché et vous voulez acheter des légumes pour la semaine, en négociant un peu le prix.",
+    "comprehension": {
+      "prompt": "Le vendeur vous dit : « Les tomates sont à 8 dirhams le kilo aujourd'hui, elles sont bien mûres. »",
+      "question": "Qu'est-ce que le vendeur annonce ?",
+      "options": [
+        "Le prix des tomates au kilo",
+        "L'heure de fermeture du marché",
+        "Que les tomates sont abîmées"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Demandez le prix de deux légumes et dites ce que vous voulez acheter.",
+    "starterHint": "Vous pouvez commencer par : « Bonjour, combien coûte ... »",
+    "idiomIds": ["ca-coute", "je-voudrais"]
+  },
+  {
+    "id": "banque-carte",
+    "title": "Signaler la perte d'une carte bancaire",
+    "icon": "card",
+    "context": "Vous venez de perdre votre carte bancaire et vous appelez votre banque pour la bloquer.",
+    "comprehension": {
+      "prompt": "Le conseiller vous dit : « Je vais faire opposition immédiatement, vous recevrez une nouvelle carte sous une semaine. »",
+      "question": "Qu'est-ce que le conseiller va faire ?",
+      "options": [
+        "Bloquer la carte tout de suite",
+        "Fermer votre compte",
+        "Vous rembourser un achat"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Expliquez au conseiller quand et où vous avez perdu votre carte.",
+    "starterHint": "Vous pouvez commencer par : « J'ai perdu ma carte ... »",
+    "idiomIds": ["faire-opposition", "il-y-a"]
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "prendre-rdv",
+    "expression": "prendre rendez-vous",
+    "meaningFr": "Organiser une heure précise pour rencontrer quelqu'un (médecin, coiffeur, administration).",
+    "meaningDarija": "Tqad wa9t m3a chi wa7ed, bhal doctor wla coiffeur.",
+    "example": "J'aimerais prendre rendez-vous avec le docteur pour jeudi."
+  },
+  {
+    "id": "avoir-mal-a",
+    "expression": "avoir mal à",
+    "meaningFr": "Ressentir une douleur à un endroit précis du corps.",
+    "meaningDarija": "T7ess b lwja3 f chi bla9sa f jismek.",
+    "example": "J'ai mal au dos depuis trois jours."
+  },
+  {
+    "id": "depuis-que",
+    "expression": "depuis (+ durée)",
+    "meaningFr": "Indique le début d'une situation qui continue encore maintenant.",
+    "meaningDarija": "Kaywri bidayat chi 7ala li mazal kaystamr.",
+    "example": "Internet ne fonctionne plus depuis hier soir."
+  },
+  {
+    "id": "ca-ne-marche-pas",
+    "expression": "ça ne fonctionne pas / c'est en panne",
+    "meaningFr": "Un appareil ou un service ne marche plus.",
+    "meaningDarija": "Chi 7aja khasra, matkhdemch.",
+    "example": "La box est en panne depuis ce matin."
+  },
+  {
+    "id": "il-manque",
+    "expression": "il manque / il vous manque",
+    "meaningFr": "Quelque chose n'est pas présent alors que c'est nécessaire.",
+    "meaningDarija": "Chi 7aja na9sa w khaskom.",
+    "example": "Il vous manque un justificatif de domicile."
+  },
+  {
+    "id": "dans-les-plus-brefs-delais",
+    "expression": "dans les plus brefs délais",
+    "meaningFr": "Le plus rapidement possible, formule utilisée à l'administration.",
+    "meaningDarija": "Fewa9tha, b sor3a, kayestamlouha f l2idara.",
+    "example": "Merci de renvoyer le dossier dans les plus brefs délais."
+  },
+  {
+    "id": "ca-coute",
+    "expression": "ça coûte / c'est à combien",
+    "meaningFr": "Pour demander ou indiquer un prix.",
+    "meaningDarija": "Bach tsowl 3la taman chi 7aja.",
+    "example": "Ça coûte combien, le kilo de tomates ?"
+  },
+  {
+    "id": "je-voudrais",
+    "expression": "je voudrais",
+    "meaningFr": "Forme polie pour exprimer un souhait ou une demande.",
+    "meaningDarija": "Chikel modaba bach tetlob chi 7aja.",
+    "example": "Je voudrais un kilo de tomates, s'il vous plaît."
+  },
+  {
+    "id": "faire-opposition",
+    "expression": "faire opposition",
+    "meaningFr": "Bloquer une carte bancaire ou un chèque pour éviter une utilisation frauduleuse.",
+    "meaningDarija": "T's9ef la carte bancaire bach 7ta 7ad ma yesta3malha.",
+    "example": "Je vais faire opposition sur ma carte immédiatement."
+  },
+  {
+    "id": "il-y-a",
+    "expression": "il y a (+ durée) que / il y a (+ durée)",
+    "meaningFr": "Indique un moment précis dans le passé.",
+    "meaningDarija": "Kaywri wa9t m3ayen f lmadi.",
+    "example": "J'ai perdu ma carte il y a deux heures."
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "je-veux-savoir-si",
+    "pattern": "\\bje veux savoir si\\b",
+    "flags": "gi",
+    "natural": "j'aimerais savoir si",
+    "registre": "poli",
+    "explanationFr": "« J'aimerais savoir » sonne plus courtois que « je veux savoir », surtout au téléphone ou à l'administration.",
+    "explanationDarija": "« J'aimerais savoir » ahsan w mora politesse men « je veux »."
+  },
+  {
+    "id": "je-suis-content-que",
+    "pattern": "\\bje suis content\\b",
+    "flags": "gi",
+    "natural": "je suis ravi",
+    "registre": "chaleureux",
+    "explanationFr": "« Ravi » enrichit « content » dans une conversation soignée.",
+    "explanationDarija": "« Ravi » kaywsa3 l كلمة « content »."
+  },
+  {
+    "id": "donnez-moi",
+    "pattern": "\\bdonnez[- ]moi\\b",
+    "flags": "gi",
+    "natural": "pourriez-vous me donner",
+    "registre": "poli",
+    "explanationFr": "Une question avec « pourriez-vous » est plus douce qu'un ordre direct.",
+    "explanationDarija": "« Pourriez-vous » atry w lbess men l2amr direct."
+  },
+  {
+    "id": "il-y-a-un-probleme-avec",
+    "pattern": "\\bil y a un problème avec\\b",
+    "flags": "gi",
+    "natural": "j'ai un souci avec",
+    "registre": "naturel",
+    "explanationFr": "« J'ai un souci avec » est une tournure très utilisée à l'oral, plus naturelle que « il y a un problème ».",
+    "explanationDarija": "« J'ai un souci avec » kayestamlouha bzaf f la7dith."
+  },
+  {
+    "id": "je-veux-un-rendez-vous",
+    "pattern": "\\bje veux un rendez[- ]vous\\b",
+    "flags": "gi",
+    "natural": "je voudrais prendre rendez-vous",
+    "registre": "poli",
+    "explanationFr": "« Je voudrais prendre rendez-vous » est la formule standard au téléphone.",
+    "explanationDarija": "Hadi l3ibara li kaystamlouha bzaf mora téléphone."
+  },
+  {
+    "id": "ca-marche-pas",
+    "pattern": "\\bça marche pas\\b",
+    "flags": "gi",
+    "natural": "ça ne fonctionne pas",
+    "registre": "soigné",
+    "explanationFr": "À l'écrit ou dans une situation officielle, « ça ne fonctionne pas » est plus soigné.",
+    "explanationDarija": "F les situations officielles, ahsan tgoul « ça ne fonctionne pas »."
+  },
+  {
+    "id": "je-cherche-a-acheter",
+    "pattern": "\\bje veux acheter\\b",
+    "flags": "gi",
+    "natural": "je cherche à acheter",
+    "registre": "naturel",
+    "explanationFr": "« Je cherche à acheter » sonne plus naturel qu'une volonté brute, surtout chez un commerçant.",
+    "explanationDarija": "« Je cherche à » kayban plus naturel 3end le vendeur."
+  },
+  {
+    "id": "combien-ca-coute",
+    "pattern": "\\bcombien c'est\\b",
+    "flags": "gi",
+    "natural": "combien ça coûte",
+    "registre": "naturel",
+    "explanationFr": "« Combien ça coûte » est la formule la plus naturelle pour demander un prix.",
+    "explanationDarija": "« Combien ça coûte » hia l3ibara li kaystamlouha bzaf."
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "id": "je-suis-besoin",
+    "pattern": "\\bje suis besoin de\\b",
+    "flags": "gi",
+    "replacement": "j'ai besoin de",
+    "type": "grammar",
+    "explanationFr": "On dit « j'ai besoin de », pas « je suis besoin de ».",
+    "explanationDarija": "« Ghadi tgoul j'ai besoin de » machi je suis besoin de."
+  },
+  {
+    "id": "je-suis-en-train-que",
+    "pattern": "\\bje suis entrain de\\b",
+    "flags": "gi",
+    "replacement": "je suis en train de",
+    "type": "grammar",
+    "explanationFr": "« En train de » s'écrit en trois mots séparés.",
+    "explanationDarija": "Katkteb « en train de » b tlata dyal les mots."
+  },
+  {
+    "id": "una-information",
+    "pattern": "\\bun information\\b",
+    "flags": "gi",
+    "replacement": "une information",
+    "type": "grammar",
+    "explanationFr": "« Information » est féminin : une information.",
+    "explanationDarija": "« Information » mouanata f français, khasik tgoul « une »."
+  },
+  {
+    "id": "un-probleme-genre",
+    "pattern": "\\bla probleme\\b|\\bla problème\\b",
+    "flags": "gi",
+    "replacement": "le problème",
+    "type": "grammar",
+    "explanationFr": "« Problème » est masculin : le problème, un problème.",
+    "explanationDarija": "« Problème » moudhakkar, katgoul « le problème »."
+  },
+  {
+    "id": "je-c-est",
+    "pattern": "\\bje c'est\\b|\\bje ces\\b",
+    "flags": "gi",
+    "replacement": "je sais",
+    "type": "grammar",
+    "explanationFr": "Le verbe savoir à la 1ère personne donne « je sais », pas « je c'est ».",
+    "explanationDarija": "F présent, « savoir » kaygoul « je sais »."
+  },
+  {
+    "id": "je-peut",
+    "pattern": "\\bje peut\\b",
+    "flags": "gi",
+    "replacement": "je peux",
+    "type": "grammar",
+    "explanationFr": "Avec « je », le verbe pouvoir donne « je peux ».",
+    "explanationDarija": "M3a « je », kaytgal « je peux »."
+  },
+  {
+    "id": "il-faut-que-subjonctif",
+    "pattern": "\\bil faut que je vais\\b",
+    "flags": "gi",
+    "replacement": "il faut que j'aille",
+    "type": "grammar",
+    "explanationFr": "Après « il faut que », on utilise le subjonctif : que j'aille.",
+    "explanationDarija": "Mora « il faut que » khasna nesta3mlou le subjonctif."
+  },
+  {
+    "id": "sa-va",
+    "pattern": "\\bsa va\\b",
+    "flags": "gi",
+    "replacement": "ça va",
+    "type": "grammar",
+    "explanationFr": "On écrit « ça va » avec une cédille, pas « sa va ».",
+    "explanationDarija": "Katkteb « ça » b cédille, machi « sa »."
+  },
+  {
+    "id": "b-p-bouteille",
+    "pattern": "\\bbolice\\b",
+    "flags": "gi",
+    "replacement": "police",
+    "type": "phonology",
+    "explanationFr": "Le son « P » et le son « B » sont différents en français : police, pas bolice.",
+    "explanationDarija": "Le son P w le son B kaykhtalfou f français, tlocha tban 'b' 3la 'p'."
+  },
+  {
+    "id": "b-p-parking",
+    "pattern": "\\bbarking\\b",
+    "flags": "gi",
+    "replacement": "parking",
+    "type": "phonology",
+    "explanationFr": "Attention au son « P » : parking, pas barking.",
+    "explanationDarija": "Dir bali l son P : parking machi barking."
+  },
+  {
+    "id": "depuis-il-y-a",
+    "pattern": "\\bil y a hier\\b",
+    "flags": "gi",
+    "replacement": "depuis hier",
+    "type": "grammar",
+    "explanationFr": "Pour une durée qui continue, on utilise « depuis », pas « il y a ».",
+    "explanationDarija": "Ila l7ala mazal kaystamr, khask tgoul « depuis »."
+  },
+  {
+    "id": "pour-que-infinitif",
+    "pattern": "\\bpour que je fait\\b",
+    "flags": "gi",
+    "replacement": "pour que je fasse",
+    "type": "grammar",
+    "explanationFr": "Après « pour que », on utilise le subjonctif : que je fasse.",
+    "explanationDarija": "Mora « pour que » khasna subjonctif : que je fasse."
+  },
+  {
+    "id": "manque-de-argent",
+    "pattern": "\\bj'ai manque\\b",
+    "flags": "gi",
+    "replacement": "il me manque",
+    "type": "grammar",
+    "explanationFr": "Pour exprimer un manque, on dit « il me manque… », pas « j'ai manque ».",
+    "explanationDarija": "Bach tgoul rak khasek chi 7aja, goul « il me manque »."
+  },
+  {
+    "id": "je-suis-oublié",
+    "pattern": "\\bje suis oublié\\b",
+    "flags": "gi",
+    "replacement": "j'ai oublié",
+    "type": "grammar",
+    "explanationFr": "Le verbe « oublier » se conjugue avec « avoir » : j'ai oublié.",
+    "explanationDarija": "« Oublier » kayakhod « avoir », machi « être »."
+  },
+  {
+    "id": "trop-de-que",
+    "pattern": "\\bplus que\\b(?!\\s+\\d)",
+    "flags": "gi",
+    "replacement": "plus de",
+    "type": "grammar",
+    "explanationFr": "Pour une quantité, on dit « plus de », sauf devant un nombre.",
+    "explanationDarija": "Bach tgoul chi 3adad kbir, goul « plus de »."
+  },
+  {
+    "id": "esque-collé",
+    "pattern": "\\besque\\b",
+    "flags": "gi",
+    "replacement": "est-ce que",
+    "type": "grammar",
+    "explanationFr": "On écrit « est-ce que » en trois mots avec des traits d'union.",
+    "explanationDarija": "Katkteb « est-ce que » b tlata dyal les mots."
+  },
+  {
+    "id": "je-vais-au-medecin",
+    "pattern": "\\bje vais au médecin\\b",
+    "flags": "gi",
+    "replacement": "je vais chez le médecin",
+    "type": "lexical",
+    "explanationFr": "Pour une personne, on dit « chez le médecin », pas « au médecin ».",
+    "explanationDarija": "Bach tgoul 3end doctor, goul « chez le médecin »."
+  }
+]
