@@ -107,7 +107,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
                   disabled={showAnswer}
                   className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
                     showAnswer && isCorrect
-                      ? "border-zellige bg-zellige/10 text-zellige2 font-semibold dark:border-zellige dark:bg-zellige/20 dark:text-sand"
+                      ? "animate-correctPulse border-zellige bg-zellige/10 text-zellige2 font-semibold dark:border-zellige dark:bg-zellige/20 dark:text-sand"
                       : showAnswer && isSelected && !isCorrect
                       ? "border-clay bg-clay/10 text-clay font-semibold dark:border-clay dark:bg-clay/20 dark:text-rose"
                       : "border-ink/10 bg-white text-ink hover:border-zellige/30 dark:border-sand/10 dark:bg-ink/60 dark:text-sand dark:hover:border-saffron/30"
@@ -139,7 +139,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
             rows={4}
             placeholder="Écrivez votre réponse ici, comme vous la diriez à l'oral..."
             style={{ colorScheme: "light" }}
-            className="w-full rounded-xl border border-ink/15 bg-white p-4 text-ink placeholder:text-ink/30 focus:border-zellige dark:border-sand/15 dark:bg-ink/60 dark:text-sand dark:placeholder:text-sand/30 dark:focus:border-saffron"
+            className="w-full rounded-xl border border-ink/15 bg-white p-4 text-ink placeholder:text-ink/30 transition-colors duration-200 focus:border-zellige dark:border-sand/15 dark:bg-ink/60 dark:text-sand dark:placeholder:text-sand/30 dark:focus:border-saffron"
           />
           <button
             onClick={handleAnalyze}
@@ -188,7 +188,7 @@ function StepIndicator({ step }: { step: Step }) {
       {steps.map((s, i) => (
         <div
           key={s}
-          className={`h-1.5 flex-1 rounded-full transition-colors ${
+          className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ease-out ${
             i <= currentIndex ? "bg-zellige" : "bg-ink/10 dark:bg-sand/10"
           }`}
         />
