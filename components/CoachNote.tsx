@@ -28,7 +28,7 @@ export default function CoachNote({
             <p
               dir="rtl"
               lang="ar"
-              className="text-lg leading-relaxed text-ink dark:text-sand"
+              className="animate-fadeUp text-lg leading-relaxed text-ink dark:text-sand"
             >
               {explanationDarija}
             </p>
