@@ -3,6 +3,7 @@
     "id": "medecin-rdv",
     "title": "Prendre un rendez-vous chez le médecin",
     "icon": "stethoscope",
+    "summary": "Appelez le cabinet pour fixer un rendez-vous cette semaine.",
     "context": "Vous appelez le cabinet du docteur Bennani pour prendre un rendez-vous cette semaine.",
     "comprehension": {
       "prompt": "La secrétaire vous dit : « Le docteur peut vous recevoir jeudi à 15h30, ça vous convient ? »",
@@ -22,6 +23,7 @@
     "id": "telephone-panne",
     "title": "Signaler une panne au téléphone",
     "icon": "phone",
+    "summary": "Internet ne marche plus, vous appelez le service technique.",
     "context": "Internet ne fonctionne plus chez vous depuis hier soir. Vous appelez le service technique.",
     "comprehension": {
       "prompt": "Le technicien vous dit : « Est-ce que le voyant sur la box est rouge ou vert ? »",
@@ -41,6 +43,7 @@
     "id": "administration-dossier",
     "title": "Déposer un dossier à la préfecture",
     "icon": "file",
+    "summary": "Un agent vous demande des précisions sur votre dossier.",
     "context": "Vous devez déposer un dossier de renouvellement de titre de séjour. L'agent vous demande des précisions.",
     "comprehension": {
       "prompt": "L'agent vous dit : « Il vous manque un justificatif de domicile de moins de trois mois. »",
@@ -60,6 +63,7 @@
     "id": "courses-marche",
     "title": "Faire les courses au marché",
     "icon": "basket",
+    "summary": "Vous achetez des légumes et négociez un peu le prix.",
     "context": "Vous êtes au marché et vous voulez acheter des légumes pour la semaine, en négociant un peu le prix.",
     "comprehension": {
       "prompt": "Le vendeur vous dit : « Les tomates sont à 8 dirhams le kilo aujourd'hui, elles sont bien mûres. »",
@@ -79,6 +83,7 @@
     "id": "banque-carte",
     "title": "Signaler la perte d'une carte bancaire",
     "icon": "card",
+    "summary": "Vous appelez votre banque pour bloquer votre carte perdue.",
     "context": "Vous venez de perdre votre carte bancaire et vous appelez votre banque pour la bloquer.",
     "comprehension": {
       "prompt": "Le conseiller vous dit : « Je vais faire opposition immédiatement, vous recevrez une nouvelle carte sous une semaine. »",
