@@ -42,11 +42,6 @@ export default function HomePage() {
           </span>
           .
         </h1>
-
-        <p className="relative mt-4 max-w-md text-body-lg text-ink/70 dark:text-sand/70">
-          Une phrase à la fois. On corrige ensemble, on explique en darija si besoin,
-          et on avance — sans leçon, sans pression.
-        </p>
       </section>
 
       <section>
