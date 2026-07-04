@@ -1,25 +1,22 @@
 export type IconName = "stethoscope" | "phone" | "file" | "basket" | "card";
-
 export interface Comprehension {
   prompt: string;
   question: string;
   options: string[];
   answerIndex: number;
 }
-
 export interface Situation {
   id: string;
   title: string;
   icon: IconName;
+  summary: string;
   context: string;
   comprehension: Comprehension;
   task: string;
   starterHint: string;
   idiomIds: string[];
 }
-
 export type ErrorType = "grammar" | "phonology" | "lexical";
-
 export interface ErrorRule {
   id: string;
   pattern: string;
@@ -29,7 +26,6 @@ export interface ErrorRule {
   explanationFr: string;
   explanationDarija: string;
 }
-
 export interface CorrectionRule {
   id: string;
   pattern: string;
@@ -39,7 +35,6 @@ export interface CorrectionRule {
   explanationFr: string;
   explanationDarija: string;
 }
-
 export interface Idiom {
   id: string;
   expression: string;
@@ -47,15 +42,12 @@ export interface Idiom {
   meaningDarija: string;
   example: string;
 }
-
 export type DiffKind = "same" | "corrected" | "improved";
-
 export interface DiffSegment {
   text: string;
   kind: DiffKind;
   note?: string;
 }
-
 export interface AppliedNote {
   ruleId: string;
   before: string;
@@ -64,7 +56,6 @@ export interface AppliedNote {
   explanationDarija: string;
   stage: "correction" | "amelioration";
 }
-
 export interface AnalysisResult {
   original: string;
   corrected: string;
@@ -76,7 +67,6 @@ export interface AnalysisResult {
   usedAI: boolean;
   matchedIdioms: Idiom[];
 }
-
 export interface SituationAttempt {
   situationId: string;
   timestamp: number;
@@ -86,7 +76,6 @@ export interface SituationAttempt {
   correctionNotes: AppliedNote[];
   improvementNotes: AppliedNote[];
 }
-
 export interface UserMemory {
   attempts: SituationAttempt[];
   errorFrequency: Record<string, number>;
