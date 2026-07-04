@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { renderExplanation } from "@/lib/renderExplanation";
 
 export default function CoachNote({
   explanationFr,
@@ -14,13 +15,13 @@ export default function CoachNote({
 
   return (
     <div
-      className={`rounded-xl border px-4 py-3 text-sm ${
+      className={`rounded-xl border px-4 py-3 text-body ${
         tone === "correction"
           ? "border-clay/20 bg-clay/5 text-ink/90 dark:border-rose/25 dark:bg-clay/10 dark:text-sand/90"
           : "border-zellige/20 bg-zellige/5 text-ink/90 dark:border-zellige/30 dark:bg-zellige/10 dark:text-sand/90"
       }`}
     >
-      {explanationFr && <p>{explanationFr}</p>}
+      {explanationFr && <p>{renderExplanation(explanationFr, tone)}</p>}
 
       {explanationDarija && (
         <div className={explanationFr ? "mt-3" : ""}>
@@ -30,7 +31,7 @@ export default function CoachNote({
               lang="ar"
               className="animate-fadeUp text-lg leading-relaxed text-ink dark:text-sand"
             >
-              {explanationDarija}
+              {renderExplanation(explanationDarija, tone)}
             </p>
           ) : (
             <button
