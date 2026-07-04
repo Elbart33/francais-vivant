@@ -65,6 +65,12 @@ export default function SituationFlowClient({ id }: { id: string }) {
     setSaved(true);
   };
 
+  const handleAnotherSituation = () => {
+    const others = situations.filter((s) => s.id !== situation.id);
+    const next = others[Math.floor(Math.random() * others.length)];
+    router.push(`/situation/${next.id}`);
+  };
+
   return (
     <div className="space-y-6">
       <StepIndicator step={step} />
@@ -167,6 +173,12 @@ export default function SituationFlowClient({ id }: { id: string }) {
                 Progression enregistrée
               </span>
             )}
+            <button
+              onClick={handleAnotherSituation}
+              className="rounded-full bg-saffron px-5 py-2.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.02]"
+            >
+              Une autre situation
+            </button>
             <button
               onClick={() => router.push("/")}
               className="rounded-full border border-ink/15 px-5 py-2.5 text-sm font-semibold text-ink/70 hover:bg-white dark:border-sand/15 dark:text-sand/70 dark:hover:bg-ink/60"
