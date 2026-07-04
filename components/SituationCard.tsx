@@ -41,7 +41,7 @@ export default function SituationCard({
               featured ? "text-sand/80" : "text-ink/60 dark:text-sand/60"
             }`}
           >
-            {situation.context}
+            {situation.summary}
           </p>
         </div>
       </div>
