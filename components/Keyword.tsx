@@ -12,6 +12,6 @@ export default function Keyword({
   };
 
   return (
-    <strong className={`font-semibold ${styles[tone]}`}>{children}</strong>
+    <bdi className={`font-semibold ${styles[tone]}`}>{children}</bdi>
   );
 }
