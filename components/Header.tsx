@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import PushSubscribeButton from "./PushSubscribeButton";
 
 const links = [
   { href: "/", label: "Aujourd'hui" },
@@ -27,27 +26,24 @@ export default function Header() {
             Français Vivant
           </span>
         </Link>
-        <div className="flex items-center gap-2">
-          <nav className="flex items-center gap-1 text-sm">
-            {links.map((link) => {
-              const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`rounded-full px-3 py-1.5 font-medium transition-colors ${
-                    active
-                      ? "bg-zellige text-sand"
-                      : "text-ink/70 hover:bg-zellige/10 hover:text-ink dark:text-sand/70 dark:hover:bg-sand/10 dark:hover:text-sand"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-          <PushSubscribeButton />
-        </div>
+        <nav className="flex items-center gap-1 text-sm">
+          {links.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`rounded-full px-3 py-1.5 font-medium transition-colors ${
+                  active
+                    ? "bg-zellige text-sand"
+                    : "text-ink/70 hover:bg-zellige/10 hover:text-ink dark:text-sand/70 dark:hover:bg-sand/10 dark:hover:text-sand"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
       </div>
     </header>
   );
