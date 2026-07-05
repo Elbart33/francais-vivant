@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import situationsData from "@/data/situations.json";
 import { Situation } from "@/types";
@@ -14,6 +14,17 @@ const situations = situationsData as Situation[];
 
 type Step = "context" | "comprehension" | "input" | "result";
 
+function shuffleOptions(options: string[], answerIndex: number) {
+  const indices = options.map((_, i) => i);
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  const shuffledOptions = indices.map((i) => options[i]);
+  const newAnswerIndex = indices.indexOf(answerIndex);
+  return { shuffledOptions, newAnswerIndex };
+}
+
 export default function SituationFlowClient({ id }: { id: string }) {
   const router = useRouter();
   const situation = useMemo(() => situations.find((s) => s.id === id), [id]);
@@ -22,12 +33,34 @@ export default function SituationFlowClient({ id }: { id: string }) {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showAnswer, setShowAnswer] = useState(false);
   const [userSentence, setUserSentence] = useState("");
-  const [saved, setSaved] = useState(false);
+  const [autoSaved, setAutoSaved] = useState(false);
 
   const { result, loading, analyze } = useAnalysis();
   const { memory, saveAttempt } = useUserMemory();
 
-  if (!situation) {
+  const shuffled = useMemo(() => {
+    if (!situation) return null;
+    return shuffleOptions(
+      situation.comprehension.options,
+      situation.comprehension.answerIndex
+    );
+  }, [situation]);
+
+  useEffect(() => {
+    if (!result || autoSaved || !situation) return;
+    saveAttempt({
+      situationId: situation.id,
+      timestamp: Date.now(),
+      original: result.original,
+      corrected: result.corrected,
+      improved: result.improved,
+      correctionNotes: result.correctionNotes,
+      improvementNotes: result.improvementNotes,
+    });
+    setAutoSaved(true);
+  }, [result, autoSaved, situation, saveAttempt]);
+
+  if (!situation || !shuffled) {
     return (
       <div className="rounded-2xl border border-ink/10 bg-white/60 p-6 text-center dark:border-sand/10 dark:bg-ink/40">
         <p className="text-ink/70 dark:text-sand/70">Cette situation n'existe pas (ou plus).</p>
@@ -50,20 +83,6 @@ export default function SituationFlowClient({ id }: { id: string }) {
     if (!userSentence.trim()) return;
     await analyze(userSentence.trim(), situation.title, situation.idiomIds);
     setStep("result");
-  };
-
-  const handleSave = () => {
-    if (!result) return;
-    saveAttempt({
-      situationId: situation.id,
-      timestamp: Date.now(),
-      original: result.original,
-      corrected: result.corrected,
-      improved: result.improved,
-      correctionNotes: result.correctionNotes,
-      improvementNotes: result.improvementNotes,
-    });
-    setSaved(true);
   };
 
   const handleAnotherSituation = () => {
@@ -105,8 +124,8 @@ export default function SituationFlowClient({ id }: { id: string }) {
           </p>
           <p className="font-medium text-ink dark:text-sand">{situation.comprehension.question}</p>
           <div className="space-y-2">
-            {situation.comprehension.options.map((opt, i) => {
-              const isCorrect = i === situation.comprehension.answerIndex;
+            {shuffled.shuffledOptions.map((opt, i) => {
+              const isCorrect = i === shuffled.newAnswerIndex;
               const isSelected = i === selectedOption;
               return (
                 <button
@@ -162,19 +181,10 @@ export default function SituationFlowClient({ id }: { id: string }) {
       {step === "result" && result && (
         <div className="space-y-6">
           <BeforeAfter result={result} />
-          <div className="flex flex-wrap gap-3">
-            {!saved ? (
-              <button
-                onClick={handleSave}
-                className="rounded-full bg-zellige px-5 py-2.5 text-sm font-semibold text-sand"
-              >
-                Enregistrer ma progression
-              </button>
-            ) : (
-              <span className="rounded-full bg-zellige/10 px-5 py-2.5 text-sm font-semibold text-zellige2 dark:bg-zellige/20 dark:text-saffron">
-                Progression enregistrée
-              </span>
-            )}
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="text-xs text-ink/40 dark:text-sand/40">
+              {autoSaved ? "Progression enregistrée" : "Enregistrement..."}
+            </span>
             <button
               onClick={handleAnotherSituation}
               className="rounded-full bg-saffron px-5 py-2.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.02]"
