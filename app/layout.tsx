@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import ThemeToggle from "@/components/ThemeToggle";
+import PushSubscribeButton from "@/components/PushSubscribeButton"; // 👉 ajoute ceci
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -59,9 +60,19 @@ export default function RootLayout({
             `,
           }}
         />
+
         <ThemeToggle />
         <Header />
-        <main className="mx-auto max-w-3xl px-4 pb-24 pt-6 sm:px-6">{children}</main>
+
+        <main className="mx-auto max-w-3xl px-4 pb-24 pt-6 sm:px-6">
+          {children}
+        </main>
+
+        {/* 👉 Bouton de notification en bas de page */}
+        <div className="py-10 text-center">
+          <PushSubscribeButton />
+        </div>
+
       </body>
     </html>
   );
