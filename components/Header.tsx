@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import PushSubscribeButton from "./PushSubscribeButton";
 
 const links = [
   { href: "/", label: "Aujourd'hui" },
@@ -26,6 +27,7 @@ export default function Header() {
             Français Vivant
           </span>
         </Link>
+
         <nav className="flex items-center gap-1 text-sm">
           {links.map((link) => {
             const active = pathname === link.href;
@@ -43,6 +45,8 @@ export default function Header() {
               </Link>
             );
           })}
+
+          <PushSubscribeButton />
         </nav>
       </div>
     </header>
