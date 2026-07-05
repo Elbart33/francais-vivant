@@ -68,5 +68,33 @@
     "meaningFr": "Indique un moment précis dans le passé.",
     "meaningDarija": "Kaywri wa9t m3ayen f lmadi.",
     "example": "J'ai perdu ma carte il y a deux heures."
+  },
+  {
+    "id": "vous-auriez",
+    "expression": "est-ce que vous auriez",
+    "meaningFr": "Formule polie pour demander une disponibilité, sans l'affirmer comme certaine.",
+    "meaningDarija": "Tari9a modaba bach tsowl ila kayn chi 7aja mtaha.",
+    "example": "Est-ce que vous auriez un créneau demain matin ?"
+  },
+  {
+    "id": "pour-combien-de-personnes",
+    "expression": "pour combien de personnes / à quel nom",
+    "meaningFr": "Questions typiques pour organiser une réservation.",
+    "meaningDarija": "Asuila kaytsowlo biha fach kat reservi chi bla9sa.",
+    "example": "C'est pour combien de personnes, et à quel nom ?"
+  },
+  {
+    "id": "je-me-demandais-si",
+    "expression": "je me demandais si",
+    "meaningFr": "Formule douce et polie pour poser une question délicate ou gênante.",
+    "meaningDarija": "Tari9a m3adla bach tsowl 3la chi 7aja 7assasa.",
+    "example": "Je me demandais si mon salaire allait arriver bientôt."
+  },
+  {
+    "id": "serait-il-possible-de",
+    "expression": "serait-il possible de",
+    "meaningFr": "Formule très polie et formelle pour demander une faveur ou un délai.",
+    "meaningDarija": "Tari9a rasmiya bzaf bach tetlob chi khedma wla chi wa9t zayd.",
+    "example": "Serait-il possible de reporter le paiement d'une semaine ?"
   }
 ]
