@@ -11,9 +11,12 @@ const links = [
 
 export default function Header() {
   const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-30 border-b border-zellige/10 bg-sand/90 backdrop-blur dark:border-sand/10 dark:bg-ink/90">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3 sm:px-6">
+
+        {/* Logo + titre */}
         <Link href="/" className="flex items-center gap-2">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-zellige text-sand">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -28,6 +31,7 @@ export default function Header() {
           </span>
         </Link>
 
+        {/* Navigation + bouton de notification */}
         <nav className="flex items-center gap-1 text-sm">
           {links.map((link) => {
             const active = pathname === link.href;
@@ -46,8 +50,12 @@ export default function Header() {
             );
           })}
 
-          <PushSubscribeButton />
+          {/* Bouton de notification stylé */}
+          <div className="rounded-full px-3 py-1.5 font-medium text-ink/70 hover:bg-zellige/10 hover:text-ink dark:text-sand/70 dark:hover:bg-sand/10 dark:hover:text-sand">
+            <PushSubscribeButton />
+          </div>
         </nav>
+
       </div>
     </header>
   );
