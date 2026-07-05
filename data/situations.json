@@ -3,8 +3,8 @@
     "id": "medecin-rdv",
     "title": "Prendre un rendez-vous chez le médecin",
     "icon": "stethoscope",
-    "summary": "Vous appelez le cabinet pour obtenir une consultation cette semaine.",
-    "context": "Vous téléphonez au docteur Bennani pour savoir quand il peut vous recevoir et fixer un rendez-vous dans les prochains jours.",
+    "summary": "Appelez le cabinet pour fixer un rendez-vous cette semaine.",
+    "context": "Vous appelez le cabinet du docteur Bennani pour prendre un rendez-vous cette semaine.",
     "comprehension": {
       "prompt": "La secrétaire vous dit : « Le docteur peut vous recevoir jeudi à 15h30, ça vous convient ? »",
       "question": "Qu'est-ce que la secrétaire vous propose ?",
@@ -23,8 +23,8 @@
     "id": "telephone-panne",
     "title": "Signaler une panne au téléphone",
     "icon": "phone",
-    "summary": "Votre connexion ne fonctionne plus et vous contactez l’assistance.",
-    "context": "Internet est coupé depuis hier soir chez vous. Vous appelez le service technique pour expliquer la situation et demander de l’aide.",
+    "summary": "Internet ne marche plus, vous appelez le service technique.",
+    "context": "Internet ne fonctionne plus chez vous depuis hier soir. Vous appelez le service technique.",
     "comprehension": {
       "prompt": "Le technicien vous dit : « Est-ce que le voyant sur la box est rouge ou vert ? »",
       "question": "Qu'est-ce que le technicien veut savoir ?",
@@ -43,8 +43,8 @@
     "id": "administration-dossier",
     "title": "Déposer un dossier à la préfecture",
     "icon": "file",
-    "summary": "Un agent vérifie votre dossier et vous demande un document supplémentaire.",
-    "context": "Vous déposez votre demande de renouvellement de titre de séjour. L’agent regarde vos papiers et vous informe qu’il manque un justificatif.",
+    "summary": "Un agent vous demande des précisions sur votre dossier.",
+    "context": "Vous devez déposer un dossier de renouvellement de titre de séjour. L'agent vous demande des précisions.",
     "comprehension": {
       "prompt": "L'agent vous dit : « Il vous manque un justificatif de domicile de moins de trois mois. »",
       "question": "Que devez-vous apporter en plus ?",
@@ -63,8 +63,8 @@
     "id": "courses-marche",
     "title": "Faire les courses au marché",
     "icon": "basket",
-    "summary": "Vous achetez des légumes et discutez un peu du prix avec le vendeur.",
-    "context": "Au marché, vous cherchez des légumes pour la semaine. Vous parlez avec le vendeur pour connaître les prix avant de choisir ce que vous allez acheter.",
+    "summary": "Vous achetez des légumes et négociez un peu le prix.",
+    "context": "Vous êtes au marché et vous voulez acheter des légumes pour la semaine, en négociant un peu le prix.",
     "comprehension": {
       "prompt": "Le vendeur vous dit : « Les tomates sont à 8 dirhams le kilo aujourd'hui, elles sont bien mûres. »",
       "question": "Qu'est-ce que le vendeur annonce ?",
@@ -83,8 +83,8 @@
     "id": "banque-carte",
     "title": "Signaler la perte d'une carte bancaire",
     "icon": "card",
-    "summary": "Vous appelez votre banque pour bloquer une carte perdue.",
-    "context": "Vous avez égaré votre carte bancaire et contactez votre conseiller pour la faire opposer et demander une nouvelle carte.",
+    "summary": "Vous appelez votre banque pour bloquer votre carte perdue.",
+    "context": "Vous venez de perdre votre carte bancaire et vous appelez votre banque pour la bloquer.",
     "comprehension": {
       "prompt": "Le conseiller vous dit : « Je vais faire opposition immédiatement, vous recevrez une nouvelle carte sous une semaine. »",
       "question": "Qu'est-ce que le conseiller va faire ?",
@@ -98,5 +98,65 @@
     "task": "Expliquez au conseiller quand et où vous avez perdu votre carte.",
     "starterHint": "Vous pouvez commencer par : « J'ai perdu ma carte ... »",
     "idiomIds": ["faire-opposition", "il-y-a"]
+  },
+  {
+    "id": "dentiste-urgence",
+    "title": "Prendre un rendez-vous en urgence chez le dentiste",
+    "icon": "stethoscope",
+    "summary": "Vous avez mal aux dents depuis plusieurs jours, vous demandez un rendez-vous rapide.",
+    "context": "Vous avez mal aux dents depuis trois jours et la douleur devient forte. Vous appelez le cabinet dentaire pour un rendez-vous en urgence.",
+    "comprehension": {
+      "prompt": "La secrétaire vous dit : « On a une annulation cet après-midi à 16h, si la douleur est trop forte, venez. »",
+      "question": "Qu'est-ce que la secrétaire vous propose ?",
+      "options": [
+        "Un rendez-vous le jour même, l'après-midi",
+        "Un rendez-vous la semaine prochaine",
+        "De prendre un médicament et de rappeler plus tard"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Expliquez depuis quand vous avez mal et acceptez le rendez-vous proposé.",
+    "starterHint": "Vous pouvez commencer par : « J'ai mal aux dents depuis ... »",
+    "idiomIds": ["depuis-que", "avoir-mal-a"]
+  },
+  {
+    "id": "colis-non-livre",
+    "title": "Signaler un colis non livré",
+    "icon": "phone",
+    "summary": "Votre colis n'est toujours pas arrivé, vous appelez le transporteur.",
+    "context": "Vous attendez un colis depuis une semaine et le suivi ne montre aucune mise à jour. Vous appelez le service client du transporteur.",
+    "comprehension": {
+      "prompt": "Le conseiller vous dit : « Le suivi ne s'est pas mis à jour depuis lundi, je vais ouvrir une réclamation. »",
+      "question": "Qu'est-ce que le conseiller va faire ?",
+      "options": [
+        "Ouvrir une réclamation pour retrouver le colis",
+        "Vous rembourser directement",
+        "Annuler votre commande"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Expliquez depuis quand vous attendez le colis et dites que le suivi ne fonctionne pas.",
+    "starterHint": "Vous pouvez commencer par : « J'attends mon colis depuis ... »",
+    "idiomIds": ["il-y-a", "ca-ne-marche-pas"]
+  },
+  {
+    "id": "ecole-dossier",
+    "title": "Clarifier un dossier scolaire",
+    "icon": "file",
+    "summary": "Un document manque au dossier de votre enfant, vous appelez l'école.",
+    "context": "L'école vous informe qu'un document manque au dossier d'inscription de votre enfant. Vous appelez pour savoir lequel et dans quel délai le fournir.",
+    "comprehension": {
+      "prompt": "Le secrétariat vous dit : « Il manque le certificat de vaccination, merci de le rapporter dans les plus brefs délais. »",
+      "question": "Que devez-vous apporter ?",
+      "options": [
+        "Le certificat de vaccination",
+        "Un justificatif de domicile",
+        "Une photo d'identité"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Demandez au secrétariat quel document exactement manque et pour quelle date le rapporter.",
+    "starterHint": "Vous pouvez commencer par : « Bonjour, est-ce que ... »",
+    "idiomIds": ["il-manque", "dans-les-plus-brefs-delais"]
   }
 ]
