@@ -158,5 +158,85 @@
     "task": "Demandez au secrétariat quel document exactement manque et pour quelle date le rapporter.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, est-ce que ... »",
     "idiomIds": ["il-manque", "dans-les-plus-brefs-delais"]
+  },
+  {
+    "id": "coiffeur-rdv",
+    "title": "Prendre un rendez-vous chez le coiffeur",
+    "icon": "phone",
+    "summary": "Vous appelez le salon pour réserver un créneau ce week-end.",
+    "context": "Vous appelez votre salon de coiffure habituel pour prendre rendez-vous ce week-end, avant un événement important.",
+    "comprehension": {
+      "prompt": "La coiffeuse vous dit : « Est-ce que samedi 11h vous conviendrait, ou préférez-vous l'après-midi ? »",
+      "question": "Qu'est-ce que la coiffeuse vous propose ?",
+      "options": [
+        "Un choix entre samedi matin ou après-midi",
+        "Un rendez-vous uniquement le dimanche",
+        "D'annuler votre rendez-vous habituel"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Demandez s'il y aurait un créneau samedi et précisez à quelle heure vous préférez venir.",
+    "starterHint": "Vous pouvez commencer par : « Bonjour, est-ce que vous auriez ... »",
+    "idiomIds": ["prendre-rdv", "vous-auriez"]
+  },
+  {
+    "id": "restaurant-reservation",
+    "title": "Réserver une table au restaurant",
+    "icon": "basket",
+    "summary": "Vous appelez pour réserver une table pour un dîner en famille.",
+    "context": "Vous appelez un restaurant pour réserver une table pour un dîner en famille samedi soir.",
+    "comprehension": {
+      "prompt": "Le serveur vous dit : « C'est pour combien de personnes, et à quel nom je note la réservation ? »",
+      "question": "Qu'est-ce que le serveur vous demande ?",
+      "options": [
+        "Le nombre de personnes et votre nom",
+        "Votre numéro de téléphone",
+        "Le menu que vous voulez commander"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Dites pour combien de personnes vous réservez et donnez votre nom.",
+    "starterHint": "Vous pouvez commencer par : « Bonjour, je voudrais réserver ... »",
+    "idiomIds": ["je-voudrais", "pour-combien-de-personnes"]
+  },
+  {
+    "id": "salaire-retard",
+    "title": "Signaler un retard de salaire",
+    "icon": "file",
+    "summary": "Votre salaire n'est pas encore arrivé, vous appelez les ressources humaines.",
+    "context": "Votre salaire du mois n'est toujours pas arrivé alors que cela fait plusieurs jours depuis la date habituelle. Vous appelez le service des ressources humaines.",
+    "comprehension": {
+      "prompt": "La personne des RH vous dit : « Je me demandais justement si tout le monde avait bien été payé, je vérifie tout de suite. »",
+      "question": "Qu'est-ce que la personne des RH va faire ?",
+      "options": [
+        "Vérifier immédiatement votre paiement",
+        "Vous dire d'attendre encore un mois",
+        "Refuser de vous répondre"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Expliquez depuis quand vous attendez votre salaire et demandez poliment ce qui se passe.",
+    "starterHint": "Vous pouvez commencer par : « Bonjour, je me demandais si ... »",
+    "idiomIds": ["depuis-que", "je-me-demandais-si"]
+  },
+  {
+    "id": "paiement-delai",
+    "title": "Demander un délai pour un paiement",
+    "icon": "card",
+    "summary": "Vous demandez poliment à reporter une facture de quelques jours.",
+    "context": "Vous avez une facture à payer cette semaine mais vous avez besoin de quelques jours de plus. Vous appelez le service client pour demander un délai.",
+    "comprehension": {
+      "prompt": "Le conseiller vous dit : « Serait-il possible pour vous de régler avant la fin du mois plutôt ? »",
+      "question": "Qu'est-ce que le conseiller vous propose ?",
+      "options": [
+        "De payer un peu plus tard, avant la fin du mois",
+        "D'annuler complètement la facture",
+        "De payer immédiatement en double"
+      ],
+      "answerIndex": 0
+    },
+    "task": "Demandez poliment s'il serait possible de reporter le paiement de quelques jours.",
+    "starterHint": "Vous pouvez commencer par : « Bonjour, serait-il possible de ... »",
+    "idiomIds": ["dans-les-plus-brefs-delais", "serait-il-possible-de"]
   }
 ]
