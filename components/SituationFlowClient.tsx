@@ -8,6 +8,7 @@ import Icon from "@/components/Icon";
 import BeforeAfter from "@/components/BeforeAfter";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { useUserMemory } from "@/hooks/useUserMemory";
+import { pickWeightedSituation } from "@/lib/storage/userMemory";
 
 const situations = situationsData as Situation[];
 
@@ -24,7 +25,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
   const [saved, setSaved] = useState(false);
 
   const { result, loading, analyze } = useAnalysis();
-  const { saveAttempt } = useUserMemory();
+  const { memory, saveAttempt } = useUserMemory();
 
   if (!situation) {
     return (
@@ -66,8 +67,9 @@ export default function SituationFlowClient({ id }: { id: string }) {
   };
 
   const handleAnotherSituation = () => {
-    const others = situations.filter((s) => s.id !== situation.id);
-    const next = others[Math.floor(Math.random() * others.length)];
+    const next = memory
+      ? pickWeightedSituation(memory, situations, situation.id)
+      : situations[Math.floor(Math.random() * situations.length)];
     router.push(`/situation/${next.id}`);
   };
 
