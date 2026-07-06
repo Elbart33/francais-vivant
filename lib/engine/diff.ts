@@ -38,8 +38,6 @@ export function wordDiff(
       aKeys[ai] === lcs[li] &&
       bKeys[bi] === lcs[li]
     ) {
-      // Mots équivalents (même si ponctuation/casse diffère légèrement) :
-      // on affiche la version "after", qui reflète le texte final voulu.
       segments.push({ text: b[bi], kind: "same" });
       ai++;
       bi++;
@@ -68,13 +66,6 @@ function tokenize(text: string): string[] {
     .filter(Boolean);
 }
 
-/**
- * Clé de comparaison : on ignore la casse et toute ponctuation attachée
- * (virgules, points, guillemets...) pour ne considérer que le mot lui-même.
- * Ça évite qu'un simple point ou une majuscule fasse basculer tout un mot
- * (voire les mots voisins) en "changé" alors que rien de significatif
- * n'a bougé.
- */
 function normalizeKey(word: string): string {
   return word
     .toLowerCase()
