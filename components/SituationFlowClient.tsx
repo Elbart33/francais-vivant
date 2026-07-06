@@ -81,7 +81,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
   const handleAnalyze = async () => {
     if (!userSentence.trim()) return;
-    await analyze(userSentence.trim(), situation.title, situation.idiomIds);
+    await analyze(userSentence.trim(), situation.title, situation.idiomIds, situation.task);
     setStep("result");
   };
 
