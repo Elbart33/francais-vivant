@@ -3,6 +3,19 @@ import { Situation } from "@/types";
 
 const situations = situationsData as Situation[];
 
+const DAY_LABELS = ["D", "L", "M", "M", "J", "V", "S"];
+
+function getLastSevenDayLabels(): string[] {
+  const labels: string[] = [];
+  const today = new Date();
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    labels.push(DAY_LABELS[d.getDay()]);
+  }
+  return labels;
+}
+
 export default function ProgressVisual({
   situationsCompleted,
   streakDays,
@@ -10,6 +23,8 @@ export default function ProgressVisual({
   situationsCompleted: string[];
   streakDays: number;
 }) {
+  const dayLabels = getLastSevenDayLabels();
+
   return (
     <div className="space-y-8">
       <div>
@@ -17,16 +32,30 @@ export default function ProgressVisual({
           Votre régularité
         </p>
         <div className="flex items-end gap-3">
-          {Array.from({ length: 7 }).map((_, i) => {
-            const lit = i < Math.min(streakDays, 7);
+          {dayLabels.map((label, i) => {
+            // Les jours de streak sont comptés à partir d'aujourd'hui en remontant.
+            // i=6 correspond à aujourd'hui (dernier élément du tableau).
+            const daysAgo = 6 - i;
+            const lit = daysAgo < streakDays;
+            const isToday = daysAgo === 0;
             return (
-              <div
-                key={i}
-                className={`w-9 rounded-t-full transition-all ${
-                  lit ? "bg-saffron" : "bg-ink/10 dark:bg-sand/10"
-                }`}
-                style={{ height: lit ? `${44 + i * 9}px` : "20px" }}
-              />
+              <div key={i} className="flex flex-col items-center gap-1.5">
+                <div
+                  className={`w-9 rounded-t-full transition-all ${
+                    lit ? "bg-saffron" : "bg-ink/10 dark:bg-sand/10"
+                  }`}
+                  style={{ height: lit ? `${44 + i * 6}px` : "20px" }}
+                />
+                <span
+                  className={`text-xs font-medium ${
+                    isToday
+                      ? "text-ink dark:text-sand"
+                      : "text-ink/40 dark:text-sand/40"
+                  }`}
+                >
+                  {label}
+                </span>
+              </div>
             );
           })}
         </div>
