@@ -11,8 +11,9 @@ export function wordDiff(
 ): DiffSegment[] {
   const a = tokenize(before);
   const b = tokenize(after);
-
-  const lcs = longestCommonSubsequence(a, b);
+  const aKeys = a.map(normalizeKey);
+  const bKeys = b.map(normalizeKey);
+  const lcs = longestCommonSubsequence(aKeys, bKeys);
 
   const segments: DiffSegment[] = [];
   let ai = 0;
@@ -20,40 +21,43 @@ export function wordDiff(
   let li = 0;
 
   const flushChange = (removed: string[], added: string[]) => {
-    // We only render the "after" side in the reading text, but we keep
-    // both around so the UI can optionally show strikethroughs.
     if (added.length > 0) {
       segments.push({
         text: added.join(" "),
         kind: kindForChange,
         note: removed.length > 0 ? removed.join(" ") : undefined,
       });
-    } else if (removed.length > 0) {
-      // Pure deletion — nothing to show on the "after" side.
     }
   };
 
   while (ai < a.length || bi < b.length) {
-    if (li < lcs.length && ai < a.length && bi < b.length && a[ai] === lcs[li] && b[bi] === lcs[li]) {
-      segments.push({ text: a[ai], kind: "same" });
+    if (
+      li < lcs.length &&
+      ai < a.length &&
+      bi < b.length &&
+      aKeys[ai] === lcs[li] &&
+      bKeys[bi] === lcs[li]
+    ) {
+      // Mots équivalents (même si ponctuation/casse diffère légèrement) :
+      // on affiche la version "after", qui reflète le texte final voulu.
+      segments.push({ text: b[bi], kind: "same" });
       ai++;
       bi++;
       li++;
     } else {
       const removed: string[] = [];
       const added: string[] = [];
-      while (ai < a.length && (li >= lcs.length || a[ai] !== lcs[li])) {
+      while (ai < a.length && (li >= lcs.length || aKeys[ai] !== lcs[li])) {
         removed.push(a[ai]);
         ai++;
       }
-      while (bi < b.length && (li >= lcs.length || b[bi] !== lcs[li])) {
+      while (bi < b.length && (li >= lcs.length || bKeys[bi] !== lcs[li])) {
         added.push(b[bi]);
         bi++;
       }
       flushChange(removed, added);
     }
   }
-
   return mergeAdjacentSame(segments);
 }
 
@@ -64,11 +68,23 @@ function tokenize(text: string): string[] {
     .filter(Boolean);
 }
 
+/**
+ * Clé de comparaison : on ignore la casse et toute ponctuation attachée
+ * (virgules, points, guillemets...) pour ne considérer que le mot lui-même.
+ * Ça évite qu'un simple point ou une majuscule fasse basculer tout un mot
+ * (voire les mots voisins) en "changé" alors que rien de significatif
+ * n'a bougé.
+ */
+function normalizeKey(word: string): string {
+  return word
+    .toLowerCase()
+    .replace(/[.,!?;:«»"'’()—-]/g, "");
+}
+
 function longestCommonSubsequence(a: string[], b: string[]): string[] {
   const m = a.length;
   const n = b.length;
   const dp: number[][] = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
-
   for (let i = m - 1; i >= 0; i--) {
     for (let j = n - 1; j >= 0; j--) {
       if (a[i] === b[j]) {
@@ -78,7 +94,6 @@ function longestCommonSubsequence(a: string[], b: string[]): string[] {
       }
     }
   }
-
   const result: string[] = [];
   let i = 0;
   let j = 0;
