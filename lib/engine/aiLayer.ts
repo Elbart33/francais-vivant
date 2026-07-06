@@ -19,20 +19,18 @@ export interface AIAnalysisResult {
  */
 export async function tryAIAnalysis(
   rawSentence: string,
-  situationTitle: string
+  situationTitle: string,
+  situationTask: string = ""
 ): Promise<AIAnalysisResult | null> {
   try {
     const res = await fetch("/api/ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sentence: rawSentence, situationTitle }),
+      body: JSON.stringify({ sentence: rawSentence, situationTitle, situationTask }),
     });
-
     if (!res.ok) return null;
-
     const data = await res.json();
     if (!data?.ok) return null;
-
     return {
       corrected: data.corrected,
       correctionChanged: Boolean(data.correctionChanged),
@@ -45,8 +43,6 @@ export async function tryAIAnalysis(
       provider: data.provider || "ia",
     };
   } catch {
-    // Réseau indisponible, quota dépassé, provider non configuré... peu importe :
-    // l'app continue avec le moteur local uniquement.
     return null;
   }
 }
