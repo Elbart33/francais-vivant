@@ -1,5 +1,4 @@
 "use client";
-
 import { useCallback, useState } from "react";
 import { AnalysisResult, AppliedNote } from "@/types";
 import { runLocalPipeline } from "@/lib/engine/correctionEngine";
@@ -11,13 +10,15 @@ export function useAnalysis() {
   const [loading, setLoading] = useState(false);
 
   const analyze = useCallback(
-    async (rawSentence: string, situationTitle: string, situationIdiomIds: string[]) => {
+    async (
+      rawSentence: string,
+      situationTitle: string,
+      situationIdiomIds: string[],
+      situationTask: string = ""
+    ) => {
       setLoading(true);
 
-      // 1) Moteur local — toujours exécuté, garantit un résultat même sans réseau.
-      // C'est la base de secours : si l'IA échoue, ce résultat est utilisé tel quel.
       const local = runLocalPipeline(rawSentence, situationIdiomIds);
-
       let corrected = local.corrected;
       let improved = local.improved;
       let correctionNotes: AppliedNote[] = local.correctionNotes;
@@ -26,17 +27,11 @@ export function useAnalysis() {
       let improvementDiff = local.improvementDiff;
       let usedAI = false;
 
-      // 2) Couche IA — reçoit la phrase BRUTE (pas la version déjà filtrée par le
-      // moteur local), pour pouvoir détecter des erreurs que les règles regex ne
-      // couvrent pas. Tentative silencieuse, jamais bloquante : en cas d'échec on
-      // garde le résultat local calculé ci-dessus.
-      const ai = await tryAIAnalysis(rawSentence, situationTitle);
-
+      const ai = await tryAIAnalysis(rawSentence, situationTitle, situationTask);
       if (ai) {
         usedAI = true;
         corrected = ai.corrected;
         improved = ai.improved;
-
         correctionNotes = ai.correctionChanged
           ? [
               {
@@ -50,7 +45,6 @@ export function useAnalysis() {
               },
             ]
           : [];
-
         improvementNotes = ai.improvementChanged
           ? [
               {
@@ -65,7 +59,6 @@ export function useAnalysis() {
               },
             ]
           : [];
-
         correctionDiff = wordDiff(rawSentence, corrected, "corrected");
         improvementDiff = wordDiff(corrected, improved, "improved");
       }
@@ -81,7 +74,6 @@ export function useAnalysis() {
         usedAI,
         matchedIdioms: local.matchedIdioms,
       };
-
       setResult(finalResult);
       setLoading(false);
       return finalResult;
@@ -90,6 +82,5 @@ export function useAnalysis() {
   );
 
   const reset = useCallback(() => setResult(null), []);
-
   return { result, loading, analyze, reset };
 }
