@@ -165,4 +165,33 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, reason: "no_content" });
     }
 
-    let
+    let correctionExplanationFr = "";
+    let correctionExplanationDarija = "";
+    let improvementExplanationFr = "";
+    let improvementExplanationDarija = "";
+
+    if (usedProvider === "gemini") {
+      correctionExplanationDarija = parsed.correctionExplanationDarija || "";
+      improvementExplanationDarija = parsed.improvementExplanationDarija || "";
+    } else {
+      correctionExplanationFr = parsed.correctionExplanationFr || "";
+      improvementExplanationFr = parsed.improvementExplanationFr || "";
+    }
+
+    return NextResponse.json({
+      ok: true,
+      corrected: parsed.corrected || sentence,
+      correctionChanged: Boolean(parsed.correctionChanged),
+      correctionExplanationFr: correctionExplanationFr,
+      correctionExplanationDarija: correctionExplanationDarija,
+      improved: parsed.improved || parsed.corrected || sentence,
+      improvementChanged: Boolean(parsed.improvementChanged),
+      improvementExplanationFr: improvementExplanationFr,
+      improvementExplanationDarija: improvementExplanationDarija,
+      provider: usedProvider,
+    });
+  } catch (err) {
+    console.error("Unexpected error:", err);
+    return NextResponse.json({ ok: false, reason: "unexpected_error" }, { status: 500 });
+  }
+}
