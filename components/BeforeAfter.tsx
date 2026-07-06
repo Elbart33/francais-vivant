@@ -41,16 +41,9 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
       </section>
 
       <section className="rounded-2xl border border-zellige/25 bg-zellige/[0.04] p-5 dark:border-zellige/40 dark:bg-zellige/10">
-        <div className="mb-2 flex items-center justify-between">
-          <p className="text-sm font-semibold uppercase tracking-wide text-zellige2 dark:text-saffron">
-            Dit à l'oral
-          </p>
-          {result.usedAI && (
-            <span className="rounded-full bg-zellige/10 px-2.5 py-0.5 text-xs font-semibold text-zellige2 dark:bg-zellige/20 dark:text-saffron">
-              enrichie par IA
-            </span>
-          )}
-        </div>
+        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-zellige2 dark:text-saffron">
+          Version améliorée
+        </p>
         <DiffView segments={result.improvementDiff} />
         {hasImprovements ? (
           <div className="mt-4 space-y-2">
