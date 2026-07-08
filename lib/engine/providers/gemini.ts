@@ -32,7 +32,7 @@ export async function callGemini({ system, user }: GeminiParams) {
           maxOutputTokens: 2048,
           responseMimeType: "application/json",
           thinkingConfig: {
-            thinkingBudget: 512,
+            thinkingBudget: 0,
           },
         },
       }),
