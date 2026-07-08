@@ -109,9 +109,16 @@ export async function POST(req: NextRequest) {
 
     try {
       if (provider === "gemini") {
-        const params = { system: SYSTEM_PROMPT_GEMINI, user: userPrompt };
-        raw = await callGemini(params);
-        usedProvider = "gemini";
+        try {
+          const params = { system: SYSTEM_PROMPT_GEMINI, user: userPrompt };
+          raw = await callGemini(params);
+          usedProvider = "gemini";
+        } catch (geminiErr) {
+          console.error("Gemini failed, falling back to Groq:", geminiErr);
+          const params = { system: SYSTEM_PROMPT_MISTRAL, user: userPrompt };
+          raw = await callGroq(params);
+          usedProvider = "groq";
+        }
       } else if (provider === "mistral") {
         const params = { system: SYSTEM_PROMPT_MISTRAL, user: userPrompt };
         raw = await callMistral(params);
