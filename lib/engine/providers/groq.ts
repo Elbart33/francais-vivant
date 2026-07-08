@@ -32,6 +32,9 @@ export async function callGroq({ system, user }: CallParams): Promise<string> {
 
   const data = await res.json();
   const text = data?.choices?.[0]?.message?.content;
-  if (!text) throw new Error("Réponse Groq vide");
+  if (!text) {
+    console.error("Groq raw response:", JSON.stringify(data));
+    throw new Error("Réponse Groq vide");
+  }
   return text.trim();
 }
