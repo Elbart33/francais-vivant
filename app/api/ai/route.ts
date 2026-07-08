@@ -129,7 +129,11 @@ export async function POST(req: NextRequest) {
       }
     } catch (err) {
       console.error("Provider error:", err);
-      return NextResponse.json({ ok: false, reason: "provider_error" });
+      const isBusy = err instanceof Error && err.message === "COACH_BUSY";
+      return NextResponse.json({
+        ok: false,
+        reason: isBusy ? "coach_busy" : "provider_error",
+      });
     }
 
     const cleaned = raw.replace(/```json|```/g, "").trim();
