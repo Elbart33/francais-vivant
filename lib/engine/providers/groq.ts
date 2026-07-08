@@ -14,7 +14,7 @@ export async function callGroq({ system, user }: CallParams): Promise<string> {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: "llama3-70b-8192",
+      model: "openai/gpt-oss-120b",
       temperature: 0.4,
       max_tokens: 300,
       messages: [
