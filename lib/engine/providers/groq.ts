@@ -16,7 +16,9 @@ export async function callGroq({ system, user }: CallParams): Promise<string> {
     body: JSON.stringify({
       model: "openai/gpt-oss-120b",
       temperature: 0.4,
-      max_tokens: 300,
+      max_tokens: 1024,
+      response_format: { type: "json_object" },
+      reasoning_effort: "low",
       messages: [
         { role: "system", content: system },
         { role: "user", content: user },
