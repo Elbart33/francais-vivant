@@ -50,11 +50,17 @@ const config: Config = {
           "40%": { transform: "scale(1.03)" },
           "100%": { transform: "scale(1)" },
         },
+        tooltipPop: {
+          "0%": { opacity: "0", transform: "scale(0.92) translateY(-4px)" },
+          "60%": { opacity: "1", transform: "scale(1.02) translateY(0)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
       },
       animation: {
         fadeUp: "fadeUp 0.5s ease-out both",
         pulseSoft: "pulseSoft 2.4s ease-in-out infinite",
         correctPulse: "correctPulse 0.4s ease-out",
+        tooltipPop: "tooltipPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) both",
       },
     },
   },

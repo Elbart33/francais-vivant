@@ -23,19 +23,6 @@
     "meaningDarija": "thabbat",
     "phonetic": "[kon-fir-mer]"
   },
-  "expliquez": {},
-  "consultez": {},
-  "internet": {},
-  "service": {},
-  "technique": {},
-  "technicien": {},
-  "déposer": {},
-  "dossier": {},
-  "renouvellement": {},
-  "l'agent": {},
-  "demande": {},
-  "précisions": {},
-  "demandez": {},
   "documents": {
     "meaningDarija": "wiraq",
     "phonetic": "[do-ku-man]"
@@ -60,20 +47,6 @@
     "meaningDarija": "tajir",
     "phonetic": "[ne-go-syan]"
   },
-  "achetez": {},
-  "négociez": {},
-  "bancaire": {},
-  "bloquer": {},
-  "conseiller": {},
-  "douleur": {},
-  "devient": {},
-  "dentaire": {},
-  "urgence": {},
-  "acceptez": {},
-  "proposé": {},
-  "attendez": {},
-  "transporteur": {},
-  "l'école": {},
   "informe": {
     "meaningDarija": "bla chekl",
     "phonetic": "[an-form]"
@@ -98,19 +71,6 @@
     "meaningDarija": "tasri7a",
     "phonetic": "[kwah-fyuhr]"
   },
-  "habituel": {},
-  "week-end": {},
-  "événement": {},
-  "important": {},
-  "créneau": {},
-  "précisez": {},
-  "préférez": {},
-  "réserver": {},
-  "restaurant": {},
-  "réservez": {},
-  "salaire": {},
-  "habituelle": {},
-  "ressources": {},
   "humaines": {
     "meaningDarija": "bashariya",
     "phonetic": "[yu-men]"
@@ -123,7 +83,116 @@
     "meaningDarija": "factura",
     "phonetic": "[fak-tyur]"
   },
-  "demander": {},
-  "reporter": {},
+  "fixer": {
+    "meaningDarija": "Ythabbet",
+    "phonetic": "[fik-ser]"
+  },
+  "consultez": {
+    "meaningDarija": "shoufou, tfrjou, t9raw",
+    "phonetic": "[kon-sul-té]"
+  },
+  "service": {
+    "meaningDarija": "khidma",
+    "phonetic": "[sèr-vis]"
+  },
+  "technique": {
+    "meaningDarija": "ṭriqa, ṭ-ṭaqniya",
+    "phonetic": "[tek-nik]"
+  },
+  "technicien": {
+    "meaningDarija": "mkhassos f teknika o kaydir tswira o tslah",
+    "phonetic": "[tek-ni-syen]"
+  },
+  "négociez": {
+    "meaningDarija": "sawel m3a lkhdam o safi",
+    "phonetic": "[ne-go-sje]"
+  },
+  "bancaire": {
+    "meaningDarija": "li kaykhass lbank, m3a lflouss o lm3amalat",
+    "phonetic": "[bon-kèr]"
+  },
+  "bloquer": {
+    "meaningDarija": "7bes, 7ajez, mna3",
+    "phonetic": "[blo-ké]"
+  },
+  "conseiller": {
+    "meaningDarija": "nassih/nassha (lli kaydih lik nasih)",
+    "phonetic": "[kon-se-yé]"
+  },
+  "préférez": {
+    "meaningDarija": "khtar (fḍel)",
+    "phonetic": "[pʁe-fe-ʁe]"
+  },
+  "réserver": {
+    "meaningDarija": "7jz, 9ddem (ex: 7jz table f restaurant)",
+    "phonetic": "[ré-zèr-vé]"
+  },
+  "réservez": {
+    "meaningDarija": "7jzo, 9ayed",
+    "phonetic": "[ray-zair-vay]"
+  },
+  "donnez": {
+    "meaningDarija": "3ti / khawi",
+    "phonetic": "[do-né]"
+  },
+  "marche": {
+    "meaningDarija": "mchiya (lma kaymchiw fih n-nas), sou9 (lma kayb3o fih l7wayj)",
+    "phonetic": "[marsh]"
+  },
+  "déposer": {
+    "meaningDarija": "7at / khalli / 3ti (selon contexte)",
+    "phonetic": "[de-po-zé]"
+  },
+  "renouvellement": {
+    "meaningDarija": "tajdid",
+    "phonetic": "[re-nou-ve-le-mon]"
+  },
+  "titre": {
+    "meaningDarija": "3onwan",
+    "phonetic": "[titr]"
+  },
+  "séjour": {},
+  "l'agent": {},
+  "précisions": {},
+  "agent": {},
+  "perdu": {},
+  "perdue": {},
+  "dents": {},
+  "devient": {},
+  "dentaire": {},
+  "urgence": {},
+  "attendez": {},
+  "colis": {},
+  "suivi": {},
+  "mise": {},
+  "client": {},
+  "transporteur": {},
+  "n'est": {},
+  "arrivé": {},
+  "l'école": {},
+  "qu'un": {
+    "meaningDarija": "ghir, bhal 'wahd'",
+    "phonetic": "[kan]"
+  },
+  "délai": {
+    "meaningDarija": "moukhlis, wa9t li kayn bach tdir chi 7aja",
+    "phonetic": "[dé-lé]"
+  },
+  "habituel": {
+    "meaningDarija": "3adi, m3t3awed",
+    "phonetic": "[a-bi-tü-el]"
+  },
+  "événement": {
+    "meaningDarija": "ḥadṯa, mūlāᶜa",
+    "phonetic": "[e-ve-nə-mɑ̃]"
+  },
+  "s'il": {},
+  "aurait": {},
+  "créneau": {},
+  "précisez": {},
+  "habituelle": {},
+  "ressources": {},
+  "passe": {},
+  "serait": {},
   "paiement": {}
 }

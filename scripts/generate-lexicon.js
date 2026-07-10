@@ -37,7 +37,7 @@ function extractCandidateWords() {
         .filter(Boolean);
       for (const token of tokens) {
         if (
-          token.length > 6 &&
+          token.length > 3 &&
           !commonSet.has(token) &&
           !idiomExpressions.has(token) &&
           !/^\d+$/.test(token)
