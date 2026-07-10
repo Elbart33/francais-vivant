@@ -5,6 +5,7 @@
   "description": "App gratuite pour transformer un français fonctionnel en français naturel, pour adultes francophones-darija (A2+/B1).",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/select-icons.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
