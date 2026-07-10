@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import idiomsData from "@/data/idioms";
-import lexiconData from "@/data/lexique.fr.json";
+import lexiconData from "@/data/lexique";
 
 interface Idiom {
   id: string;
