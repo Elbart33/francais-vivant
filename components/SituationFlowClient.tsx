@@ -10,6 +10,7 @@ import { useAnalysis } from "@/hooks/useAnalysis";
 import { useUserMemory } from "@/hooks/useUserMemory";
 import { pickWeightedSituation } from "@/lib/storage/userMemory";
 import { getLanguageConfig } from "@/config/languages";
+import GlossedText from "@/components/GlossedText";
 
 const situations = situationsData as Situation[];
 
@@ -117,9 +118,13 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
       {step === "context" && (
         <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <p dir={dir} lang={lang} className="text-ink/80 leading-relaxed dark:text-sand/80">
-            {situation.context}
-          </p>
+          <GlossedText
+            text={situation.context}
+            idiomIds={situation.idiomIds}
+            dir={dir}
+            lang={lang}
+            className="text-ink/80 leading-relaxed dark:text-sand/80"
+          />
           <button
             onClick={() => setStep("comprehension")}
             dir={dir}
@@ -195,9 +200,13 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
       {step === "input" && (
         <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <p dir={dir} lang={lang} className="font-medium text-ink dark:text-sand">
-            {situation.task}
-          </p>
+          <GlossedText
+            text={situation.task}
+            idiomIds={situation.idiomIds}
+            dir={dir}
+            lang={lang}
+            className="font-medium text-ink dark:text-sand"
+          />
           <p dir={dir} lang={lang} className="text-sm text-ink/50 dark:text-sand/50">
             {situation.starterHint}
           </p>
