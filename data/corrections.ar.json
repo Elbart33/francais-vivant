@@ -1,0 +1,83 @@
+[
+  {
+    "id": "bghit-na3ref-wach",
+    "pattern": "\\bbghit na3ref wach\\b",
+    "flags": "gi",
+    "natural": "بغيت نسول واش",
+    "registre": "poli",
+    "explanationFr": "",
+    "explanationDarija": "« **بغيت نسول واش** » أكثر أدب من « بغيت نعرف واش »، خاصة في المواقف الرسمية كيف التليفون ولا الإدارة. **نسول** هي الكلمة اللي كتعطي اللطف في السؤال."
+  },
+  {
+    "id": "ana-farhan-bzaf",
+    "pattern": "\\bana farhan\\b",
+    "flags": "gi",
+    "natural": "أنا فرحان بزاف",
+    "registre": "chaleureux",
+    "explanationFr": "",
+    "explanationDarija": "« **أنا فرحان بزاف** » أو « أنا فرحان بـ... » كيعطي معنى أكثر حماس من مجرد « أنا فرحان ». **بزاف** هي الكلمة اللي كتزيد الحماس في الجملة."
+  },
+  {
+    "id": "3tini",
+    "pattern": "\\b3tini\\b",
+    "flags": "gi",
+    "natural": "واش ممكن تعطيني",
+    "registre": "poli",
+    "explanationFr": "",
+    "explanationDarija": "السؤال بـ **« واش ممكن تعطيني** » أكثر لطف من الأمر المباشر « عطيني ». **ممكن** هي الكلمة اللي كتخلي الطلب مؤدب."
+  },
+  {
+    "id": "kayen-chi-mochkil",
+    "pattern": "\\bkayen chi mochkil m3a\\b",
+    "flags": "gi",
+    "natural": "عندي شي مشكل مع",
+    "registre": "naturel",
+    "explanationDarija": "« **عندي شي مشكل مع** » تعبير أكثر طبيعية واستعمالا في الحديث اليومي. **عندي** هي الكلمة اللي كتكون عادية أكثر في الهضرة.",
+    "explanationFr": ""
+  },
+  {
+    "id": "bghit-maw'id",
+    "pattern": "\\bbghit maw'id\\b",
+    "flags": "gi",
+    "natural": "بغيت ناخد موعد",
+    "registre": "poli",
+    "explanationFr": "",
+    "explanationDarija": "« **بغيت ناخد موعد** » هي الصيغة القياسية في الهاتف. **ناخد** هي الكلمة اللي كتعطي المعنى الصحيح في هاد السياق."
+  },
+  {
+    "id": "ma-khdamch-correction",
+    "pattern": "\\bma khdamch\\b",
+    "flags": "gi",
+    "natural": "ما كايخدمش / عطلان",
+    "registre": "soigné",
+    "explanationFr": "",
+    "explanationDarija": "في الكتابة أو في المواقف الرسمية، **« ما كايخدمش** » أو **« عطلان** » أكثر رسمية. **عطلان** هي الكلمة اللي كتستعمل في الإدارة مثلا."
+  },
+  {
+    "id": "kanqelleb-nshri",
+    "pattern": "\\bkanqelleb nshri\\b",
+    "flags": "gi",
+    "natural": "كنقلب باش نشري",
+    "registre": "naturel",
+    "explanationFr": "",
+    "explanationDarija": "« **كنقلب باش نشري** » يبدو أكثر طبيعية من التعبير عن رغبة مباشرة في الشراء. **كنقلب** هي الكلمة اللي كتخلي الجملة عادية أكثر في السوق."
+  },
+  {
+    "id": "shal-dayra-correction",
+    "pattern": "\\bshal dayra\\b",
+    "flags": "gi",
+    "natural": "شحال دايرة / بشحال",
+    "registre": "naturel",
+    "explanationFr": "",
+    "explanationDarija": "« **شحال دايرة** » أو **« بشحال** » هي الصيغة الأكثر طبيعية للسؤال عن الثمن. **شحال** هي الكلمة اللي كتعطي المعنى الصحيح في السوق."
+  },
+  {
+    "id": "nbasi-hlag",
+    "pattern": "\\bnmchi (3and|l) l?hlag\\b",
+    "flags": "gi",
+    "natural": "نمشي نباسي عند الحلاق",
+    "registre": "naturel",
+    "explanationFr": "",
+    "explanationDarija": "تعبير **« نمشي نباسي عند الحلاق** » هو الأكثر طبيعية و شيوعا لقول « الذهاب إلى الحلاق ». **نباسي** هي الكلمة اللي كتخلي الجملة عادية أكثر في الهضرة اليومية."
+  }
+]

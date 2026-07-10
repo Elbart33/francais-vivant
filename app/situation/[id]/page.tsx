@@ -1,4 +1,4 @@
-import situationsData from "@/data/situations.json";
+import situationsData from "@/data/situations";
 import { Situation } from "@/types";
 import SituationFlowClient from "@/components/SituationFlowClient";
 

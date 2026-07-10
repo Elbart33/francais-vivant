@@ -2,13 +2,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import situationsData from "@/data/situations.json";
+import situationsData from "@/data/situations";
 import { Situation } from "@/types";
 import Icon from "@/components/Icon";
 import BeforeAfter from "@/components/BeforeAfter";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { useUserMemory } from "@/hooks/useUserMemory";
 import { pickWeightedSituation } from "@/lib/storage/userMemory";
+import { getLanguageConfig } from "@/config/languages";
 
 const situations = situationsData as Situation[];
 
@@ -28,6 +29,11 @@ function shuffleOptions(options: string[], answerIndex: number) {
 export default function SituationFlowClient({ id }: { id: string }) {
   const router = useRouter();
   const situation = useMemo(() => situations.find((s) => s.id === id), [id]);
+  const config = getLanguageConfig();
+  const t = config.situationFlow;
+  const dir = config.dir;
+  const lang = config.lang;
+  const isRtl = dir === "rtl";
 
   const [step, setStep] = useState<Step>("context");
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -63,12 +69,16 @@ export default function SituationFlowClient({ id }: { id: string }) {
   if (!situation || !shuffled) {
     return (
       <div className="rounded-2xl border border-ink/10 bg-white/60 p-6 text-center dark:border-sand/10 dark:bg-ink/40">
-        <p className="text-ink/70 dark:text-sand/70">Cette situation n'existe pas (ou plus).</p>
+        <p className="text-ink/70 dark:text-sand/70" dir={dir} lang={lang}>
+          {t.notFound}
+        </p>
         <button
           onClick={() => router.push("/")}
+          dir={dir}
+          lang={lang}
           className="mt-4 rounded-full bg-zellige px-5 py-2 text-sm font-semibold text-sand"
         >
-          Retour à l'accueil
+          {t.backHome}
         </button>
       </div>
     );
@@ -100,29 +110,39 @@ export default function SituationFlowClient({ id }: { id: string }) {
         <span className="grid h-10 w-10 place-items-center rounded-xl bg-saffron/15 text-saffronDeep dark:bg-saffron/10 dark:text-saffron">
           <Icon name={situation.icon} />
         </span>
-        <h1 className="font-display text-2xl font-semibold text-ink dark:text-sand">
+        <h1 dir={dir} lang={lang} className="font-display text-2xl font-semibold text-ink dark:text-sand">
           {situation.title}
         </h1>
       </div>
 
       {step === "context" && (
         <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <p className="text-ink/80 leading-relaxed dark:text-sand/80">{situation.context}</p>
+          <p dir={dir} lang={lang} className="text-ink/80 leading-relaxed dark:text-sand/80">
+            {situation.context}
+          </p>
           <button
             onClick={() => setStep("comprehension")}
+            dir={dir}
+            lang={lang}
             className="rounded-full bg-zellige px-5 py-2.5 text-sm font-semibold text-sand transition-transform hover:scale-[1.02]"
           >
-            Continuer
+            {t.continueBtn}
           </button>
         </div>
       )}
 
       {step === "comprehension" && (
         <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <p className="rounded-xl bg-mist p-4 italic text-ink/80 dark:bg-ink/60 dark:text-sand/80">
+          <p
+            dir={dir}
+            lang={lang}
+            className="rounded-xl bg-mist p-4 italic text-ink/80 dark:bg-ink/60 dark:text-sand/80"
+          >
             {situation.comprehension.prompt}
           </p>
-          <p className="font-medium text-ink dark:text-sand">{situation.comprehension.question}</p>
+          <p dir={dir} lang={lang} className="font-medium text-ink dark:text-sand">
+            {situation.comprehension.question}
+          </p>
           <div className="space-y-2">
             {shuffled.shuffledOptions.map((opt, i) => {
               const isCorrect = i === shuffled.newAnswerIndex;
@@ -132,7 +152,11 @@ export default function SituationFlowClient({ id }: { id: string }) {
                   key={i}
                   onClick={() => handleOptionSelect(i)}
                   disabled={showAnswer}
-                  className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
+                  dir={dir}
+                  lang={lang}
+                  className={`w-full rounded-xl border px-4 py-3 text-sm transition-colors ${
+                    isRtl ? "text-right" : "text-left"
+                  } ${
                     showAnswer && isCorrect
                       ? "animate-correctPulse border-zellige bg-zellige/10 text-zellige2 font-semibold dark:border-zellige dark:bg-zellige/20 dark:text-sand"
                       : showAnswer && isSelected && !isCorrect
@@ -146,34 +170,55 @@ export default function SituationFlowClient({ id }: { id: string }) {
             })}
           </div>
           {showAnswer && (
-            <button
-              onClick={() => setStep("input")}
-              className="rounded-full bg-zellige px-5 py-2.5 text-sm font-semibold text-sand transition-transform hover:scale-[1.02]"
-            >
-              Continuer
-            </button>
+            <div className="mt-4 rounded-xl bg-mist/50 p-3 dark:bg-ink/30">
+              {selectedOption === shuffled.newAnswerIndex ? (
+                <p dir={dir} lang={lang} className="text-sm font-medium text-zellige2 dark:text-saffron">
+                  {t.correctFeedbackPrefix} « {situation.comprehension.options[situation.comprehension.answerIndex]} »
+                </p>
+              ) : (
+                <p dir={dir} lang={lang} className="text-sm font-medium text-clay dark:text-rose">
+                  {t.incorrectFeedbackPrefix} « {situation.comprehension.options[situation.comprehension.answerIndex]} »
+                </p>
+              )}
+              <button
+                onClick={() => setStep("input")}
+                dir={dir}
+                lang={lang}
+                className="mt-3 rounded-full bg-zellige px-5 py-2.5 text-sm font-semibold text-sand transition-transform hover:scale-[1.02]"
+              >
+                {t.continueBtn}
+              </button>
+            </div>
           )}
         </div>
       )}
 
       {step === "input" && (
         <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <p className="font-medium text-ink dark:text-sand">{situation.task}</p>
-          <p className="text-sm text-ink/50 dark:text-sand/50">{situation.starterHint}</p>
+          <p dir={dir} lang={lang} className="font-medium text-ink dark:text-sand">
+            {situation.task}
+          </p>
+          <p dir={dir} lang={lang} className="text-sm text-ink/50 dark:text-sand/50">
+            {situation.starterHint}
+          </p>
           <textarea
             value={userSentence}
             onChange={(e) => setUserSentence(e.target.value)}
             rows={4}
-            placeholder="Écrivez votre réponse ici, comme vous la diriez à l'oral..."
+            placeholder={t.inputPlaceholder}
+            dir={dir}
+            lang={lang}
             style={{ colorScheme: "light" }}
             className="w-full rounded-xl border border-ink/15 bg-white p-4 text-ink placeholder:text-ink/30 transition-colors duration-200 focus:border-zellige dark:border-sand/15 dark:bg-ink/60 dark:text-sand dark:placeholder:text-sand/30 dark:focus:border-saffron"
           />
           <button
             onClick={handleAnalyze}
             disabled={!userSentence.trim() || loading}
+            dir={dir}
+            lang={lang}
             className="rounded-full bg-zellige px-5 py-2.5 text-sm font-semibold text-sand transition-transform hover:scale-[1.02] disabled:opacity-40"
           >
-            {loading ? "Analyse en cours..." : "Voir ma correction"}
+            {loading ? t.analyzeButtonLoading : t.analyzeButtonIdle}
           </button>
         </div>
       )}
@@ -182,20 +227,24 @@ export default function SituationFlowClient({ id }: { id: string }) {
         <div className="space-y-6">
           <BeforeAfter result={result} />
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-xs text-ink/40 dark:text-sand/40">
-              {autoSaved ? "Progression enregistrée" : "Enregistrement..."}
+            <span dir={dir} lang={lang} className="text-xs text-ink/40 dark:text-sand/40">
+              {autoSaved ? t.savedText : t.savingText}
             </span>
             <button
               onClick={handleAnotherSituation}
+              dir={dir}
+              lang={lang}
               className="rounded-full bg-saffron px-5 py-2.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.02]"
             >
-              Une autre situation
+              {t.anotherSituationBtn}
             </button>
             <button
               onClick={() => router.push("/")}
+              dir={dir}
+              lang={lang}
               className="rounded-full border border-ink/15 px-5 py-2.5 text-sm font-semibold text-ink/70 hover:bg-white dark:border-sand/15 dark:text-sand/70 dark:hover:bg-ink/60"
             >
-              Retour à l'accueil
+              {t.backHome}
             </button>
           </div>
         </div>

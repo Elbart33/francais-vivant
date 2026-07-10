@@ -1,6 +1,6 @@
 self.addEventListener("push", (event) => {
   const data = event.data ? event.data.json() : {};
-  const title = data.title || "Français Vivant";
+  const title = data.title || "Nouvelle notification";
   const options = {
     body: data.body || "Une nouvelle situation vous attend.",
     icon: "/icon-192.png",

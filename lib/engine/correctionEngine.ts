@@ -1,6 +1,6 @@
-import errorsData from "@/data/errors.json";
-import correctionsData from "@/data/corrections.json";
-import idiomsData from "@/data/idioms.json";
+import errorsData from "@/data/errors";
+import correctionsData from "@/data/corrections";
+import idiomsData from "@/data/idioms";
 import { AppliedNote, ErrorRule, CorrectionRule, Idiom } from "@/types";
 import { wordDiff } from "./diff";
 

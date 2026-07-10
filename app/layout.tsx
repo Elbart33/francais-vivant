@@ -3,7 +3,8 @@ import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import ThemeToggle from "@/components/ThemeToggle";
-import PushSubscribeButton from "@/components/PushSubscribeButton"; // 👉 ajoute ceci
+import PushSubscribeButton from "@/components/PushSubscribeButton";
+import { getLanguageConfig } from "@/config/languages";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -17,11 +18,12 @@ const body = Inter({
   variable: "--font-body",
 });
 
+const config = getLanguageConfig();
+
 export const metadata: Metadata = {
-  title: "Français Vivant — parlez un français qui vous ressemble",
-  description:
-    "Une pratique quotidienne pour transformer un français fonctionnel en français naturel, à partir de situations de vie réelles.",
-  manifest: "/manifest.json",
+  title: config.branding.pageTitle,
+  description: config.branding.pageDescription,
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: "/favicon-32.png",
     apple: "/apple-touch-icon-180.png",
@@ -29,12 +31,12 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Français Vivant",
+    title: config.branding.appleWebAppTitle,
   },
 };
 
 export const viewport = {
-  themeColor: "#8B0000",
+  themeColor: config.branding.themeColor,
 };
 
 export default function RootLayout({
@@ -43,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${display.variable} ${body.variable}`}>
+    <html lang={config.lang} dir={config.dir} className={`${display.variable} ${body.variable}`}>
       <body className="font-body min-h-screen antialiased">
         <script
           dangerouslySetInnerHTML={{
@@ -68,11 +70,9 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* 👉 Bouton de notification en bas de page */}
         <div className="py-10 text-center">
           <PushSubscribeButton />
         </div>
-
       </body>
     </html>
   );

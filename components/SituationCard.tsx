@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Situation } from "@/types";
 import Icon from "./Icon";
+import { getLanguageConfig } from "@/config/languages";
 
 export default function SituationCard({
   situation,
@@ -9,6 +10,10 @@ export default function SituationCard({
   situation: Situation;
   featured?: boolean;
 }) {
+  const config = getLanguageConfig();
+  const dir = config.dir;
+  const lang = config.lang;
+
   return (
     <Link
       href={`/situation/${situation.id}`}
@@ -30,6 +35,8 @@ export default function SituationCard({
             <Icon name={situation.icon} />
           </span>
           <h3
+            dir={dir}
+            lang={lang}
             className={`font-display text-xl font-semibold ${
               featured ? "text-sand" : "text-ink dark:text-sand"
             }`}
@@ -37,6 +44,8 @@ export default function SituationCard({
             {situation.title}
           </h3>
           <p
+            dir={dir}
+            lang={lang}
             className={`mt-1.5 text-sm leading-relaxed ${
               featured ? "text-sand/80" : "text-ink/60 dark:text-sand/60"
             }`}
@@ -50,7 +59,7 @@ export default function SituationCard({
           featured ? "text-sand" : "text-zellige dark:text-saffron"
         }`}
       >
-        Commencer
+        {config.situationFlow.startButtonLabel}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="transition-transform group-hover:translate-x-0.5">
           <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>

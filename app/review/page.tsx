@@ -1,6 +1,6 @@
 "use client";
-import errorsData from "@/data/errors.json";
-import correctionsData from "@/data/corrections.json";
+import errorsData from "@/data/errors";
+import correctionsData from "@/data/corrections";
 import { ErrorRule, CorrectionRule } from "@/types";
 import { useUserMemory } from "@/hooks/useUserMemory";
 import { topErrorIds } from "@/lib/storage/userMemory";
