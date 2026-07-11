@@ -1,12 +1,12 @@
 {
   "عيطتي": {
-    "meaningFr": "tu m'as appelé(e)",
-    "meaningDarija": "قاليتيلي أو ناديتيني",
+    "meaningFr": "tu as appelé",
+    "meaningDarija": "ناديتي أو اتصلتي",
     "phonetic": "[3ayti]"
   },
   "لعيادة": {
-    "meaningFr": "clinique, cabinet médical",
-    "meaningDarija": "مكان ديال الفحص الطبي أو العلاج",
+    "meaningFr": "à la clinique, au cabinet médical",
+    "meaningDarija": "لمكان ديال الفحص الطبي أو العلاج",
     "phonetic": "[l3iyada]"
   },
   "الدكتور": {
@@ -14,28 +14,86 @@
     "meaningDarija": "الطبيب أو الشخص اللي كيعالج الناس",
     "phonetic": "[d-doktor]"
   },
-  "بناني": {
-    "meaningFr": "maçon, ouvrier du bâtiment",
-    "meaningDarija": "شخص لي كيعمل فالبناء أو التعمير",
-    "phonetic": "[bnani]"
+  "تحدد": {
+    "meaningFr": "déterminer, fixer",
+    "meaningDarija": "يحدد الوقت، المكان، أو الحاجة",
+    "phonetic": "[thaddad]"
   },
-  "تحدد": {},
-  "السيمانة": {},
-  "جاوب": {},
-  "السكرتيرة": {},
-  "تأكد": {},
-  "الموعد": {},
-  "وشرح": {},
-  "بغيتي": {},
-  "تشوف": {},
-  "الطبيب": {},
-  "للعيادة": {},
-  "الإنترنت": {},
-  "فالدار": {},
-  "بالليل": {},
-  "لخدمة": {},
-  "الزبناء": {},
-  "للتقني": {},
+  "السيمانة": {
+    "meaningFr": "la semaine",
+    "meaningDarija": "الأسبوع",
+    "phonetic": "[essimana]"
+  },
+  "جاوب": {
+    "meaningFr": "répondre",
+    "meaningDarija": "جاوب يعني رد على سؤال أو كلام",
+    "phonetic": "[jawb]"
+  },
+  "السكرتيرة": {
+    "meaningFr": "secrétaire",
+    "meaningDarija": "شخص لي كايخدم ف المكتب ويكتب الرسائل ويخدم المدير",
+    "phonetic": "[s-sikritira]"
+  },
+  "تأكد": {
+    "meaningFr": "vérifier, s'assurer",
+    "meaningDarija": "تأكد يعني تحقق أو تأكد من حاجة",
+    "phonetic": "[ta2aked]"
+  },
+  "الموعد": {
+    "meaningFr": "rendez-vous",
+    "meaningDarija": "وقت أو مكان للقاء",
+    "phonetic": "[el-mou3id]"
+  },
+  "وشرح": {
+    "meaningFr": "expliquer, détailler",
+    "meaningDarija": "فهم حاجة بالتفصيل أو قالها بطريقة واضحة",
+    "phonetic": "[wachraḥ]"
+  },
+  "بغيتي": {
+    "meaningFr": "tu veux",
+    "meaningDarija": "بدك أو بغيتي",
+    "phonetic": "[bghiti]"
+  },
+  "تشوف": {
+    "meaningFr": "voir",
+    "meaningDarija": "شاف",
+    "phonetic": "[tchouf]"
+  },
+  "الطبيب": {
+    "meaningFr": "médecin",
+    "meaningDarija": "الدكتور اللي كيعالج الناس",
+    "phonetic": "[et-tabib]"
+  },
+  "للعيادة": {
+    "meaningFr": "à la clinique, au cabinet médical",
+    "meaningDarija": "إلى مكان العلاج أو الفحص الطبي",
+    "phonetic": "[l-l3yada]"
+  },
+  "فالدار": {
+    "meaningFr": "chez soi, à la maison",
+    "meaningDarija": "فالدار يعني في البيت أو عندك",
+    "phonetic": "[f ed-dar]"
+  },
+  "بالليل": {
+    "meaningFr": "la nuit",
+    "meaningDarija": "في الليل أو وقت الليل",
+    "phonetic": "[bel-lil]"
+  },
+  "لخدمة": {
+    "meaningFr": "au service",
+    "meaningDarija": "العمل اللي كنديرو باش نساعدو شي حد أو باش نخدمو حاجة",
+    "phonetic": "[lkhedma]"
+  },
+  "الزبناء": {
+    "meaningFr": "clients, acheteurs",
+    "meaningDarija": "الناس لي كايشريوا أو كايخدموا معاك",
+    "phonetic": "[zebna]"
+  },
+  "للتقني": {
+    "meaningFr": "au technicien",
+    "meaningDarija": "للمختص التقني",
+    "phonetic": "[lilteqni]"
+  },
   "تبدا": {
     "meaningFr": "commencer",
     "meaningDarija": "تبتدئ شي حاجة",
@@ -56,29 +114,121 @@
     "meaningDarija": "جربت شي حاجة",
     "phonetic": "[jrabti]"
   },
-  "ديجا": {},
-  "خدامش،": {},
-  "تدفع": {},
-  "تجديد": {},
-  "الإقامة": {},
-  "الموظف": {},
-  "توضيحات": {},
-  "الأوراق": {},
-  "اللي": {},
-  "بالضبط": {},
-  "وفوقاش": {},
-  "موظف": {},
-  "بخصوص": {},
-  "الملف": {},
-  "ديالك": {},
-  "فالسوق": {},
-  "وبغيتي": {},
-  "تشري": {},
-  "الخضرة": {},
-  "ديال": {},
-  "السيمانة،": {},
-  "المساومة": {},
-  "الثمن": {},
+  "ديجا": {
+    "meaningFr": "déjà",
+    "meaningDarija": "معناه قبل أو سابقا",
+    "phonetic": "[dija]"
+  },
+  "خدامش،": {
+    "meaningFr": "serviteur, employé de maison",
+    "meaningDarija": "خادم، شخص لي كيدير الخدمة فدار الناس",
+    "phonetic": "[khdamch]"
+  },
+  "تدفع": {
+    "meaningFr": "payer",
+    "meaningDarija": "تدي المال ديال شي حاجة",
+    "phonetic": "[tdfaʕ]"
+  },
+  "تجديد": {
+    "meaningFr": "renouvellement",
+    "meaningDarija": "تغيير أو تحديث حاجة قديمة لتبقى جديدة",
+    "phonetic": "[tajdeed]"
+  },
+  "الإقامة": {
+    "meaningFr": "résidence, séjour",
+    "meaningDarija": "الورقة اللي كتخليك تسكن فبلد معين",
+    "phonetic": "[l-iqama]"
+  },
+  "الموظف": {
+    "meaningFr": "employé, fonctionnaire",
+    "meaningDarija": "شخص لي كايخدم في إدارة أو شركة",
+    "phonetic": "[l-mwaẓẓaf]"
+  },
+  "توضيحات": {
+    "meaningFr": "explications",
+    "meaningDarija": "شرح وتفصيل",
+    "phonetic": "[tawdi7at]"
+  },
+  "الأوراق": {
+    "meaningFr": "papiers/documents",
+    "meaningDarija": "الوراق أو الوثائق اللي عندك، زيّ البطاقة أو الجواز",
+    "phonetic": "[el-awrak]"
+  },
+  "اللي": {
+    "meaningFr": "celui/celle qui, ce qui",
+    "meaningDarija": "اللي بيعبر على الشخص أو الشيء اللي",
+    "phonetic": "[lli]"
+  },
+  "بالضبط": {
+    "meaningFr": "exactement",
+    "meaningDarija": "بالتحديد أو بشكل دقيق",
+    "phonetic": "[beldabit]"
+  },
+  "وفوقاش": {
+    "meaningFr": "quand, à quel moment",
+    "meaningDarija": "وَقْتاش، فِينْ مَتى",
+    "phonetic": "[wfou9ach]"
+  },
+  "موظف": {
+    "meaningFr": "Employé",
+    "meaningDarija": "لي خدام فشي إدارة ولا شركة",
+    "phonetic": "[mowaddaf]"
+  },
+  "بخصوص": {
+    "meaningFr": "concernant, au sujet de",
+    "meaningDarija": "فيما يخص، بخصوص شي حاجة",
+    "phonetic": "[bkhoussous]"
+  },
+  "الملف": {
+    "meaningFr": "dossier/fichier",
+    "meaningDarija": "مجموعة أوراق أو معلومات متجمعة مع بعض",
+    "phonetic": "[el-melff]"
+  },
+  "ديالك": {
+    "meaningFr": "le tien / à toi",
+    "meaningDarija": "بتاعك / ديالك",
+    "phonetic": "[dyalek]"
+  },
+  "فالسوق": {
+    "meaningFr": "au marché",
+    "meaningDarija": "فالسوق يعني في السوق، المكان اللي كاين فيه البيع والشراء",
+    "phonetic": "[fes-souq]"
+  },
+  "وبغيتي": {
+    "meaningFr": "comme tu veux",
+    "meaningDarija": "كما بغيتي",
+    "phonetic": "[w bgiti]"
+  },
+  "تشري": {
+    "meaningFr": "acheter",
+    "meaningDarija": "شراء حاجة",
+    "phonetic": "[tchri]"
+  },
+  "الخضرة": {
+    "meaningFr": "légumes/verdure",
+    "meaningDarija": "الخضروات أو الخضر اللي كنديوا بيها",
+    "phonetic": "[lkhedra]"
+  },
+  "ديال": {
+    "meaningFr": "de, à (possession)",
+    "meaningDarija": "باش يدل على الملكية أو الانتماء",
+    "phonetic": "[dyal]"
+  },
+  "السيمانة،": {
+    "meaningFr": "la semaine",
+    "meaningDarija": "الأسبوع",
+    "phonetic": "[essimana]"
+  },
+  "المساومة": {
+    "meaningFr": "marchandage",
+    "meaningDarija": "التفاوض على السعر",
+    "phonetic": "[el-msawma]"
+  },
+  "الثمن": {
+    "meaningFr": "le prix",
+    "meaningDarija": "الثمن يعني السعر اللي تدفعه باش تشري حاجة",
+    "phonetic": "[eth-thaman]"
+  },
   "أنواع": {
     "meaningFr": "types, sortes",
     "meaningDarija": "أشكال أو أصناف مختلفة من حاجة",
@@ -99,28 +249,116 @@
     "meaningDarija": "تفاوضتي يعني دارتي صفقة أو حاولتي تحسني السعر",
     "phonetic": "[wtafa:wti]"
   },
-  "ضاعت": {},
-  "البنكية": {},
-  "وعيطتي": {},
-  "للبنكة": {},
-  "تبلوكّيها": {},
-  "للمستشار": {},
-  "وفين": {},
-  "تبلوكّي": {},
-  "ضرّاك": {},
-  "سنانك": {},
-  "ثلاث": {},
-  "والوجع": {},
-  "كايزيد": {},
-  "الأسنان": {},
-  "تاخد": {},
-  "مستعجل": {},
-  "وقبل": {},
-  "اقترحات": {},
-  "هادي،": {},
-  "طلبتي": {},
-  "دغيا": {},
-  "كاتسنى": {},
+  "ضاعت": {
+    "meaningFr": "perdue",
+    "meaningDarija": "ضاعت يعني ما نعرفش فين هي",
+    "phonetic": "[dˤaʕet]"
+  },
+  "البنكية": {
+    "meaningFr": "banque",
+    "meaningDarija": "المكان اللي كيديرو فيه الفلوس والعمليات المالية",
+    "phonetic": "[lbnkiya]"
+  },
+  "وعيطتي": {
+    "meaningFr": "tu as crié (féminin)",
+    "meaningDarija": "قُلتِ صوت عالي أو صرختي",
+    "phonetic": "[wa3yetti]"
+  },
+  "للبنكة": {
+    "meaningFr": "banque",
+    "meaningDarija": "محل أو مؤسسة مالية للادخار والقروض",
+    "phonetic": "[l-banka]"
+  },
+  "تبلوكّيها": {
+    "meaningFr": "la bloquer (au sens figuré ou littéral)",
+    "meaningDarija": "حاصرها أو منعها من الحركة أو من الفعل",
+    "phonetic": "[tbelwkîha]"
+  },
+  "للمستشار": {
+    "meaningFr": "pour le conseiller",
+    "meaningDarija": "للمستشار (لي كيدير نصيحة أو مساعدة)",
+    "phonetic": "[lilmostachar]"
+  },
+  "وفين": {
+    "meaningFr": "où est",
+    "meaningDarija": "وين هو أو وين هي (موقع شيء أو شخص)",
+    "phonetic": "[wfin]"
+  },
+  "تبلوكّي": {
+    "meaningFr": "bloquer, gêner",
+    "meaningDarija": "يوقف شي واحد أو يعرقله، مثلا الطريق أو شخص",
+    "phonetic": "tbelwki"
+  },
+  "ضرّاك": {
+    "meaningFr": "ton malheur, ton préjudice",
+    "meaningDarija": "الضرر اللي جاي ليك أو اللي سبّبتو",
+    "phonetic": "[ḍṛrak]"
+  },
+  "سنانك": {
+    "meaningFr": "ton couteau",
+    "meaningDarija": "سكين ديالك",
+    "phonetic": "[snanek]"
+  },
+  "ثلاث": {
+    "meaningFr": "trois",
+    "meaningDarija": "الرقم اللي بعد جوج وقبل ربعة",
+    "phonetic": "[tlata]"
+  },
+  "والوجع": {
+    "meaningFr": "la douleur, la souffrance",
+    "meaningDarija": "الوجع هو الألم أو المعاناة اللي كتحس بيها",
+    "phonetic": "[wal-wjaʕ]"
+  },
+  "كايزيد": {
+    "meaningFr": "augmenter, ajouter",
+    "meaningDarija": "زيد، ضاف شي حاجة",
+    "phonetic": "[kayzid]"
+  },
+  "الأسنان": {
+    "meaningFr": "dents",
+    "meaningDarija": "الأسنان اللي في الفم",
+    "phonetic": "[l-ɛsnan]"
+  },
+  "تاخد": {
+    "meaningFr": "prendre",
+    "meaningDarija": "تاخد يعني تأخد حاجة من مكان أو من شخص",
+    "phonetic": "[takhed]"
+  },
+  "مستعجل": {
+    "meaningFr": "pressé",
+    "meaningDarija": "لي عندو شي حاجة ضروري يعملها بسرعة",
+    "phonetic": "[msta3jel]"
+  },
+  "وقبل": {
+    "meaningFr": "et avant",
+    "meaningDarija": "و قبل هادشي",
+    "phonetic": "[w qbel]"
+  },
+  "اقترحات": {
+    "meaningFr": "suggestions",
+    "meaningDarija": "أفكار أو نصائح مقترحة",
+    "phonetic": "[iqtira7at]"
+  },
+  "هادي،": {
+    "meaningFr": "calme, tranquille",
+    "meaningDarija": "هادئ، مْسَكَّن",
+    "phonetic": "[hadi]"
+  },
+  "طلبتي": {
+    "meaningFr": "ma demande / ma requête",
+    "meaningDarija": "ما طلبت من حاجة",
+    "phonetic": "[talbti]"
+  },
+  "دغيا": {
+    "meaningFr": "maintenant, tout de suite",
+    "meaningDarija": "دلوقت، هاديك اللحظة",
+    "phonetic": "[dghya]"
+  },
+  "كاتسنى": {
+    "meaningFr": "il/elle m'a mordu(e)",
+    "meaningDarija": "عضني",
+    "phonetic": "katni"
+  },
   "سيمانة": {
     "meaningFr": "semaine",
     "meaningDarija": "الأسبوع",
@@ -141,29 +379,121 @@
     "meaningDarija": "ما فيه والو، ولا حاجة",
     "phonetic": "[walou]"
   },
-  "شركة": {},
-  "التوصيل": {},
-  "الطرد": {},
-  "التتبع": {},
-  "مازال": {},
-  "وصلش،": {},
-  "لشركة": {},
-  "المدرسة": {},
-  "علّمتك": {},
-  "وثيقة": {},
-  "ناقصة": {},
-  "تسجيل": {},
-  "ولدك": {},
-  "تعرف": {},
-  "آشمن": {},
-  "تجيبها": {},
-  "السكرتارية": {},
-  "ورقة": {},
-  "ولدك،": {},
-  "للمدرسة": {},
-  "للصالون": {},
-  "الحلاقة": {},
-  "الويكاند،": {},
+  "شركة": {
+    "meaningFr": "entreprise, société",
+    "meaningDarija": "شركة يعني بزنس أو مؤسسة تجارية",
+    "phonetic": "[charika]"
+  },
+  "التوصيل": {
+    "meaningFr": "livraison",
+    "meaningDarija": "توصيل الأشياء لحدا، مثلا طلب من المطعم",
+    "phonetic": "[tawsiil]"
+  },
+  "الطرد": {
+    "meaningFr": "expulsion, renvoi",
+    "meaningDarija": "الخروج بالقوة أو الإبعاد",
+    "phonetic": "[et-tard]"
+  },
+  "التتبع": {
+    "meaningFr": "suivi, traçage",
+    "meaningDarija": "التتبّع ديال حاجة أو شخص، يعني تتبع حركتو أو حالتو",
+    "phonetic": "[ettaba3]"
+  },
+  "مازال": {
+    "meaningFr": "toujours, encore",
+    "meaningDarija": "ما زال، لسة، مازال في الأمر",
+    "phonetic": "[mazal]"
+  },
+  "وصلش،": {
+    "meaningFr": "il/elle l'a reçu(e), il/elle est arrivé(e) à lui/elle",
+    "meaningDarija": "وصل له الحاجة أو الشخص، جاتو الرسالة أو وصل عندو",
+    "phonetic": "[wsalsh]"
+  },
+  "لشركة": {
+    "meaningFr": "entreprise, société",
+    "meaningDarija": "شركة أو مؤسسة تجارية",
+    "phonetic": "[lach-sharika]"
+  },
+  "المدرسة": {
+    "meaningFr": "école",
+    "meaningDarija": "المكان اللي كيتعلمو فيه التلاميذ",
+    "phonetic": "[lmdrasa]"
+  },
+  "علّمتك": {
+    "meaningFr": "je t'ai appris",
+    "meaningDarija": "كݣلت لك شي حاجة أو عرفتك على شي",
+    "phonetic": "[3allamtk]"
+  },
+  "وثيقة": {
+    "meaningFr": "document",
+    "meaningDarija": "ورقة رسمية أو قانونية",
+    "phonetic": "[wathiqa]"
+  },
+  "ناقصة": {
+    "meaningFr": "incomplète, manquante",
+    "meaningDarija": "شي ناقص أو ما كملش",
+    "phonetic": "[naqsa]"
+  },
+  "تسجيل": {
+    "meaningFr": "enregistrement",
+    "meaningDarija": "كتابة أو تخزين المعلومات، زوين الصوت أو الفيديو",
+    "phonetic": "tasjil"
+  },
+  "ولدك": {
+    "meaningFr": "ton fils",
+    "meaningDarija": "ابنك",
+    "phonetic": "[waldk]"
+  },
+  "تعرف": {
+    "meaningFr": "savoir, connaître",
+    "meaningDarija": "يعني تقدر تعرف حاجة أو شخص",
+    "phonetic": "[ta3ref]"
+  },
+  "آشمن": {
+    "meaningFr": "quoi, qu'est-ce que",
+    "meaningDarija": "شنو، واش (سؤال على الحاجة)",
+    "phonetic": "[achmen]"
+  },
+  "تجيبها": {
+    "meaningFr": "l'amener/la rapporter",
+    "meaningDarija": "تجيبيها يعني تجيبها معك أو تحضرها",
+    "phonetic": "[tjiibhaa]"
+  },
+  "السكرتارية": {
+    "meaningFr": "secrétariat",
+    "meaningDarija": "المكتب اللي كيديروا فيه الأوراق والاتصالات ديال المكتب",
+    "phonetic": "[s-skrétarya]"
+  },
+  "ورقة": {
+    "meaningFr": "feuille",
+    "meaningDarija": "ورقة ديال الشجرة أو الورق",
+    "phonetic": "wra9a"
+  },
+  "ولدك،": {
+    "meaningFr": "ton fils",
+    "meaningDarija": "ابنك",
+    "phonetic": "[waldk]"
+  },
+  "للمدرسة": {
+    "meaningFr": "pour l'école",
+    "meaningDarija": "للمدرسة يعني باش تروح للمدرسة أو حاجة متعلقة بالمدرسة",
+    "phonetic": "[lelmedrassa]"
+  },
+  "للصالون": {
+    "meaningFr": "salon (pièce)",
+    "meaningDarija": "غرفة الجلوس أو الاستقبال",
+    "phonetic": "[l-saloun]"
+  },
+  "الحلاقة": {
+    "meaningFr": "rasage/coiffure",
+    "meaningDarija": "الحلاقة ديال الشعر أو اللحية",
+    "phonetic": "[el-7laka]"
+  },
+  "الويكاند،": {
+    "meaningFr": "week-end",
+    "meaningDarija": "عطلة نهاية الأسبوع",
+    "phonetic": "[l-wikand]"
+  },
   "مناسبة": {
     "meaningFr": "occasion, événement",
     "meaningDarija": "حالة أو وقت خاص، مثلا عيد ميلاد أو حفلة",
@@ -189,25 +519,101 @@
     "meaningDarija": "حط شي حاجة في مكان واحد أو قرر شي",
     "phonetic": "[w7add]"
   },
-  "الوقيتة": {},
-  "كاتفضل": {},
-  "فيها": {},
-  "تحجز": {},
-  "الويكاند": {},
-  "لمطعم": {},
-  "طاولة": {},
-  "لعشاء": {},
-  "عائلي": {},
-  "وعطيه": {},
-  "سميتك": {},
-  "صالير": {},
-  "الشهر": {},
-  "وصلش": {},
-  "دازت": {},
-  "التاريخ": {},
-  "المعتاد": {},
-  "الموارد": {},
-  "البشرية": {},
+  "الوقيتة": {
+    "meaningFr": "moment précis, instant",
+    "meaningDarija": "الوقت اللي كايكون فيه حاجة معينة أو لحظة صغيرة",
+    "phonetic": "[el-wqiita]"
+  },
+  "كاتفضل": {
+    "meaningFr": "s'il te plaît / je t'en prie",
+    "meaningDarija": "ما عندكش مشكل / عفاك",
+    "phonetic": "[katfadl]"
+  },
+  "فيها": {
+    "meaningFr": "en elle, dedans, contient",
+    "meaningDarija": "فيها / فيها حاجة، يعني داخلها أو عندها",
+    "phonetic": "[fiha]"
+  },
+  "تحجز": {
+    "meaningFr": "réserver",
+    "meaningDarija": "كتمنع مكان أو وقت لشي واحد",
+    "phonetic": "[t7ezz]"
+  },
+  "الويكاند": {
+    "meaningFr": "week-end",
+    "meaningDarija": "نهاية الأسبوع",
+    "phonetic": "[l-wikend]"
+  },
+  "لمطعم": {
+    "meaningFr": "restaurant",
+    "meaningDarija": "مطعم، مكان كنديوا فيه الأكل",
+    "phonetic": "[lemta3m]"
+  },
+  "طاولة": {
+    "meaningFr": "table",
+    "meaningDarija": "طاولة للأكل أو العمل",
+    "phonetic": "tawla"
+  },
+  "لعشاء": {
+    "meaningFr": "dîner",
+    "meaningDarija": "الوجبة اللي كتاكل ف الليل",
+    "phonetic": "[le3sha]"
+  },
+  "عائلي": {
+    "meaningFr": "familial",
+    "meaningDarija": "لي خاص بالعائلة أو متعلق بيها",
+    "phonetic": "[3a2ili]"
+  },
+  "وعطيه": {
+    "meaningFr": "donne-lui",
+    "meaningDarija": "أعطيه شي حاجة",
+    "phonetic": "[wa3tih]"
+  },
+  "سميتك": {
+    "meaningFr": "ton prénom",
+    "meaningDarija": "اسمك",
+    "phonetic": "smiytk"
+  },
+  "صالير": {
+    "meaningFr": "salaire",
+    "meaningDarija": "المبلغ لي كيدفعوه للأجير أو الموظف",
+    "phonetic": "[salir]"
+  },
+  "الشهر": {
+    "meaningFr": "le mois",
+    "meaningDarija": "الشهر هو المدة اللي فيها 30 يوم أو أقل شوي",
+    "phonetic": "[ech-chhar]"
+  },
+  "وصلش": {
+    "meaningFr": "il/elle l'a reçu(e)",
+    "meaningDarija": "وصله، يعني جاتو حاجة أو وصلوه حاجة",
+    "phonetic": "[wselh]"
+  },
+  "دازت": {
+    "meaningFr": "passé(e), traversé(e)",
+    "meaningDarija": "لي دار أو عبر من مكان أو حالة",
+    "phonetic": "[dazt]"
+  },
+  "التاريخ": {
+    "meaningFr": "histoire, date",
+    "meaningDarija": "التاريخ يعني الوقت اللي فات أو الأشياء اللي صارت قبل، أو اليوم والشهر والسنة",
+    "phonetic": "[et-tarikh]"
+  },
+  "المعتاد": {
+    "meaningFr": "habituel, courant",
+    "meaningDarija": "اللي كنعرفو أو كنستعملو كل يوم",
+    "phonetic": "[l-m3tad]"
+  },
+  "الموارد": {
+    "meaningFr": "ressources",
+    "meaningDarija": "الأشياء اللي عندنا أو اللي نقدر نستعملوها",
+    "phonetic": "[el-mawarid]"
+  },
+  "البشرية": {
+    "meaningFr": "humanité",
+    "meaningDarija": "كل الناس أو الإنسانية",
+    "phonetic": "[el-bachariya]"
+  },
   "الصالير": {
     "meaningFr": "saladier",
     "meaningDarija": "صحن كبير للسلطات أو الأكل",
@@ -228,15 +634,59 @@
     "meaningDarija": "الحقيقة أو الشي اللي كاين فعلا",
     "phonetic": "[waqi']"
   },
-  "للموارد": {},
-  "عندك": {},
-  "فاتورة": {},
-  "تخلصها": {},
-  "ولكن": {},
-  "زيادة": {},
-  "تطلب": {},
-  "تأجل": {},
-  "الدفع": {},
-  "لبضعة": {},
-  "تأجيل": {}
+  "للموارد": {
+    "meaningFr": "pour les ressources",
+    "meaningDarija": "للمصادر أو للأشياء اللي نحتاجها",
+    "phonetic": "[lelmawarid]"
+  },
+  "عندك": {
+    "meaningFr": "tu as / vous avez",
+    "meaningDarija": "عندك شي حاجة أو شخص",
+    "phonetic": "[3andek]"
+  },
+  "فاتورة": {
+    "meaningFr": "facture",
+    "meaningDarija": "ورقة فيها الحساب ديال شي شراء",
+    "phonetic": "[fatoura]"
+  },
+  "تخلصها": {
+    "meaningFr": "s'en débarrasser",
+    "meaningDarija": "تخليها تخرج من يدك أو ما عادش عندك",
+    "phonetic": "[tkhallsiha]"
+  },
+  "ولكن": {
+    "meaningFr": "mais",
+    "meaningDarija": "لكن",
+    "phonetic": "wlakine"
+  },
+  "زيادة": {
+    "meaningFr": "augmentation, surplus",
+    "meaningDarija": "زيادة، زيادة في الكمية أو الحجم",
+    "phonetic": "[ziyada]"
+  },
+  "تطلب": {
+    "meaningFr": "demander",
+    "meaningDarija": "طلب حاجة من حد",
+    "phonetic": "[tlab]"
+  },
+  "تأجل": {
+    "meaningFr": "reporter, retarder",
+    "meaningDarija": "خلي شي حاجة لوقت آخر",
+    "phonetic": "[ta'ajjal]"
+  },
+  "الدفع": {
+    "meaningFr": "paiement",
+    "meaningDarija": "المبلغ لي كيتم دفعة أو الخدمة لي كيتم تسديدها",
+    "phonetic": "[ed-dfaʕ]"
+  },
+  "لبضعة": {
+    "meaningFr": "quelques, plusieurs",
+    "meaningDarija": "بعض الأشياء أو العدد القليل",
+    "phonetic": "l-baḍa"
+  },
+  "تأجيل": {
+    "meaningFr": "report, ajournement",
+    "meaningDarija": "تأخير حاجة لوقت آخر",
+    "phonetic": "[ta2jil]"
+  }
 }

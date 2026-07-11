@@ -65,7 +65,7 @@ async function fetchDefinition(word, apiKey, provider) {
     return JSON.parse(text.replace(/```json|```/g, "").trim());
   }
 
-  if (provider === "mistral") {
+if (provider === "mistral") {
     const res = await fetch("https://api.mistral.ai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -78,10 +78,19 @@ async function fetchDefinition(word, apiKey, provider) {
       }),
     });
     const data = await res.json();
-    const text = data.choices?.[0]?.message?.content || "{}";
-    return JSON.parse(text.replace(/```json|```/g, "").trim());
+    if (!res.ok) {
+      throw new Error(`Mistral API error ${res.status}: ${JSON.stringify(data)}`);
+    }
+    const text = data.choices?.[0]?.message?.content;
+    if (!text) {
+      throw new Error(`Reponse Mistral vide pour ce mot: ${JSON.stringify(data)}`);
+    }
+    const parsed = JSON.parse(text.replace(/```json|```/g, "").trim());
+    if (!parsed.meaningFr && !parsed.meaningDarija) {
+      throw new Error(`JSON valide mais vide de contenu pour ce mot`);
+    }
+    return parsed;
   }
-
   throw new Error("Aucun fournisseur configure");
 }
 
@@ -102,20 +111,29 @@ async function main() {
   }
 
   const candidates = extractCandidateWords();
-  const toGenerate = candidates.filter((w) => !existing[w]);
+  const toGenerate = candidates.filter((w) => !existing[w] || (!existing[w].meaningFr && !existing[w].meaningDarija));
 
   console.log(`${candidates.length} mots candidats, ${toGenerate.length} nouveaux (fournisseur: ${provider}).`);
 
-  for (const word of toGenerate) {
-    try {
-      console.log(`Generation: ${word}...`);
-      const def = await fetchDefinition(word, apiKey, provider);
-      existing[word] = def;
-      fs.writeFileSync(LEXICON_PATH, JSON.stringify(existing, null, 2), "utf-8");
-      await new Promise((r) => setTimeout(r, 2000));
-    } catch (err) {
-      console.error(`Echec pour "${word}": ${err.message}`);
+for (const word of toGenerate) {
+    let success = false;
+    for (let attempt = 1; attempt <= 4 && !success; attempt++) {
+      try {
+        console.log(`Generation: ${word} (tentative ${attempt})...`);
+        const def = await fetchDefinition(word, apiKey, provider);
+        existing[word] = def;
+        fs.writeFileSync(LEXICON_PATH, JSON.stringify(existing, null, 2), "utf-8");
+        success = true;
+      } catch (err) {
+        console.error(`Echec pour "${word}" (tentative ${attempt}): ${err.message}`);
+        if (attempt < 4) {
+          const wait = attempt * 8000;
+          console.log(`Attente de ${wait / 1000}s avant nouvelle tentative...`);
+          await new Promise((r) => setTimeout(r, wait));
+        }
+      }
     }
+    await new Promise((r) => setTimeout(r, 5000));
   }
 
   console.log(`Termine. Lexique sauvegarde dans ${LEXICON_PATH}`);
