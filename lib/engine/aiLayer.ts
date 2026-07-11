@@ -7,13 +7,15 @@ export interface AIAnalysisResult {
   improvementChanged: boolean;
   improvementExplanationFr: string;
   improvementExplanationDarija: string;
+  isRelevant: boolean;
+  relevanceNoteFr: string;
   provider: string;
 }
 
 /**
  * Couche IA optionnelle : correction + enrichissement en un seul appel.
- * Tente le provider configuré (Mistral / Groq / Ollama) via /api/ai.
- * Retourne null en cas d'échec (réseau, quota, provider mal configuré...) —
+ * Tente le provider configure (Mistral / Groq / Ollama) via /api/ai.
+ * Retourne null en cas d'echec (reseau, quota, provider mal configure...) -
  * les appelants doivent toujours avoir le moteur local en secours.
  * L'app est 100% fonctionnelle si cette fonction retourne toujours null.
  */
@@ -40,6 +42,8 @@ export async function tryAIAnalysis(
       improvementChanged: Boolean(data.improvementChanged),
       improvementExplanationFr: data.improvementExplanationFr || "",
       improvementExplanationDarija: data.improvementExplanationDarija || "",
+      isRelevant: data.isRelevant === undefined ? true : Boolean(data.isRelevant),
+      relevanceNoteFr: data.relevanceNoteFr || "",
       provider: data.provider || "ia",
     };
   } catch {

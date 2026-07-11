@@ -66,6 +66,8 @@ export interface AnalysisResult {
   improvementDiff: DiffSegment[];
   usedAI: boolean;
   matchedIdioms: Idiom[];
+  isRelevant: boolean;
+  relevanceNoteFr: string;
 }
 export interface SituationAttempt {
   situationId: string;

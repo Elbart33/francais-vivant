@@ -26,6 +26,8 @@ export function useAnalysis() {
       let correctionDiff = local.correctionDiff;
       let improvementDiff = local.improvementDiff;
       let usedAI = false;
+      let isRelevant = true;
+      let relevanceNoteFr = "";
 
       const ai = await tryAIAnalysis(rawSentence, situationTitle, situationTask);
       if (ai) {
@@ -61,6 +63,8 @@ export function useAnalysis() {
           : [];
         correctionDiff = wordDiff(rawSentence, corrected, "corrected");
         improvementDiff = wordDiff(corrected, improved, "improved");
+        isRelevant = ai.isRelevant;
+        relevanceNoteFr = ai.relevanceNoteFr;
       }
 
       const finalResult: AnalysisResult = {
@@ -73,6 +77,8 @@ export function useAnalysis() {
         improvementDiff,
         usedAI,
         matchedIdioms: local.matchedIdioms,
+        isRelevant,
+        relevanceNoteFr,
       };
       setResult(finalResult);
       setLoading(false);

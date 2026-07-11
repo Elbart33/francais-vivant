@@ -114,6 +114,8 @@ export async function POST(req: NextRequest) {
         improvementChanged: extractBool(raw, "improvementChanged"),
         improvementExplanationFr: extractString(raw, "improvementExplanationFr"),
         improvementExplanationDarija: extractString(raw, "improvementExplanationDarija"),
+        isRelevant: true,
+        relevanceNoteFr: "",
       };
     }
 
@@ -125,6 +127,8 @@ export async function POST(req: NextRequest) {
     const correctionExplanationDarija = parsed.correctionExplanationDarija || "";
     const improvementExplanationFr = parsed.improvementExplanationFr || "";
     const improvementExplanationDarija = parsed.improvementExplanationDarija || "";
+    const isRelevant = parsed.isRelevant === undefined ? true : Boolean(parsed.isRelevant);
+    const relevanceNoteFr = parsed.relevanceNoteFr || "";
 
     return NextResponse.json({
       ok: true,
@@ -136,6 +140,8 @@ export async function POST(req: NextRequest) {
       improvementChanged: Boolean(parsed.improvementChanged),
       improvementExplanationFr: improvementExplanationFr,
       improvementExplanationDarija: improvementExplanationDarija,
+      isRelevant: isRelevant,
+      relevanceNoteFr: relevanceNoteFr,
       provider: usedProvider,
     });
   } catch (err) {
