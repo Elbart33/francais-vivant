@@ -101,7 +101,7 @@ export default function GlossedText({
               <span
                 role="tooltip"
                 dir="ltr"
-                className="absolute left-0 top-full z-20 mt-1 w-64 rounded-xl border border-ink/10 bg-white p-3 text-sm font-normal normal-case leading-snug shadow-lg dark:border-sand/10 dark:bg-ink"
+                className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-1 w-64 max-w-[85vw] rounded-xl border border-ink/10 bg-white p-3 text-sm font-normal normal-case leading-snug shadow-lg dark:border-sand/10 dark:bg-ink"
               >
                 {match.type === "idiom" ? (
                   <>
