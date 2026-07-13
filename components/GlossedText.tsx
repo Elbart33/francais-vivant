@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import idiomsData from "@/data/idioms";
 import lexiconData from "@/data/lexique";
 
@@ -29,6 +29,47 @@ function isValidEntry(entry: LexiconEntry | undefined): entry is LexiconEntry {
   return !!entry && (!!entry.meaningFr || !!entry.meaningDarija);
 }
 
+function TooltipBubble({
+  anchorRef,
+  children,
+}: {
+  anchorRef: React.RefObject<HTMLElement>;
+  children: React.ReactNode;
+}) {
+  const bubbleRef = useRef<HTMLSpanElement>(null);
+  const [style, setStyle] = useState<React.CSSProperties>({ opacity: 0 });
+
+  useLayoutEffect(() => {
+    const anchor = anchorRef.current;
+    const bubble = bubbleRef.current;
+    if (!anchor || !bubble) return;
+
+    const anchorRect = anchor.getBoundingClientRect();
+    const bubbleWidth = bubble.offsetWidth;
+    const padding = 8;
+
+    let left = anchorRect.left + anchorRect.width / 2 - bubbleWidth / 2;
+    const maxLeft = window.innerWidth - bubbleWidth - padding;
+    left = Math.max(padding, Math.min(left, maxLeft));
+
+    const top = anchorRect.bottom + 4;
+
+    setStyle({ position: "fixed", left, top, opacity: 1 });
+  }, [anchorRef]);
+
+  return (
+    <span
+      ref={bubbleRef}
+      role="tooltip"
+      dir="ltr"
+      style={style}
+      className="z-50 w-64 max-w-[85vw] rounded-xl border border-ink/10 bg-white p-3 text-sm font-normal normal-case leading-snug shadow-lg transition-opacity dark:border-sand/10 dark:bg-ink"
+    >
+      {children}
+    </span>
+  );
+}
+
 export default function GlossedText({
   text,
   idiomIds = [],
@@ -43,6 +84,7 @@ export default function GlossedText({
   className?: string;
 }) {
   const [openKey, setOpenKey] = useState<string | null>(null);
+  const anchorRef = useRef<HTMLButtonElement>(null);
 
   const relevantIdioms = idioms
     .filter((idiom) => idiomIds.includes(idiom.id))
@@ -82,7 +124,8 @@ export default function GlossedText({
           return <span key={index}>{part}</span>;
         }
 
-        const isOpen = openKey === match.key + index;
+        const thisKey = match.key + index;
+        const isOpen = openKey === thisKey;
         const underlineStyle =
           match.type === "idiom"
             ? "decoration-saffronDeep/60 dark:decoration-saffron/60"
@@ -91,18 +134,15 @@ export default function GlossedText({
         return (
           <span key={index} className="relative inline-block">
             <button
+              ref={isOpen ? anchorRef : undefined}
               type="button"
-              onClick={() => setOpenKey(isOpen ? null : match.key + index)}
+              onClick={() => setOpenKey(isOpen ? null : thisKey)}
               className={`underline decoration-dotted underline-offset-4 ${underlineStyle}`}
             >
               {part}
             </button>
             {isOpen && (
-              <span
-                role="tooltip"
-                dir="ltr"
-                className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-1 w-64 max-w-[85vw] rounded-xl border border-ink/10 bg-white p-3 text-sm font-normal normal-case leading-snug shadow-lg dark:border-sand/10 dark:bg-ink"
-              >
+              <TooltipBubble anchorRef={anchorRef}>
                 {match.type === "idiom" ? (
                   <>
                     <span dir="rtl" className="block text-ink/80 dark:text-sand/80">
@@ -133,7 +173,7 @@ export default function GlossedText({
                     )}
                   </>
                 )}
-              </span>
+              </TooltipBubble>
             )}
           </span>
         );
