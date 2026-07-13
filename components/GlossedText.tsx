@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
 import idiomsData from "@/data/idioms";
 import lexiconData from "@/data/lexique";
 
@@ -29,15 +30,20 @@ function isValidEntry(entry: LexiconEntry | undefined): entry is LexiconEntry {
   return !!entry && (!!entry.meaningFr || !!entry.meaningDarija);
 }
 
-function TooltipBubble({
+function TooltipPortal({
   anchorRef,
   children,
 }: {
   anchorRef: React.RefObject<HTMLElement>;
   children: React.ReactNode;
 }) {
-  const bubbleRef = useRef<HTMLSpanElement>(null);
+  const bubbleRef = useRef<HTMLDivElement>(null);
   const [style, setStyle] = useState<React.CSSProperties>({ opacity: 0 });
+  const [mounted, setMounted] = useState(false);
+
+  useLayoutEffect(() => {
+    setMounted(true);
+  }, []);
 
   useLayoutEffect(() => {
     const anchor = anchorRef.current;
@@ -46,19 +52,26 @@ function TooltipBubble({
 
     const anchorRect = anchor.getBoundingClientRect();
     const bubbleWidth = bubble.offsetWidth;
+    const bubbleHeight = bubble.offsetHeight;
     const padding = 8;
 
     let left = anchorRect.left + anchorRect.width / 2 - bubbleWidth / 2;
     const maxLeft = window.innerWidth - bubbleWidth - padding;
     left = Math.max(padding, Math.min(left, maxLeft));
 
-    const top = anchorRect.bottom + 4;
+    let top = anchorRect.bottom + 4;
+    const maxTop = window.innerHeight - bubbleHeight - padding;
+    if (top > maxTop) {
+      top = anchorRect.top - bubbleHeight - 4;
+    }
 
     setStyle({ position: "fixed", left, top, opacity: 1 });
-  }, [anchorRef]);
+  }, [anchorRef, mounted]);
 
-  return (
-    <span
+  if (!mounted) return null;
+
+  return createPortal(
+    <div
       ref={bubbleRef}
       role="tooltip"
       dir="ltr"
@@ -66,7 +79,8 @@ function TooltipBubble({
       className="z-50 w-64 max-w-[85vw] rounded-xl border border-ink/10 bg-white p-3 text-sm font-normal normal-case leading-snug shadow-lg transition-opacity dark:border-sand/10 dark:bg-ink"
     >
       {children}
-    </span>
+    </div>,
+    document.body
   );
 }
 
@@ -142,7 +156,7 @@ export default function GlossedText({
               {part}
             </button>
             {isOpen && (
-              <TooltipBubble anchorRef={anchorRef}>
+              <TooltipPortal anchorRef={anchorRef}>
                 {match.type === "idiom" ? (
                   <>
                     <span dir="rtl" className="block text-ink/80 dark:text-sand/80">
@@ -173,7 +187,7 @@ export default function GlossedText({
                     )}
                   </>
                 )}
-              </TooltipBubble>
+              </TooltipPortal>
             )}
           </span>
         );
