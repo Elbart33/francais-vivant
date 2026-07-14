@@ -30,16 +30,24 @@ export default function HomePage() {
           className="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-zellige/10 blur-2xl dark:bg-zellige/10"
         />
 
-        <p className="relative inline-flex items-center gap-2 rounded-full bg-zellige/10 px-3 py-1 text-eyebrow font-semibold uppercase text-zellige dark:bg-sand/10 dark:text-saffron">
+        <p
+          dir="ltr"
+          lang="fr"
+          className="relative inline-flex items-center gap-2 rounded-full bg-zellige/10 px-3 py-1 text-eyebrow font-semibold uppercase text-zellige dark:bg-sand/10 dark:text-saffron"
+        >
           <span className="h-1.5 w-1.5 rounded-full bg-zellige dark:bg-saffron" />
           Situation du jour
         </p>
 
-        <h1 className="relative mt-4 max-w-xl font-display text-h1 font-semibold text-ink dark:text-sand sm:text-h1-lg">
+        <h1
+          dir="ltr"
+          lang="fr"
+          className="relative mt-4 max-w-xl font-display text-h1 font-semibold text-ink dark:text-sand sm:text-h1-lg"
+        >
           Aujourd&apos;hui, on parle de{" "}
-          <span className="italic text-zellige dark:text-saffron">
+          <bdi className="italic text-zellige dark:text-saffron">
             {today.title.toLowerCase()}
-          </span>
+          </bdi>
           .
         </h1>
       </section>
@@ -50,7 +58,11 @@ export default function HomePage() {
 
       <section>
         <div className="mb-5 flex items-center gap-3">
-          <p className="text-eyebrow font-semibold uppercase text-ink/40 dark:text-sand/40">
+          <p
+            dir="ltr"
+            lang="fr"
+            className="text-eyebrow font-semibold uppercase text-ink/40 dark:text-sand/40"
+          >
             Autres situations
           </p>
           <span className="h-px flex-1 bg-ink/10 dark:bg-sand/10" />

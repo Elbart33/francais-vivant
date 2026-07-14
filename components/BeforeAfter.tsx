@@ -22,18 +22,17 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
         </p>
       </div>
 
-      {result.isRelevant === false && result.relevanceNoteFr && (
-        <section className="rounded-2xl border border-saffron/40 bg-saffron/10 p-4 dark:border-saffron/30 dark:bg-saffron/10">
-          <p className="text-base leading-relaxed text-ink/80 dark:text-sand/80">
-            {result.relevanceNoteFr}
-          </p>
-        </section>
-      )}
-
       <section className="rounded-2xl border border-clay/25 bg-clay/[0.04] p-5 dark:border-rose/30 dark:bg-clay/10">
         <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-clay dark:text-rose">
           {t.correctionLabel}
         </p>
+
+        {result.isRelevant === false && result.relevanceNoteFr && (
+          <p dir="ltr" lang="fr" className="mb-3 italic text-saffronDeep dark:text-saffron">
+            {result.relevanceNoteFr}
+          </p>
+        )}
+
         <DiffView segments={result.correctionDiff} />
         {hasCorrections ? (
           <div className="mt-4 space-y-2">
