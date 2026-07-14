@@ -17,7 +17,7 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
         <p className="mb-1 text-sm font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
           {t.startingPointLabel}
         </p>
-        <p className="text-lg leading-relaxed text-ink/60 dark:text-sand/60" dir="auto">
+        <p className="text-xl sm:text-lg leading-relaxed text-ink/60 dark:text-sand/60" dir="auto">
           {result.original}
         </p>
       </div>
@@ -28,7 +28,7 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
         </p>
 
         {result.isRelevant === false && result.relevanceNoteFr && (
-          <p dir="ltr" lang="fr" className="mb-3 italic text-saffronDeep dark:text-saffron">
+          <p dir="ltr" lang="fr" className="mb-3 text-lg sm:text-base italic text-saffronDeep dark:text-saffron">
             {result.relevanceNoteFr}
           </p>
         )}
@@ -46,7 +46,7 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
             ))}
           </div>
         ) : (
-          <p dir={dir} lang={lang} className="mt-3 text-base text-ink/50 dark:text-sand/50">
+          <p dir={dir} lang={lang} className="mt-3 text-lg sm:text-base text-ink/50 dark:text-sand/50">
             {t.noErrorMessage}
           </p>
         )}
@@ -69,7 +69,7 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
             ))}
           </div>
         ) : (
-          <p dir={dir} lang={lang} className="mt-3 text-base text-ink/50 dark:text-sand/50">
+          <p dir={dir} lang={lang} className="mt-3 text-lg sm:text-base text-ink/50 dark:text-sand/50">
             {t.alreadyNaturalMessage}
           </p>
         )}
@@ -83,11 +83,11 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
           <ul className="space-y-3">
             {result.matchedIdioms.map((idiom) => (
               <li key={idiom.id}>
-                <p className="font-display text-lg font-semibold text-ink dark:text-sand" dir="auto">
+                <p className="font-display text-xl sm:text-lg font-semibold text-ink dark:text-sand" dir="auto">
                   {idiom.expression}
                 </p>
-                <p className="text-base text-ink/70 dark:text-sand/70" dir="auto">{idiom.meaningFr}</p>
-                <p className="text-base italic text-ink/50 dark:text-sand/50" dir="auto">« {idiom.example} »</p>
+                <p className="text-lg sm:text-base text-ink/70 dark:text-sand/70" dir="auto">{idiom.meaningFr}</p>
+                <p className="text-lg sm:text-base italic text-ink/50 dark:text-sand/50" dir="auto">« {idiom.example} »</p>
               </li>
             ))}
           </ul>
