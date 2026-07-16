@@ -138,16 +138,20 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
       {step === "comprehension" && (
         <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <p
+          <GlossedText
+            text={situation.comprehension.prompt}
+            idiomIds={situation.idiomIds}
             dir={dir}
             lang={lang}
             className="rounded-xl bg-mist p-4 text-lg sm:text-base italic text-ink/80 dark:bg-ink/60 dark:text-sand/80"
-          >
-            {situation.comprehension.prompt}
-          </p>
-          <p dir={dir} lang={lang} className="text-lg sm:text-base font-medium text-ink dark:text-sand">
-            {situation.comprehension.question}
-          </p>
+          />
+          <GlossedText
+            text={situation.comprehension.question}
+            idiomIds={situation.idiomIds}
+            dir={dir}
+            lang={lang}
+            className="text-lg sm:text-base font-medium text-ink dark:text-sand"
+          />
           <div className="space-y-2">
             {shuffled.shuffledOptions.map((opt, i) => {
               const isCorrect = i === shuffled.newAnswerIndex;
