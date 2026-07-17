@@ -116,6 +116,7 @@ export async function POST(req: NextRequest) {
         improvementExplanationDarija: extractString(raw, "improvementExplanationDarija"),
         isRelevant: true,
         relevanceNoteFr: "",
+        correctionCategory: extractString(raw, "correctionCategory") || "aucune",
       };
     }
 
@@ -123,25 +124,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, reason: "no_content" });
     }
 
-    const correctionExplanationFr = parsed.correctionExplanationFr || "";
-    const correctionExplanationDarija = parsed.correctionExplanationDarija || "";
-    const improvementExplanationFr = parsed.improvementExplanationFr || "";
-    const improvementExplanationDarija = parsed.improvementExplanationDarija || "";
-    const isRelevant = parsed.isRelevant === undefined ? true : Boolean(parsed.isRelevant);
-    const relevanceNoteFr = parsed.relevanceNoteFr || "";
-
     return NextResponse.json({
       ok: true,
       corrected: parsed.corrected || sentence,
       correctionChanged: Boolean(parsed.correctionChanged),
-      correctionExplanationFr: correctionExplanationFr,
-      correctionExplanationDarija: correctionExplanationDarija,
+      correctionExplanationFr: parsed.correctionExplanationFr || "",
+      correctionExplanationDarija: parsed.correctionExplanationDarija || "",
       improved: parsed.improved || parsed.corrected || sentence,
       improvementChanged: Boolean(parsed.improvementChanged),
-      improvementExplanationFr: improvementExplanationFr,
-      improvementExplanationDarija: improvementExplanationDarija,
-      isRelevant: isRelevant,
-      relevanceNoteFr: relevanceNoteFr,
+      improvementExplanationFr: parsed.improvementExplanationFr || "",
+      improvementExplanationDarija: parsed.improvementExplanationDarija || "",
+      isRelevant: parsed.isRelevant === undefined ? true : Boolean(parsed.isRelevant),
+      relevanceNoteFr: parsed.relevanceNoteFr || "",
+      correctionCategory: parsed.correctionCategory || "aucune",
       provider: usedProvider,
     });
   } catch (err) {

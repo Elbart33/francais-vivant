@@ -9,6 +9,7 @@ export interface AIAnalysisResult {
   improvementExplanationDarija: string;
   isRelevant: boolean;
   relevanceNoteFr: string;
+  correctionCategory: string;
   provider: string;
 }
 
@@ -44,6 +45,7 @@ export async function tryAIAnalysis(
       improvementExplanationDarija: data.improvementExplanationDarija || "",
       isRelevant: data.isRelevant === undefined ? true : Boolean(data.isRelevant),
       relevanceNoteFr: data.relevanceNoteFr || "",
+      correctionCategory: data.correctionCategory || "aucune",
       provider: data.provider || "ia",
     };
   } catch {

@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useState } from "react";
-import { AnalysisResult, AppliedNote } from "@/types";
+import { AnalysisResult, AppliedNote, CorrectionCategory } from "@/types";
 import { runLocalPipeline } from "@/lib/engine/correctionEngine";
 import { tryAIAnalysis } from "@/lib/engine/aiLayer";
 import { wordDiff } from "@/lib/engine/diff";
@@ -28,6 +28,7 @@ export function useAnalysis() {
       let usedAI = false;
       let isRelevant = true;
       let relevanceNoteFr = "";
+      let correctionCategory: CorrectionCategory = "aucune";
 
       const ai = await tryAIAnalysis(rawSentence, situationTitle, situationTask);
       if (ai) {
@@ -65,6 +66,7 @@ export function useAnalysis() {
         improvementDiff = wordDiff(corrected, improved, "improved");
         isRelevant = ai.isRelevant;
         relevanceNoteFr = ai.relevanceNoteFr;
+        correctionCategory = (ai.correctionCategory as CorrectionCategory) || "aucune";
       }
 
       const finalResult: AnalysisResult = {
@@ -79,6 +81,7 @@ export function useAnalysis() {
         matchedIdioms: local.matchedIdioms,
         isRelevant,
         relevanceNoteFr,
+        correctionCategory,
       };
       setResult(finalResult);
       setLoading(false);

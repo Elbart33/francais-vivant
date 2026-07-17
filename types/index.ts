@@ -48,6 +48,14 @@ export interface DiffSegment {
   kind: DiffKind;
   note?: string;
 }
+export type CorrectionCategory =
+  | "genre"
+  | "nombre"
+  | "conjugaison"
+  | "phonologie"
+  | "orthographe"
+  | "lexique"
+  | "aucune";
 export interface AppliedNote {
   ruleId: string;
   before: string;
@@ -68,6 +76,7 @@ export interface AnalysisResult {
   matchedIdioms: Idiom[];
   isRelevant: boolean;
   relevanceNoteFr: string;
+  correctionCategory: CorrectionCategory;
 }
 export interface SituationAttempt {
   situationId: string;
@@ -77,6 +86,7 @@ export interface SituationAttempt {
   improved: string;
   correctionNotes: AppliedNote[];
   improvementNotes: AppliedNote[];
+  correctionCategory?: CorrectionCategory;
 }
 export interface UserMemory {
   attempts: SituationAttempt[];
