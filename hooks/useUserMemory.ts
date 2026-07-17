@@ -14,6 +14,7 @@ export function useUserMemory() {
   const saveAttempt = useCallback((attempt: SituationAttempt) => {
     const updated = recordAttempt(attempt);
     setMemory({ ...updated });
+    return updated;
   }, []);
 
   const clear = useCallback(() => {

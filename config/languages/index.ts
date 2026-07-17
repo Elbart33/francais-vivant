@@ -1,6 +1,12 @@
 import { frConfig } from "./fr";
 import { arConfig } from "./ar";
 
+export interface ReinforcementTip {
+  title: string;
+  tip: string;
+  example: string;
+}
+
 export interface LanguageConfig {
   siteName: string;
   dir: "ltr" | "rtl";
@@ -35,6 +41,9 @@ export interface LanguageConfig {
     improvedLabel: string;
     alreadyNaturalMessage: string;
     toRememberLabel: string;
+    navToday: string;
+    navReview: string;
+    navProgress: string;
   };
   branding: {
     pageTitle: string;
@@ -51,6 +60,7 @@ export interface LanguageConfig {
     geminiPrimary: string;
     geminiFallback: string;
   };
+  reinforcementTips: Record<string, ReinforcementTip>;
 }
 
 const configs: Record<string, LanguageConfig> = {

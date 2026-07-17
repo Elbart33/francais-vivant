@@ -91,6 +91,7 @@ export interface SituationAttempt {
 export interface UserMemory {
   attempts: SituationAttempt[];
   errorFrequency: Record<string, number>;
+  categoryFrequency: Record<string, number>;
   situationsCompleted: string[];
   streakDays: number;
   lastVisit: string | null;

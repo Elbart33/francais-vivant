@@ -6,9 +6,10 @@ import situationsData from "@/data/situations";
 import { Situation } from "@/types";
 import Icon from "@/components/Icon";
 import BeforeAfter from "@/components/BeforeAfter";
+import ReinforcementTip from "@/components/ReinforcementTip";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { useUserMemory } from "@/hooks/useUserMemory";
-import { pickWeightedSituation } from "@/lib/storage/userMemory";
+import { pickWeightedSituation, shouldReinforce } from "@/lib/storage/userMemory";
 import { getLanguageConfig } from "@/config/languages";
 import GlossedText from "@/components/GlossedText";
 
@@ -41,6 +42,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
   const [showAnswer, setShowAnswer] = useState(false);
   const [userSentence, setUserSentence] = useState("");
   const [autoSaved, setAutoSaved] = useState(false);
+  const [showTip, setShowTip] = useState(false);
 
   const { result, loading, analyze } = useAnalysis();
   const { memory, saveAttempt } = useUserMemory();
@@ -55,7 +57,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
   useEffect(() => {
     if (!result || autoSaved || !situation) return;
-    saveAttempt({
+    const updated = saveAttempt({
       situationId: situation.id,
       timestamp: Date.now(),
       original: result.original,
@@ -63,8 +65,12 @@ export default function SituationFlowClient({ id }: { id: string }) {
       improved: result.improved,
       correctionNotes: result.correctionNotes,
       improvementNotes: result.improvementNotes,
+      correctionCategory: result.correctionCategory,
     });
     setAutoSaved(true);
+    if (updated && shouldReinforce(updated, result.correctionCategory)) {
+      setShowTip(true);
+    }
   }, [result, autoSaved, situation, saveAttempt]);
 
   if (!situation || !shuffled) {
@@ -238,6 +244,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
       {step === "result" && result && (
         <div className="space-y-6">
+          {showTip && <ReinforcementTip category={result.correctionCategory} />}
           <BeforeAfter result={result} />
           <div className="flex flex-wrap items-center gap-3">
             <span dir={dir} lang={lang} className="text-xs text-ink/40 dark:text-sand/40">

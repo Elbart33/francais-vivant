@@ -1,10 +1,11 @@
-import { SituationAttempt, UserMemory } from "@/types";
+import { SituationAttempt, UserMemory, CorrectionCategory } from "@/types";
 
 const STORAGE_KEY = "fv_user_memory_v1";
 
 const emptyMemory: UserMemory = {
   attempts: [],
   errorFrequency: {},
+  categoryFrequency: {},
   situationsCompleted: [],
   streakDays: 0,
   lastVisit: null,
@@ -35,6 +36,10 @@ export function recordAttempt(attempt: SituationAttempt): UserMemory {
   }
   for (const note of [...attempt.correctionNotes, ...attempt.improvementNotes]) {
     memory.errorFrequency[note.ruleId] = (memory.errorFrequency[note.ruleId] || 0) + 1;
+  }
+  if (attempt.correctionCategory && attempt.correctionCategory !== "aucune") {
+    memory.categoryFrequency[attempt.correctionCategory] =
+      (memory.categoryFrequency[attempt.correctionCategory] || 0) + 1;
   }
   if (!memory.situationsCompleted.includes(attempt.situationId)) {
     memory.situationsCompleted.push(attempt.situationId);
@@ -84,6 +89,17 @@ export function recentWeakRuleIds(memory: UserMemory, windowSize = 12): { ruleId
   return Object.entries(freq)
     .sort((a, b) => b[1] - a[1])
     .map(([ruleId, count]) => ({ ruleId, count }));
+}
+
+/**
+ * Determine si on doit afficher un encart de renforcement pour cette categorie.
+ * Se declenche a chaque multiple de 3 occurrences (3, 6, 9...) pour eviter la lassitude
+ * si la meme categorie revient trop souvent d'affilee.
+ */
+export function shouldReinforce(memory: UserMemory, category: CorrectionCategory): boolean {
+  if (category === "aucune") return false;
+  const count = memory.categoryFrequency[category] || 0;
+  return count > 0 && count % 3 === 0;
 }
 
 function consecutiveCount(memory: UserMemory, situationId: string): number {

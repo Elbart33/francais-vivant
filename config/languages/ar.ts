@@ -106,4 +106,36 @@ Si tu n'as rien changé, laisse les explications vides ("").
 Réponds uniquement avec ce format JSON, sans texte ni markdown autour :
 {"isRelevant": true, "relevanceNoteFr": "", "corrected": "...", "correctionChanged": true, "correctionExplanationDarija": "...", "correctionExplanationFr": "...", "improved": "...", "improvementChanged": true, "improvementExplanationDarija": "...", "improvementExplanationFr": "..."}`,
   },
+  reinforcementTips: {
+    genre: {
+      title: "المذكر و المؤنث",
+      tip: "كل كلمة فالعربية عندها جنس ثابت خاصك تحفظو مع الكلمة نفسها.",
+      example: "مثال: القطة (مؤنث) / القط (مذكر)",
+    },
+    nombre: {
+      title: "المفرد و الجمع",
+      tip: "الجمع كايتبدل بشكل ديال الكلمة، خاصك تحفظ الشكل ديالو.",
+      example: "مثال: كتاب و الجمع كتب",
+    },
+    conjugaison: {
+      title: "تصريف الأفعال",
+      tip: "كل ضمير عندو الشكل ديالو ديال الفعل، خاصك تتمرن عليه.",
+      example: "مثال: أنا كنكتب، أنت كتكتب",
+    },
+    phonologie: {
+      title: "الأصوات",
+      tip: "بعض الحروف العربية صعيبين على الناطقين بالفرنسية، خاصك تسمع الفرق مزيان.",
+      example: "",
+    },
+    orthographe: {
+      title: "الكتابة",
+      tip: "بعض الكلمات كتكتب بشكل مختلف على النطق، راجعها بانتظام.",
+      example: "",
+    },
+    lexique: {
+      title: "الكلمة المناسبة",
+      tip: "بعض التعابير خاصها تتعلم كيفما هي، بلا ترجمة حرفية.",
+      example: "",
+    },
+  },
 };

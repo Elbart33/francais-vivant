@@ -81,7 +81,7 @@ Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactem
    - كل تغيير مرقم (1., 2., 3., الخ — استعمل \\n باش تفصل السطور فJSON).
    - الكلمة أو مجموعة الكلمات اللي تبدلات تكون بين نجمتين.
    - بعد كل كلمة بين نجمتين، زيد السبب فكلمتين ولا تلاتة، مختصر بزاف.
-   - إلا كانت correctionCategory هي "genre" ولا "nombre"، خاص الشرح بالدارجة يوضح بوضوح علاش خاص يكون التذكير/التأنيث ولا المفرد/الجمع صحيح فهاد الحالة بالضبط — ماشي غير تسمية الغلط، ولكن تفسير قصير كيفاش تعرف الجنس ولا العدد ديال الكلمة.
+   - إلا كانت correctionCategory هي "genre" ولا "nombre"، خاص الشرح بالدارجة يوضح بوضوح علاش خاص يكون التذكير/التأنيث ولا المفرد/الجمع صحيح فهاد الحالة بالضبط.
    - إلا كان غير تغيير واحد، نقطة وحدة كافية.
    - إلا ما بدلتيش حاجة فمرحلة، خلي الشرحين ديالها فارغين.
    - ما تهضرش على الملاءمة فهاد الشروحات.
@@ -103,7 +103,7 @@ Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactem
   "corrected": "...",
   "correctionChanged": true,
   "correctionCategory": "genre",
-  "correctionExplanationDarija": "1. **كلمة** — سبب قصير مع تفسير الجنس/العدد إلا كان ضروري",
+  "correctionExplanationDarija": "1. **كلمة** — سبب قصير",
   "improved": "...",
   "improvementChanged": true,
   "improvementExplanationDarija": "..."
@@ -118,7 +118,7 @@ Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactem
 2. تصحيح الجملة من ناحية القواعد و الصرف و التذكير و التأنيث — غير الأخطاء الحقيقية، ما تخترعش كلمات.
 3. تحسين الجملة باش تكون أكثر طبيعية فالمحكية (شفهية)، بلا ما تبدل المعنى.
 4. صنف الغلطة الأساسية فcorrectionCategory: "genre", "nombre", "conjugaison", "phonologie", "orthographe", "lexique", ولا "aucune".
-5. لكل تغيير دار به، زيدو مرقم (1., 2., الخ) فالشرح بالدارجة، مع الكلمة المتغيرة بين نجمتين متبوعة بسبب قصير. إلا كانت correctionCategory هي genre ولا nombre، وضح علاش بوضوح.
+5. لكل تغيير دار به، زيدو مرقم (1., 2., الخ) فالشرح بالدارجة، مع الكلمة المتغيرة بين نجمتين متبوعة بسبب قصير.
 
 إذا ما بدلتيش حاجة، خلي الشرح فارغ و correctionCategory="aucune".
 
@@ -134,5 +134,37 @@ Réponds STRICTEMENT en JSON valide, sans texte ni markdown autour, avec exactem
     manifestShortName: "Fr. Vivant",
     manifestDescription: "Une pratique quotidienne pour transformer un français fonctionnel en français naturel.",
     manifestBgColor: "#F3ECDC",
+  },
+  reinforcementTips: {
+    genre: {
+      title: "Le féminin et le masculin",
+      tip: "Chaque nom a un genre fixe qu'il faut apprendre avec le mot lui-même. Mémorisez le mot avec son article plutôt que le mot seul.",
+      example: "une information (pas un information) / le problème (pas la problème)",
+    },
+    nombre: {
+      title: "Le singulier et le pluriel",
+      tip: "Le pluriel s'entend surtout par le déterminant (le, les, un, des), pas toujours par la fin du mot. Écoutez bien le déterminant.",
+      example: "le problème devient les problèmes / une information devient des informations",
+    },
+    conjugaison: {
+      title: "La conjugaison des verbes",
+      tip: "Chaque personne a sa propre terminaison de verbe. Les verbes les plus utilisés ont des formes irrégulières à mémoriser par coeur.",
+      example: "je peux et non je peut / je sais et non je c'est",
+    },
+    phonologie: {
+      title: "Les sons proches comme B et P",
+      tip: "Le son P est souvent confondu avec B. P se prononce sans faire vibrer la gorge, B avec vibration.",
+      example: "police et non bolice / parking et non barking",
+    },
+    orthographe: {
+      title: "L'orthographe",
+      tip: "Certains mots s'écrivent différemment de leur prononciation. Revoyez-les régulièrement à l'écrit.",
+      example: "ça va, avec une cédille, et non sa va",
+    },
+    lexique: {
+      title: "Le bon mot pour la bonne idée",
+      tip: "Un mot peut exister en français sans s'utiliser dans le même contexte qu'en darija. Apprenez ces expressions telles quelles.",
+      example: "chez le médecin, pas au médecin, qui se dit pour un lieu et non une personne",
+    },
   },
 };
