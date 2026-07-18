@@ -6,7 +6,7 @@ export const arConfig = {
     logo: { type: "letter" as const, char: "أ", bgColor: "#8B0000" },
   },
   coachNote: {
-    primary: "darija" as const,
+    primary: "fr" as const,
     appointButtonLabel: "Voir l'explication en français",
     appointButtonIcon: "🇫🇷",
     appointButtonDir: "ltr" as const,
@@ -70,25 +70,23 @@ Ta mission, dans l'ordre :
 
 3. AMÉLIORATION — à partir de la version corrigée, propose une reformulation plus naturelle en darija parlée, sans changer le sens. Si la phrase corrigée est déjà naturelle, "improved" doit être identique à "corrected".
 
-4. EXPLICATIONS DÉTAILLÉES — pour la correction ET pour l'amélioration, fournis DEUX explications distinctes (une en darija, une en français) qui listent CHAQUE changement effectué, sous forme numérotée :
+4. EXPLICATIONS EN FRANÇAIS UNIQUEMENT — l'utilisateur est francophone, donc toute explication doit être rédigée en français, jamais en darija ou en arabe. Pour la correction ET pour l'amélioration, fournis une explication qui liste CHAQUE changement effectué, sous forme numérotée :
    - Chaque changement est numéroté (1., 2., 3., etc. — utilise \\n pour séparer les lignes dans le texte JSON).
-   - Le mot ou groupe de mots modifié est mis en gras avec des doubles astérisques.
-   - Après chaque mot en gras, ajoute la raison du changement en 2 à 5 mots maximum, très synthétique (exemple : "accord du féminin", "verbe mal conjugué", "mot plus naturel à l'oral").
-   - S'il n'y a qu'un seul changement, un seul point numéroté suffit — inutile d'en inventer d'autres.
-   - Si tu n'as rien changé à une passe, laisse les deux explications correspondantes vides ("").
-   - Ne mentionne PAS la pertinence de la réponse dans ces explications de correction/amélioration : ce sujet est traité uniquement par isRelevant/relevanceNoteFr au point 1.
+   - Le mot ou groupe de mots arabe concerné est cité tel quel en écriture arabe, entouré de doubles astérisques (exemple : **كلمة**) — ne translittère jamais un mot arabe en alphabet latin.
+   - Après chaque mot cité, ajoute la raison du changement en français, en 2 à 5 mots maximum, très synthétique (exemple : "accord du féminin", "verbe mal conjugué").
+   - S'il n'y a qu'un seul changement, un seul point numéroté suffit.
+   - Si tu n'as rien changé à une passe, laisse l'explication correspondante vide ("").
+   - Ne mentionne PAS la pertinence de la réponse dans ces explications : ce sujet est traité uniquement par isRelevant/relevanceNoteFr au point 1.
 
-Format JSON exact attendu :
+Format JSON exact attendu, avec UNIQUEMENT des champs en français pour les explications (pas de champ darija) :
 {
   "isRelevant": true,
   "relevanceNoteFr": "",
   "corrected": "الجملة المصححة",
   "correctionChanged": true,
-  "correctionExplanationDarija": "1. **كلمة** — سبب قصير\\n2. **كلمة أخرى** — سبب قصير",
-  "correctionExplanationFr": "1. **mot** — raison courte\\n2. **autre mot** — raison courte",
+  "correctionExplanationFr": "1. **كلمة** — raison courte\\n2. **كلمة أخرى** — raison courte",
   "improved": "الجملة المحسنة",
   "improvementChanged": true,
-  "improvementExplanationDarija": "...",
   "improvementExplanationFr": "..."
 }
 
@@ -99,12 +97,12 @@ Ta mission :
 1. Détermine "isRelevant" (true/false) : la phrase répond-elle à la tâche demandée ? Si non, remplis "relevanceNoteFr" avec une phrase courte et bienveillante en français expliquant pourquoi. Si oui, laisse relevanceNoteFr vide.
 2. Corrige la phrase (grammaire, conjugaison, genre).
 3. Améliore la phrase pour qu'elle soit plus naturelle en darija parlée.
-4. Pour chaque changement effectué, liste-le en numéroté (1., 2., etc.) dans l'explication en darija ET dans l'explication en français, avec le mot modifié en gras (doubles astérisques) suivi d'une raison très courte (2 à 5 mots). Ne parle pas de pertinence dans ces explications.
+4. L'utilisateur est francophone : rédige l'explication UNIQUEMENT en français, jamais en darija. Pour chaque changement, liste-le en numéroté (1., 2., etc.), avec le mot arabe concerné cité en écriture arabe entre doubles astérisques, suivi d'une raison courte en français (2 à 5 mots). Ne parle pas de pertinence dans cette explication.
 
-Si tu n'as rien changé, laisse les explications vides ("").
+Si tu n'as rien changé, laisse l'explication vide.
 
-Réponds uniquement avec ce format JSON, sans texte ni markdown autour :
-{"isRelevant": true, "relevanceNoteFr": "", "corrected": "...", "correctionChanged": true, "correctionExplanationDarija": "...", "correctionExplanationFr": "...", "improved": "...", "improvementChanged": true, "improvementExplanationDarija": "...", "improvementExplanationFr": "..."}`,
+Réponds uniquement avec ce format JSON, sans texte ni markdown autour, sans aucun champ darija :
+{"isRelevant": true, "relevanceNoteFr": "", "corrected": "...", "correctionChanged": true, "correctionExplanationFr": "...", "improved": "...", "improvementChanged": true, "improvementExplanationFr": "..."}`,
   },
   reinforcementTips: {
     genre: {
