@@ -26,15 +26,13 @@ export default function ProgressVisual({
   const dayLabels = getLastSevenDayLabels();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8" dir="ltr" lang="fr">
       <div>
         <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
           Votre régularité
         </p>
         <div className="flex items-end gap-3">
           {dayLabels.map((label, i) => {
-            // Les jours de streak sont comptés à partir d'aujourd'hui en remontant.
-            // i=6 correspond à aujourd'hui (dernier élément du tableau).
             const daysAgo = 6 - i;
             const lit = daysAgo < streakDays;
             const isToday = daysAgo === 0;

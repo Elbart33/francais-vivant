@@ -6,11 +6,15 @@ export default function ProgressPage() {
   const { memory, clear } = useUserMemory();
 
   if (!memory) {
-    return <p className="text-ink/50 dark:text-sand/50">Chargement...</p>;
+    return (
+      <p dir="ltr" lang="fr" className="text-ink/50 dark:text-sand/50">
+        Chargement...
+      </p>
+    );
   }
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10" dir="ltr" lang="fr">
       <section>
         <p className="text-sm font-semibold uppercase tracking-wide text-zellige dark:text-saffron">
           Mon chemin
