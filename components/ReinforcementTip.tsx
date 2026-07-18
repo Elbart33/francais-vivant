@@ -17,7 +17,7 @@ export default function ReinforcementTip({ category }: { category: CorrectionCat
 
   return (
     <div className="mt-3 rounded-xl border border-saffron/30 bg-saffron/10 p-4 dark:border-saffron/30 dark:bg-saffron/10">
-      <p dir="rtl" lang="ar" className="text-sm leading-relaxed text-ink/80 dark:text-sand/80">
+      <p dir="rtl" lang="ar" className="text-lg sm:text-base leading-relaxed text-ink/80 dark:text-sand/80">
         {tip}
       </p>
     </div>

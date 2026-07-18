@@ -76,7 +76,7 @@ function TooltipPortal({
       role="tooltip"
       dir="ltr"
       style={style}
-      className="z-50 w-64 max-w-[85vw] rounded-xl border border-ink/10 bg-white p-3 text-sm font-normal normal-case leading-snug shadow-lg transition-opacity dark:border-sand/10 dark:bg-ink"
+      className="z-50 w-64 max-w-[85vw] rounded-xl border border-ink/10 bg-white p-3 text-lg sm:text-base font-normal normal-case leading-snug shadow-lg transition-opacity dark:border-sand/10 dark:bg-ink"
     >
       {children}
     </div>,
