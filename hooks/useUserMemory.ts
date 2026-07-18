@@ -9,6 +9,13 @@ export function useUserMemory() {
 
   useEffect(() => {
     setMemory(loadMemory());
+
+    // Demande a iOS/Safari de traiter le stockage local comme persistant,
+    // pour reduire (sans garantir) le risque de perte de la progression
+    // sur les PWA ajoutees a l'ecran d'accueil.
+    if (typeof navigator !== "undefined" && navigator.storage && navigator.storage.persist) {
+      navigator.storage.persist().catch(() => {});
+    }
   }, []);
 
   const saveAttempt = useCallback((attempt: SituationAttempt) => {
