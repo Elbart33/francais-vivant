@@ -11,6 +11,7 @@ import { useAnalysis } from "@/hooks/useAnalysis";
 import { useUserMemory } from "@/hooks/useUserMemory";
 import { pickWeightedSituation, shouldReinforce, scaffoldingLevel } from "@/lib/storage/userMemory";
 import { CorrectionCategory } from "@/types";
+import { wordCategoryMap } from "@/lib/data/wordCategoryMap";
 import { getLanguageConfig } from "@/config/languages";
 import GlossedText from "@/components/GlossedText";
 
@@ -60,14 +61,22 @@ export default function SituationFlowClient({ id }: { id: string }) {
     return scaffoldingLevel(memory, situation.id, dominantCategory);
   }, [memory, situation, dominantCategory]);
 
-  const visibleWordBank = useMemo(() => {
+  const prioritizedWordBank = useMemo(() => {
     if (!situation?.wordBank || situation.wordBank.length === 0) return [];
+    if (dominantCategory === "aucune") return situation.wordBank;
+    const matching = situation.wordBank.filter((w) => wordCategoryMap[w] === dominantCategory);
+    const rest = situation.wordBank.filter((w) => wordCategoryMap[w] !== dominantCategory);
+    return [...matching, ...rest];
+  }, [situation, dominantCategory]);
+
+  const visibleWordBank = useMemo(() => {
+    if (prioritizedWordBank.length === 0) return [];
     if (currentScaffoldingLevel === "minimal") return [];
     if (currentScaffoldingLevel === "reduced") {
-      return situation.wordBank.slice(0, Math.ceil(situation.wordBank.length / 2));
+      return prioritizedWordBank.slice(0, Math.ceil(prioritizedWordBank.length / 2));
     }
-    return situation.wordBank;
-  }, [situation, currentScaffoldingLevel]);
+    return prioritizedWordBank;
+  }, [prioritizedWordBank, currentScaffoldingLevel]);
 
   const shuffled = useMemo(() => {
     if (!situation) return null;
