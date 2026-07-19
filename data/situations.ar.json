@@ -17,7 +17,22 @@
     },
     "task": "جاوب السكرتيرة باش تأكد الموعد وشرح علاش بغيتي تشوف الطبيب.",
     "starterHint": "تقدر تبدا بـ: « أه، ... »",
-    "idiomIds": ["akhd-maw'id", "fih-l7al"]
+    "idiomIds": [
+      "akhd-maw'id",
+      "fih-l7al"
+    ],
+    "dialogueOpener": {
+      "speaker": "السكرتيرة",
+      "line": "عيادة الدكتور بناني، صباح الخير، شنو نقدر ندير ليك؟"
+    },
+    "wordBank": [
+      "موعد",
+      "خميس",
+      "وجع",
+      "يشوف",
+      "يأكد",
+      "يناسب"
+    ]
   },
   {
     "id": "telephone-panne",
@@ -37,7 +52,22 @@
     },
     "task": "شرح للتقني فوقاش تبدا الإنترنت ما خداماش وشنو جربتي ديجا.",
     "starterHint": "تقدر تبدا بـ: « من البارح بالليل، ... »",
-    "idiomIds": ["men-foqach", "ma-khdamch"]
+    "idiomIds": [
+      "men-foqach",
+      "ma-khdamch"
+    ],
+    "dialogueOpener": {
+      "speaker": "التقني",
+      "line": "خدمة الزبناء، صباح الخير، شنو المشكل؟"
+    },
+    "wordBank": [
+      "إنترنت",
+      "عطل",
+      "منين",
+      "البارح",
+      "يجرب",
+      "ضو"
+    ]
   },
   {
     "id": "administration-dossier",
@@ -57,7 +87,22 @@
     },
     "task": "سول الموظف شنو هي الأوراق اللي خاصك تجيب بالضبط وفوقاش آخر أجل.",
     "starterHint": "تقدر تبدا بـ: « سمح ليا، واش ... »",
-    "idiomIds": ["khasek-tjib", "f-aqrab-waqt"]
+    "idiomIds": [
+      "khasek-tjib",
+      "f-aqrab-waqt"
+    ],
+    "dialogueOpener": {
+      "speaker": "الموظف",
+      "line": "صباح الخير، جيتي لشمن ملف؟"
+    },
+    "wordBank": [
+      "ملف",
+      "شهادة",
+      "سكن",
+      "ناقص",
+      "يجيب",
+      "تاريخ"
+    ]
   },
   {
     "id": "courses-marche",
@@ -77,7 +122,22 @@
     },
     "task": "سول على ثمن جوج أنواع ديال الخضرة وقول شنو بغيتي تشري.",
     "starterHint": "تقدر تبدا بـ: « صباح الخير، شحال دايرة ...؟ »",
-    "idiomIds": ["shal-dayra", "bghit"]
+    "idiomIds": [
+      "shal-dayra",
+      "bghit"
+    ],
+    "dialogueOpener": {
+      "speaker": "البائع",
+      "line": "صباح الخير، شنو يعجبك اليوم؟"
+    },
+    "wordBank": [
+      "مطيشة",
+      "كيلو",
+      "ثمن",
+      "بغى",
+      "شرى",
+      "خضرة"
+    ]
   },
   {
     "id": "banque-carte",
@@ -97,7 +157,22 @@
     },
     "task": "شرح للمستشار فوقاش وفين ضاعت ليك الكارطة.",
     "starterHint": "تقدر تبدا بـ: « ضاعت ليا الكارطة ... »",
-    "idiomIds": ["bloquer-carte", "men-sh7al"]
+    "idiomIds": [
+      "bloquer-carte",
+      "men-sh7al"
+    ],
+    "dialogueOpener": {
+      "speaker": "المستشار",
+      "line": "صباح الخير، شنو نقدر ندير ليك؟"
+    },
+    "wordBank": [
+      "كارطة",
+      "ضاع",
+      "بلوكي",
+      "إيقاف",
+      "البارح",
+      "فين"
+    ]
   },
   {
     "id": "dentiste-urgence",
@@ -117,7 +192,23 @@
     },
     "task": "شرح ليها من فوقاش ضرّاك سنانك وقبل الموعد اللي اقترحات.",
     "starterHint": "تقدر تبدا بـ: « ضرّاني سناني من ... »",
-    "idiomIds": ["men-foqach", "fih-l7al"]
+    "idiomIds": [
+      "men-foqach",
+      "fih-l7al"
+    ],
+    "dialogueOpener": {
+      "speaker": "السكرتيرة",
+      "line": "عيادة طبيب الأسنان، صباح الخير، شنو نقدر ندير ليك؟"
+    },
+    "wordBank": [
+      "وجع",
+      "سنان",
+      "منين",
+      "مستعجل",
+      "قبل",
+      "موعد",
+      "عشية"
+    ]
   },
   {
     "id": "colis-non-livre",
@@ -137,7 +228,22 @@
     },
     "task": "شرح ليه من فوقاش كاتسنى الطرد وقول أن التتبع ما خدامش.",
     "starterHint": "تقدر تبدا بـ: « كانتسنى الطرد ديالي من ... »",
-    "idiomIds": ["men-sh7al", "ma-khdamch"]
+    "idiomIds": [
+      "men-sh7al",
+      "ma-khdamch"
+    ],
+    "dialogueOpener": {
+      "speaker": "المستشار",
+      "line": "خدمة الزبناء، صباح الخير، شنو رقم التتبع ديالك؟"
+    },
+    "wordBank": [
+      "طرد",
+      "كايسنى",
+      "منين",
+      "سيمانة",
+      "تتبع",
+      "شكاية"
+    ]
   },
   {
     "id": "ecole-dossier",
@@ -157,7 +263,22 @@
     },
     "task": "سول السكرتارية آشمن وثيقة ناقصة بالضبط وفوقاش آخر أجل باش تجيبها.",
     "starterHint": "تقدر تبدا بـ: « صباح الخير، واش ... »",
-    "idiomIds": ["khasek-tjib", "f-aqrab-waqt"]
+    "idiomIds": [
+      "khasek-tjib",
+      "f-aqrab-waqt"
+    ],
+    "dialogueOpener": {
+      "speaker": "السكرتارية",
+      "line": "صباح الخير، علاش عيطتي؟"
+    },
+    "wordBank": [
+      "ملف",
+      "وثيقة",
+      "ناقص",
+      "شهادة",
+      "تاريخ",
+      "يجيب"
+    ]
   },
   {
     "id": "coiffeur-rdv",
@@ -177,7 +298,22 @@
     },
     "task": "سول واش كاين شي وقت خاوي نهار السبت وحدد الوقيتة اللي كاتفضل تجي فيها.",
     "starterHint": "تقدر تبدا بـ: « صباح الخير، واش عندكم ... »",
-    "idiomIds": ["akhd-maw'id", "wach-3andkom"]
+    "idiomIds": [
+      "akhd-maw'id",
+      "wach-3andkom"
+    ],
+    "dialogueOpener": {
+      "speaker": "الحلاقة",
+      "line": "صالون الجمال، صباح الخير، شنو نقدر ندير ليك؟"
+    },
+    "wordBank": [
+      "موعد",
+      "سبت",
+      "وقت",
+      "صباح",
+      "عشية",
+      "يفضل"
+    ]
   },
   {
     "id": "restaurant-reservation",
@@ -197,7 +333,22 @@
     },
     "task": "قول ليه لشحال من شخص غادي تحجز وعطيه سميتك.",
     "starterHint": "تقدر تبدا بـ: « صباح الخير، بغيت نحجز ... »",
-    "idiomIds": ["bghit", "lsh7al-men-shakhs"]
+    "idiomIds": [
+      "bghit",
+      "lsh7al-men-shakhs"
+    ],
+    "dialogueOpener": {
+      "speaker": "النادل",
+      "line": "مطعم الجنان، صباح الخير، سمعني."
+    },
+    "wordBank": [
+      "حجز",
+      "طاولة",
+      "شخص",
+      "سبت",
+      "ليل",
+      "سمية"
+    ]
   },
   {
     "id": "salaire-retard",
@@ -217,7 +368,22 @@
     },
     "task": "شرح ليه من فوقاش كاتسنى الصالير وسول بأدب شنو واقع.",
     "starterHint": "تقدر تبدا بـ: « صباح الخير، كنت كانسول واش ... »",
-    "idiomIds": ["men-foqach", "kunt-kanṣewwel-wach"]
+    "idiomIds": [
+      "men-foqach",
+      "kunt-kanṣewwel-wach"
+    ],
+    "dialogueOpener": {
+      "speaker": "الشخص ديال الموارد البشرية",
+      "line": "الموارد البشرية، صباح الخير، شنو نقدر ندير ليك؟"
+    },
+    "wordBank": [
+      "صالير",
+      "تأخر",
+      "منين",
+      "يخلص",
+      "يتحقق",
+      "يسول"
+    ]
   },
   {
     "id": "paiement-delai",
@@ -237,6 +403,21 @@
     },
     "task": "طلب بأدب واش ممكن تأجل الدفع لبضعة أيام.",
     "starterHint": "تقدر تبدا بـ: « صباح الخير، واش ممكن ... »",
-    "idiomIds": ["f-aqrab-waqt", "wach-mumkin"]
+    "idiomIds": [
+      "f-aqrab-waqt",
+      "wach-mumkin"
+    ],
+    "dialogueOpener": {
+      "speaker": "المستشار",
+      "line": "خدمة الزبناء، صباح الخير، شنو نقدر ندير ليك؟"
+    },
+    "wordBank": [
+      "فاتورة",
+      "يخلص",
+      "أجل",
+      "يأجل",
+      "ممكن",
+      "سيمانة"
+    ]
   }
 ]
