@@ -16,6 +16,7 @@ export const arConfig = {
     backHome: "عود للصفحة الرئيسية",
     continueBtn: "الاستمرار",
     inputPlaceholder: "اكتب إجابتك هنا، كما ستقولها شفهيا...",
+    yourReplyLabel: "جوابك",
     analyzeButtonLoading: "جاري التحليل...",
     analyzeButtonIdle: "شوف التصحيح",
     savedText: "تم حفظ التقدم",

@@ -17,7 +17,10 @@
     },
     "task": "Répondez à la secrétaire pour confirmer le rendez-vous et expliquez pourquoi vous consultez.",
     "starterHint": "Vous pouvez commencer par : « Oui, ... »",
-    "idiomIds": ["prendre-rdv", "avoir-mal-a"]
+    "idiomIds": [
+      "prendre-rdv",
+      "avoir-mal-a"
+    ]
   },
   {
     "id": "telephone-panne",
@@ -37,7 +40,10 @@
     },
     "task": "Expliquez au technicien depuis quand internet ne fonctionne plus et ce que vous avez déjà essayé.",
     "starterHint": "Vous pouvez commencer par : « Depuis hier soir, ... »",
-    "idiomIds": ["depuis-que", "ca-ne-marche-pas"]
+    "idiomIds": [
+      "depuis-que",
+      "ca-ne-marche-pas"
+    ]
   },
   {
     "id": "administration-dossier",
@@ -57,7 +63,10 @@
     },
     "task": "Demandez à l'agent quels documents exactement vous devez rapporter et pour quelle date.",
     "starterHint": "Vous pouvez commencer par : « Excusez-moi, est-ce que ... »",
-    "idiomIds": ["il-manque", "dans-les-plus-brefs-delais"]
+    "idiomIds": [
+      "il-manque",
+      "dans-les-plus-brefs-delais"
+    ]
   },
   {
     "id": "courses-marche",
@@ -77,7 +86,10 @@
     },
     "task": "Demandez le prix de deux légumes et dites ce que vous voulez acheter.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, combien coûte ... »",
-    "idiomIds": ["ca-coute", "je-voudrais"]
+    "idiomIds": [
+      "ca-coute",
+      "je-voudrais"
+    ]
   },
   {
     "id": "banque-carte",
@@ -97,7 +109,10 @@
     },
     "task": "Expliquez au conseiller quand et où vous avez perdu votre carte.",
     "starterHint": "Vous pouvez commencer par : « J'ai perdu ma carte ... »",
-    "idiomIds": ["faire-opposition", "il-y-a"]
+    "idiomIds": [
+      "faire-opposition",
+      "il-y-a"
+    ]
   },
   {
     "id": "dentiste-urgence",
@@ -117,7 +132,14 @@
     },
     "task": "Expliquez depuis quand vous avez mal et acceptez le rendez-vous proposé.",
     "starterHint": "Vous pouvez commencer par : « J'ai mal aux dents depuis ... »",
-    "idiomIds": ["depuis-que", "avoir-mal-a"]
+    "idiomIds": [
+      "depuis-que",
+      "avoir-mal-a"
+    ],
+    "dialogueOpener": {
+      "speaker": "La secrétaire",
+      "line": "Cabinet du docteur Lemoine, bonjour, que puis-je faire pour vous ?"
+    }
   },
   {
     "id": "colis-non-livre",
@@ -137,7 +159,10 @@
     },
     "task": "Expliquez depuis quand vous attendez le colis et dites que le suivi ne fonctionne pas.",
     "starterHint": "Vous pouvez commencer par : « J'attends mon colis depuis ... »",
-    "idiomIds": ["il-y-a", "ca-ne-marche-pas"]
+    "idiomIds": [
+      "il-y-a",
+      "ca-ne-marche-pas"
+    ]
   },
   {
     "id": "ecole-dossier",
@@ -157,7 +182,10 @@
     },
     "task": "Demandez au secrétariat quel document exactement manque et pour quelle date le rapporter.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, est-ce que ... »",
-    "idiomIds": ["il-manque", "dans-les-plus-brefs-delais"]
+    "idiomIds": [
+      "il-manque",
+      "dans-les-plus-brefs-delais"
+    ]
   },
   {
     "id": "coiffeur-rdv",
@@ -177,7 +205,10 @@
     },
     "task": "Demandez s'il y aurait un créneau samedi et précisez à quelle heure vous préférez venir.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, est-ce que vous auriez ... »",
-    "idiomIds": ["prendre-rdv", "vous-auriez"]
+    "idiomIds": [
+      "prendre-rdv",
+      "vous-auriez"
+    ]
   },
   {
     "id": "restaurant-reservation",
@@ -197,7 +228,10 @@
     },
     "task": "Dites pour combien de personnes vous réservez et donnez votre nom.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, je voudrais réserver ... »",
-    "idiomIds": ["je-voudrais", "pour-combien-de-personnes"]
+    "idiomIds": [
+      "je-voudrais",
+      "pour-combien-de-personnes"
+    ]
   },
   {
     "id": "salaire-retard",
@@ -217,7 +251,10 @@
     },
     "task": "Expliquez depuis quand vous attendez votre salaire et demandez poliment ce qui se passe.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, je me demandais si ... »",
-    "idiomIds": ["depuis-que", "je-me-demandais-si"]
+    "idiomIds": [
+      "depuis-que",
+      "je-me-demandais-si"
+    ]
   },
   {
     "id": "paiement-delai",
@@ -237,6 +274,9 @@
     },
     "task": "Demandez poliment s'il serait possible de reporter le paiement de quelques jours.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, serait-il possible de ... »",
-    "idiomIds": ["dans-les-plus-brefs-delais", "serait-il-possible-de"]
+    "idiomIds": [
+      "dans-les-plus-brefs-delais",
+      "serait-il-possible-de"
+    ]
   }
 ]

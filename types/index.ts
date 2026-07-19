@@ -5,6 +5,10 @@ export interface Comprehension {
   options: string[];
   answerIndex: number;
 }
+export interface DialogueOpener {
+  speaker: string;
+  line: string;
+}
 export interface Situation {
   id: string;
   title: string;
@@ -15,6 +19,7 @@ export interface Situation {
   task: string;
   starterHint: string;
   idiomIds: string[];
+  dialogueOpener?: DialogueOpener;
 }
 export type ErrorType = "grammar" | "phonology" | "lexical";
 export interface ErrorRule {

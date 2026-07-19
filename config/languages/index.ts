@@ -27,6 +27,7 @@ export interface LanguageConfig {
     backHome: string;
     continueBtn: string;
     inputPlaceholder: string;
+    yourReplyLabel: string;
     analyzeButtonLoading: string;
     analyzeButtonIdle: string;
     savedText: string;

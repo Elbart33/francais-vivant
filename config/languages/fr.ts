@@ -16,6 +16,7 @@ export const frConfig = {
     backHome: "Retour à l'accueil",
     continueBtn: "Continuer",
     inputPlaceholder: "Écrivez votre réponse ici, comme vous la diriez à l'oral...",
+    yourReplyLabel: "Votre réponse",
     analyzeButtonLoading: "Analyse en cours...",
     analyzeButtonIdle: "Voir ma correction",
     savedText: "Progression enregistrée",

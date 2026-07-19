@@ -210,6 +210,16 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
       {step === "input" && (
         <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
+          {situation.dialogueOpener && (
+            <div className="rounded-xl bg-mist p-4 dark:bg-ink/60">
+              <p dir={dir} lang={lang} className="mb-1 text-xs font-semibold uppercase tracking-wide text-zellige dark:text-saffron">
+                {situation.dialogueOpener.speaker}
+              </p>
+              <p dir={dir} lang={lang} className="text-lg sm:text-base italic leading-relaxed text-ink/80 dark:text-sand/80">
+                « {situation.dialogueOpener.line} »
+              </p>
+            </div>
+          )}
           <GlossedText
             text={situation.task}
             idiomIds={situation.idiomIds}
@@ -220,16 +230,21 @@ export default function SituationFlowClient({ id }: { id: string }) {
           <p dir={dir} lang={lang} className="text-base sm:text-sm text-ink/50 dark:text-sand/50">
             {situation.starterHint}
           </p>
-          <textarea
-            value={userSentence}
-            onChange={(e) => setUserSentence(e.target.value)}
-            rows={4}
-            placeholder={t.inputPlaceholder}
-            dir={dir}
-            lang={lang}
-            style={{ colorScheme: "light" }}
-            className="w-full rounded-xl border border-ink/15 bg-white p-4 text-lg sm:text-base text-ink placeholder:text-ink/30 transition-colors duration-200 focus:border-zellige dark:border-sand/15 dark:bg-ink/60 dark:text-sand dark:placeholder:text-sand/30 dark:focus:border-saffron"
-          />
+          <div>
+            <p dir={dir} lang={lang} className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
+              {t.yourReplyLabel}
+            </p>
+            <textarea
+              value={userSentence}
+              onChange={(e) => setUserSentence(e.target.value)}
+              rows={4}
+              placeholder={t.inputPlaceholder}
+              dir={dir}
+              lang={lang}
+              style={{ colorScheme: "light" }}
+              className="w-full rounded-xl border border-ink/15 bg-white p-4 text-lg sm:text-base text-ink placeholder:text-ink/30 transition-colors duration-200 focus:border-zellige dark:border-sand/15 dark:bg-ink/60 dark:text-sand dark:placeholder:text-sand/30 dark:focus:border-saffron"
+            />
+          </div>
           <button
             onClick={handleAnalyze}
             disabled={!userSentence.trim() || loading}
