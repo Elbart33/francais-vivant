@@ -220,6 +220,20 @@ export default function SituationFlowClient({ id }: { id: string }) {
               </p>
             </div>
           )}
+          {situation.wordBank && situation.wordBank.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {situation.wordBank.map((word) => (
+                <span
+                  key={word}
+                  dir={dir}
+                  lang={lang}
+                  className="rounded-full bg-sand/60 px-3 py-1 text-sm text-ink/70 dark:bg-ink/60 dark:text-sand/70"
+                >
+                  {word}
+                </span>
+              ))}
+            </div>
+          )}
           <GlossedText
             text={situation.task}
             idiomIds={situation.idiomIds}

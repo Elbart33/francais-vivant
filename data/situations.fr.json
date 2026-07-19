@@ -131,6 +131,7 @@
       "answerIndex": 0
     },
     "task": "Expliquez depuis quand vous avez mal et acceptez le rendez-vous proposé.",
+    "wordBank": ["avoir mal", "depuis", "jour", "urgence", "accepter", "rendez-vous", "après-midi"],
     "starterHint": "Vous pouvez commencer par : « J'ai mal aux dents depuis ... »",
     "idiomIds": [
       "depuis-que",

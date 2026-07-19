@@ -17,6 +17,7 @@ export const frConfig = {
     continueBtn: "Continuer",
     inputPlaceholder: "Écrivez votre réponse ici, comme vous la diriez à l'oral...",
     yourReplyLabel: "Votre réponse",
+    wordBankLabel: "Mots utiles",
     analyzeButtonLoading: "Analyse en cours...",
     analyzeButtonIdle: "Voir ma correction",
     savedText: "Progression enregistrée",

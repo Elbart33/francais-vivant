@@ -20,6 +20,7 @@ export interface Situation {
   starterHint: string;
   idiomIds: string[];
   dialogueOpener?: DialogueOpener;
+  wordBank?: string[];
 }
 export type ErrorType = "grammar" | "phonology" | "lexical";
 export interface ErrorRule {

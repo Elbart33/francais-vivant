@@ -28,6 +28,7 @@ export interface LanguageConfig {
     continueBtn: string;
     inputPlaceholder: string;
     yourReplyLabel: string;
+    wordBankLabel: string;
     analyzeButtonLoading: string;
     analyzeButtonIdle: string;
     savedText: string;
