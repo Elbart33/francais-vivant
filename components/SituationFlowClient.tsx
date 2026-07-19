@@ -252,8 +252,8 @@ export default function SituationFlowClient({ id }: { id: string }) {
             </div>
           )}
           {visibleWordBank.length > 0 && (
-            <div>
-              <p dir={dir} lang={lang} className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
+            <div className="rounded-lg border border-ink/10 bg-white/40 p-2.5 dark:border-sand/10 dark:bg-ink/20">
+              <p dir={dir} lang={lang} className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
                 {t.wordBankLabel}
               </p>
               <div className="flex flex-wrap gap-1.5">
@@ -275,7 +275,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
             idiomIds={situation.idiomIds}
             dir={dir}
             lang={lang}
-            className="text-lg sm:text-base font-medium text-ink dark:text-sand"
+            className="text-base sm:text-sm font-semibold text-ink dark:text-sand"
           />
           <p dir={dir} lang={lang} className="text-base sm:text-sm text-ink/50 dark:text-sand/50">
             {situation.starterHint}
