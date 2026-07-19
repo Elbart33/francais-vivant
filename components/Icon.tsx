@@ -41,6 +41,36 @@ const paths: Record<IconName, JSX.Element> = {
       strokeLinejoin="round"
     />
   ),
+  message: (
+    <path
+      d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v7A2.5 2.5 0 0 1 17.5 15H9l-4 4v-4H6.5A2.5 2.5 0 0 1 4 12.5v-7Z"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
+  bulb: (
+    <path
+      d="M9 18h6M10 21h4M8 14a4 4 0 1 1 8 0c0 1.5-.8 2.3-1.5 3-.4.4-.5.8-.5 1.3v.2H10v-.2c0-.5-.1-.9-.5-1.3C8.8 16.3 8 15.5 8 14ZM12 3v1.5M4.5 6.5l1 1M19.5 6.5l-1 1"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
+  target: (
+    <path
+      d="M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8ZM12 13a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
   card: (
     <path
       d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11ZM3 10h18M6.5 14.5h4"

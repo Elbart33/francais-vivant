@@ -247,13 +247,18 @@ export default function SituationFlowClient({ id }: { id: string }) {
       {step === "input" && (
         <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
           {situation.dialogueOpener && (
-            <div className="rounded-lg bg-mist px-3 py-2 dark:bg-ink/60">
-              <p dir={dir} lang={lang} className="mb-0.5 text-[11px] font-semibold uppercase tracking-wide text-zellige dark:text-saffron">
-                {situation.dialogueOpener.speaker}
-              </p>
-              <p dir={dir} lang={lang} className="text-sm italic leading-snug text-ink/70 dark:text-sand/70">
-                {situation.dialogueOpener.line}
-              </p>
+            <div dir={dir} className="flex items-start gap-3 rounded-xl bg-mist p-3 dark:bg-ink/60">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zellige text-base font-bold text-sand dark:bg-saffron dark:text-ink">
+                {situation.dialogueOpener.speaker.charAt(0)}
+              </div>
+              <div className="min-w-0">
+                <p dir={dir} lang={lang} className="text-base font-bold leading-tight text-zellige dark:text-saffron">
+                  {situation.dialogueOpener.speaker}
+                </p>
+                <p dir={dir} lang={lang} className="mt-0.5 text-sm italic leading-snug text-ink/70 dark:text-sand/70">
+                  {situation.dialogueOpener.line}
+                </p>
+              </div>
             </div>
           )}
           {visibleWordBank.length > 0 && (
