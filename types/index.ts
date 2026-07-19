@@ -1,5 +1,6 @@
 export type IconName = "stethoscope" | "phone" | "file" | "basket" | "card";
 export interface Comprehension {
+  speaker: string;
   prompt: string;
   question: string;
   options: string[];

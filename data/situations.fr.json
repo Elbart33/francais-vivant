@@ -6,14 +6,15 @@
     "summary": "Appelez le cabinet pour fixer un rendez-vous cette semaine.",
     "context": "Vous appelez le cabinet du docteur Bennani pour prendre un rendez-vous cette semaine.",
     "comprehension": {
-      "prompt": "La secrétaire vous dit : « Le docteur peut vous recevoir jeudi à 15h30, ça vous convient ? »",
+      "prompt": "Le docteur peut vous recevoir jeudi à 15h30, ça vous convient ?",
       "question": "Qu'est-ce que la secrétaire vous propose ?",
       "options": [
         "Un rendez-vous jeudi après-midi",
         "Un rendez-vous vendredi matin",
         "D'annuler le rendez-vous"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "La secrétaire"
     },
     "task": "Répondez à la secrétaire pour confirmer le rendez-vous et expliquez pourquoi vous consultez.",
     "starterHint": "Vous pouvez commencer par : « Oui, ... »",
@@ -41,14 +42,15 @@
     "summary": "Internet ne marche plus, vous appelez le service technique.",
     "context": "Internet ne fonctionne plus chez vous depuis hier soir. Vous appelez le service technique.",
     "comprehension": {
-      "prompt": "Le technicien vous dit : « Est-ce que le voyant sur la box est rouge ou vert ? »",
+      "prompt": "Est-ce que le voyant sur la box est rouge ou vert ?",
       "question": "Qu'est-ce que le technicien veut savoir ?",
       "options": [
         "La couleur de la lumière sur votre box internet",
         "Le prix de votre abonnement",
         "Votre adresse complète"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "Le technicien"
     },
     "task": "Expliquez au technicien depuis quand internet ne fonctionne plus et ce que vous avez déjà essayé.",
     "starterHint": "Vous pouvez commencer par : « Depuis hier soir, ... »",
@@ -76,14 +78,15 @@
     "summary": "Un agent vous demande des précisions sur votre dossier.",
     "context": "Vous devez déposer un dossier de renouvellement de titre de séjour. L'agent vous demande des précisions.",
     "comprehension": {
-      "prompt": "L'agent vous dit : « Il vous manque un justificatif de domicile de moins de trois mois. »",
+      "prompt": "Il vous manque un justificatif de domicile de moins de trois mois.",
       "question": "Que devez-vous apporter en plus ?",
       "options": [
         "Un justificatif de domicile récent",
         "Une photo d'identité",
         "Un extrait de casier judiciaire"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "L'agent"
     },
     "task": "Demandez à l'agent quels documents exactement vous devez rapporter et pour quelle date.",
     "starterHint": "Vous pouvez commencer par : « Excusez-moi, est-ce que ... »",
@@ -111,14 +114,15 @@
     "summary": "Vous achetez des légumes et négociez un peu le prix.",
     "context": "Vous êtes au marché et vous voulez acheter des légumes pour la semaine, en négociant un peu le prix.",
     "comprehension": {
-      "prompt": "Le vendeur vous dit : « Les tomates sont à 8 dirhams le kilo aujourd'hui, elles sont bien mûres. »",
+      "prompt": "Les tomates sont à 8 dirhams le kilo aujourd'hui, elles sont bien mûres.",
       "question": "Qu'est-ce que le vendeur annonce ?",
       "options": [
         "Le prix des tomates au kilo",
         "L'heure de fermeture du marché",
         "Que les tomates sont abîmées"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "Le vendeur"
     },
     "task": "Demandez le prix de deux légumes et dites ce que vous voulez acheter.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, combien coûte ... »",
@@ -146,14 +150,15 @@
     "summary": "Vous appelez votre banque pour bloquer votre carte perdue.",
     "context": "Vous venez de perdre votre carte bancaire et vous appelez votre banque pour la bloquer.",
     "comprehension": {
-      "prompt": "Le conseiller vous dit : « Je vais faire opposition immédiatement, vous recevrez une nouvelle carte sous une semaine. »",
+      "prompt": "Je vais faire opposition immédiatement, vous recevrez une nouvelle carte sous une semaine.",
       "question": "Qu'est-ce que le conseiller va faire ?",
       "options": [
         "Bloquer la carte tout de suite",
         "Fermer votre compte",
         "Vous rembourser un achat"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "Le conseiller"
     },
     "task": "Expliquez au conseiller quand et où vous avez perdu votre carte.",
     "starterHint": "Vous pouvez commencer par : « J'ai perdu ma carte ... »",
@@ -181,14 +186,15 @@
     "summary": "Vous avez mal aux dents depuis plusieurs jours, vous demandez un rendez-vous rapide.",
     "context": "Vous avez mal aux dents depuis trois jours et la douleur devient forte. Vous appelez le cabinet dentaire pour un rendez-vous en urgence.",
     "comprehension": {
-      "prompt": "La secrétaire vous dit : « On a une annulation cet après-midi à 16h, si la douleur est trop forte, venez. »",
+      "prompt": "On a une annulation cet après-midi à 16h, si la douleur est trop forte, venez.",
       "question": "Qu'est-ce que la secrétaire vous propose ?",
       "options": [
         "Un rendez-vous le jour même, l'après-midi",
         "Un rendez-vous la semaine prochaine",
         "De prendre un médicament et de rappeler plus tard"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "La secrétaire"
     },
     "task": "Expliquez depuis quand vous avez mal et acceptez le rendez-vous proposé.",
     "wordBank": [
@@ -217,14 +223,15 @@
     "summary": "Votre colis n'est toujours pas arrivé, vous appelez le transporteur.",
     "context": "Vous attendez un colis depuis une semaine et le suivi ne montre aucune mise à jour. Vous appelez le service client du transporteur.",
     "comprehension": {
-      "prompt": "Le conseiller vous dit : « Le suivi ne s'est pas mis à jour depuis lundi, je vais ouvrir une réclamation. »",
+      "prompt": "Le suivi ne s'est pas mis à jour depuis lundi, je vais ouvrir une réclamation.",
       "question": "Qu'est-ce que le conseiller va faire ?",
       "options": [
         "Ouvrir une réclamation pour retrouver le colis",
         "Vous rembourser directement",
         "Annuler votre commande"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "Le conseiller"
     },
     "task": "Expliquez depuis quand vous attendez le colis et dites que le suivi ne fonctionne pas.",
     "starterHint": "Vous pouvez commencer par : « J'attends mon colis depuis ... »",
@@ -252,14 +259,15 @@
     "summary": "Un document manque au dossier de votre enfant, vous appelez l'école.",
     "context": "L'école vous informe qu'un document manque au dossier d'inscription de votre enfant. Vous appelez pour savoir lequel et dans quel délai le fournir.",
     "comprehension": {
-      "prompt": "Le secrétariat vous dit : « Il manque le certificat de vaccination, merci de le rapporter dans les plus brefs délais. »",
+      "prompt": "Il manque le certificat de vaccination, merci de le rapporter dans les plus brefs délais.",
       "question": "Que devez-vous apporter ?",
       "options": [
         "Le certificat de vaccination",
         "Un justificatif de domicile",
         "Une photo d'identité"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "Le secrétariat"
     },
     "task": "Demandez au secrétariat quel document exactement manque et pour quelle date le rapporter.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, est-ce que ... »",
@@ -287,14 +295,15 @@
     "summary": "Vous appelez le salon pour réserver un créneau ce week-end.",
     "context": "Vous appelez votre salon de coiffure habituel pour prendre rendez-vous ce week-end, avant un événement important.",
     "comprehension": {
-      "prompt": "La coiffeuse vous dit : « Est-ce que samedi 11h vous conviendrait, ou préférez-vous l'après-midi ? »",
+      "prompt": "Est-ce que samedi 11h vous conviendrait, ou préférez-vous l'après-midi ?",
       "question": "Qu'est-ce que la coiffeuse vous propose ?",
       "options": [
         "Un choix entre samedi matin ou après-midi",
         "Un rendez-vous uniquement le dimanche",
         "D'annuler votre rendez-vous habituel"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "La coiffeuse"
     },
     "task": "Demandez s'il y aurait un créneau samedi et précisez à quelle heure vous préférez venir.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, est-ce que vous auriez ... »",
@@ -322,14 +331,15 @@
     "summary": "Vous appelez pour réserver une table pour un dîner en famille.",
     "context": "Vous appelez un restaurant pour réserver une table pour un dîner en famille samedi soir.",
     "comprehension": {
-      "prompt": "Le serveur vous dit : « C'est pour combien de personnes, et à quel nom je note la réservation ? »",
+      "prompt": "C'est pour combien de personnes, et à quel nom je note la réservation ?",
       "question": "Qu'est-ce que le serveur vous demande ?",
       "options": [
         "Le nombre de personnes et votre nom",
         "Votre numéro de téléphone",
         "Le menu que vous voulez commander"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "Le serveur"
     },
     "task": "Dites pour combien de personnes vous réservez et donnez votre nom.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, je voudrais réserver ... »",
@@ -357,14 +367,15 @@
     "summary": "Votre salaire n'est pas encore arrivé, vous appelez les ressources humaines.",
     "context": "Votre salaire du mois n'est toujours pas arrivé alors que cela fait plusieurs jours depuis la date habituelle. Vous appelez le service des ressources humaines.",
     "comprehension": {
-      "prompt": "La personne des RH vous dit : « Je me demandais justement si tout le monde avait bien été payé, je vérifie tout de suite. »",
+      "prompt": "Je me demandais justement si tout le monde avait bien été payé, je vérifie tout de suite.",
       "question": "Qu'est-ce que la personne des RH va faire ?",
       "options": [
         "Vérifier immédiatement votre paiement",
         "Vous dire d'attendre encore un mois",
         "Refuser de vous répondre"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "La personne des RH"
     },
     "task": "Expliquez depuis quand vous attendez votre salaire et demandez poliment ce qui se passe.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, je me demandais si ... »",
@@ -392,14 +403,15 @@
     "summary": "Vous demandez poliment à reporter une facture de quelques jours.",
     "context": "Vous avez une facture à payer cette semaine mais vous avez besoin de quelques jours de plus. Vous appelez le service client pour demander un délai.",
     "comprehension": {
-      "prompt": "Le conseiller vous dit : « Serait-il possible pour vous de régler avant la fin du mois plutôt ? »",
+      "prompt": "Serait-il possible pour vous de régler avant la fin du mois plutôt ?",
       "question": "Qu'est-ce que le conseiller vous propose ?",
       "options": [
         "De payer un peu plus tard, avant la fin du mois",
         "D'annuler complètement la facture",
         "De payer immédiatement en double"
       ],
-      "answerIndex": 0
+      "answerIndex": 0,
+      "speaker": "Le conseiller"
     },
     "task": "Demandez poliment s'il serait possible de reporter le paiement de quelques jours.",
     "starterHint": "Vous pouvez commencer par : « Bonjour, serait-il possible de ... »",

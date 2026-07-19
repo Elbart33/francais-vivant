@@ -175,13 +175,18 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
       {step === "comprehension" && (
         <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <GlossedText
-            text={situation.comprehension.prompt}
-            idiomIds={situation.idiomIds}
-            dir={dir}
-            lang={lang}
-            className="rounded-xl bg-mist p-4 text-lg sm:text-base italic text-ink/80 dark:bg-ink/60 dark:text-sand/80"
-          />
+          <div className="rounded-xl bg-mist p-4 dark:bg-ink/60">
+            <p dir={dir} lang={lang} className="mb-2 text-base sm:text-sm font-bold uppercase tracking-wide text-zellige dark:text-saffron">
+              {situation.comprehension.speaker}
+            </p>
+            <GlossedText
+              text={situation.comprehension.prompt}
+              idiomIds={situation.idiomIds}
+              dir={dir}
+              lang={lang}
+              className="text-lg sm:text-base italic leading-relaxed text-ink/80 dark:text-sand/80"
+            />
+          </div>
           <GlossedText
             text={situation.comprehension.question}
             idiomIds={situation.idiomIds}
@@ -256,13 +261,13 @@ export default function SituationFlowClient({ id }: { id: string }) {
               <p dir={dir} lang={lang} className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
                 {t.wordBankLabel}
               </p>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-x-1 gap-y-0.5">
                 {visibleWordBank.map((word) => (
                   <span
                     key={word}
                     dir={dir}
                     lang={lang}
-                    className="rounded-full bg-sand/50 px-2.5 py-0.5 text-xs text-ink/60 dark:bg-ink/60 dark:text-sand/60"
+                    className="rounded-full bg-sand/50 px-2 py-0.5 text-xs italic text-ink/60 dark:bg-ink/60 dark:text-sand/60"
                   >
                     {word}
                   </span>
