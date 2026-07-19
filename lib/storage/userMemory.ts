@@ -114,6 +114,34 @@ function consecutiveCount(memory: UserMemory, situationId: string): number {
   return count;
 }
 
+export type ScaffoldingLevel = "full" | "reduced" | "minimal";
+
+/**
+ * Determine le niveau d'aide a afficher (dialogueOpener reste toujours affiche,
+ * seuls wordBank / exemple complet varient) :
+ * - full    : premiere tentative sur cette situation
+ * - reduced : deja tentee, mais la categorie d'erreur associee reste frequente
+ * - minimal : situation completee et categorie d'erreur peu/pas presente
+ */
+export function scaffoldingLevel(
+  memory: UserMemory,
+  situationId: string,
+  category: CorrectionCategory
+): ScaffoldingLevel {
+  const attemptsForSituation = memory.attempts.filter((a) => a.situationId === situationId);
+  if (attemptsForSituation.length === 0) return "full";
+
+  const hasCompleted = memory.situationsCompleted.includes(situationId);
+  if (!hasCompleted) return "reduced";
+
+  if (category === "aucune") return "minimal";
+
+  const categoryCount = memory.categoryFrequency[category] || 0;
+  if (categoryCount >= 3) return "reduced";
+
+  return "minimal";
+}
+
 export function pickWeightedSituation<T extends { id: string; idiomIds: string[] }>(memory: UserMemory, situations: T[], currentSituationId: string): T {
   const weakIds = recentWeakRuleIds(memory, 12);
   const weightByRuleId = new Map(weakIds.map((w, i) => [w.ruleId, weakIds.length - i]));

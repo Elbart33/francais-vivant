@@ -9,7 +9,8 @@ import BeforeAfter from "@/components/BeforeAfter";
 import ReinforcementTip from "@/components/ReinforcementTip";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { useUserMemory } from "@/hooks/useUserMemory";
-import { pickWeightedSituation, shouldReinforce } from "@/lib/storage/userMemory";
+import { pickWeightedSituation, shouldReinforce, scaffoldingLevel } from "@/lib/storage/userMemory";
+import { CorrectionCategory } from "@/types";
 import { getLanguageConfig } from "@/config/languages";
 import GlossedText from "@/components/GlossedText";
 
@@ -46,6 +47,27 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
   const { result, loading, analyze } = useAnalysis();
   const { memory, saveAttempt } = useUserMemory();
+
+  const dominantCategory = useMemo(() => {
+    if (!memory) return "aucune" as CorrectionCategory;
+    const entries = Object.entries(memory.categoryFrequency) as [CorrectionCategory, number][];
+    if (entries.length === 0) return "aucune" as CorrectionCategory;
+    return entries.sort((a, b) => b[1] - a[1])[0][0];
+  }, [memory]);
+
+  const currentScaffoldingLevel = useMemo(() => {
+    if (!situation || !memory) return "full" as const;
+    return scaffoldingLevel(memory, situation.id, dominantCategory);
+  }, [memory, situation, dominantCategory]);
+
+  const visibleWordBank = useMemo(() => {
+    if (!situation?.wordBank || situation.wordBank.length === 0) return [];
+    if (currentScaffoldingLevel === "minimal") return [];
+    if (currentScaffoldingLevel === "reduced") {
+      return situation.wordBank.slice(0, Math.ceil(situation.wordBank.length / 2));
+    }
+    return situation.wordBank;
+  }, [situation, currentScaffoldingLevel]);
 
   const shuffled = useMemo(() => {
     if (!situation) return null;
@@ -220,9 +242,9 @@ export default function SituationFlowClient({ id }: { id: string }) {
               </p>
             </div>
           )}
-          {situation.wordBank && situation.wordBank.length > 0 && (
+          {visibleWordBank.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {situation.wordBank.map((word) => (
+              {visibleWordBank.map((word) => (
                 <span
                   key={word}
                   dir={dir}

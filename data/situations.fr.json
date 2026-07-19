@@ -20,6 +20,18 @@
     "idiomIds": [
       "prendre-rdv",
       "avoir-mal-a"
+    ],
+    "dialogueOpener": {
+      "speaker": "La secrétaire",
+      "line": "Cabinet du docteur Bennani, bonjour !"
+    },
+    "wordBank": [
+      "confirmer",
+      "rendez-vous",
+      "jeudi",
+      "mal",
+      "consulter",
+      "convenir"
     ]
   },
   {
@@ -43,6 +55,18 @@
     "idiomIds": [
       "depuis-que",
       "ca-ne-marche-pas"
+    ],
+    "dialogueOpener": {
+      "speaker": "Le technicien",
+      "line": "Service technique, bonjour, quel est le problème ?"
+    },
+    "wordBank": [
+      "internet",
+      "panne",
+      "depuis",
+      "hier soir",
+      "essayer",
+      "voyant"
     ]
   },
   {
@@ -66,6 +90,18 @@
     "idiomIds": [
       "il-manque",
       "dans-les-plus-brefs-delais"
+    ],
+    "dialogueOpener": {
+      "speaker": "L'agent",
+      "line": "Bonjour, vous venez pour quel dossier ?"
+    },
+    "wordBank": [
+      "dossier",
+      "justificatif",
+      "domicile",
+      "manquer",
+      "apporter",
+      "date"
     ]
   },
   {
@@ -89,6 +125,18 @@
     "idiomIds": [
       "ca-coute",
       "je-voudrais"
+    ],
+    "dialogueOpener": {
+      "speaker": "Le vendeur",
+      "line": "Bonjour, qu'est-ce qui vous ferait plaisir aujourd'hui ?"
+    },
+    "wordBank": [
+      "tomate",
+      "kilo",
+      "prix",
+      "vouloir",
+      "acheter",
+      "légume"
     ]
   },
   {
@@ -112,6 +160,18 @@
     "idiomIds": [
       "faire-opposition",
       "il-y-a"
+    ],
+    "dialogueOpener": {
+      "speaker": "Le conseiller",
+      "line": "Bonjour, en quoi puis-je vous aider ?"
+    },
+    "wordBank": [
+      "carte",
+      "perdre",
+      "bloquer",
+      "opposition",
+      "hier",
+      "où"
     ]
   },
   {
@@ -131,7 +191,15 @@
       "answerIndex": 0
     },
     "task": "Expliquez depuis quand vous avez mal et acceptez le rendez-vous proposé.",
-    "wordBank": ["avoir mal", "depuis", "jour", "urgence", "accepter", "rendez-vous", "après-midi"],
+    "wordBank": [
+      "avoir mal",
+      "depuis",
+      "jour",
+      "urgence",
+      "accepter",
+      "rendez-vous",
+      "après-midi"
+    ],
     "starterHint": "Vous pouvez commencer par : « J'ai mal aux dents depuis ... »",
     "idiomIds": [
       "depuis-que",
@@ -163,6 +231,18 @@
     "idiomIds": [
       "il-y-a",
       "ca-ne-marche-pas"
+    ],
+    "dialogueOpener": {
+      "speaker": "Le conseiller",
+      "line": "Service client, bonjour, quel est votre numéro de suivi ?"
+    },
+    "wordBank": [
+      "colis",
+      "attendre",
+      "depuis",
+      "semaine",
+      "suivi",
+      "réclamation"
     ]
   },
   {
@@ -186,6 +266,18 @@
     "idiomIds": [
       "il-manque",
       "dans-les-plus-brefs-delais"
+    ],
+    "dialogueOpener": {
+      "speaker": "Le secrétariat",
+      "line": "Bonjour, c'est à quel sujet ?"
+    },
+    "wordBank": [
+      "dossier",
+      "document",
+      "manquer",
+      "certificat",
+      "date",
+      "apporter"
     ]
   },
   {
@@ -209,6 +301,18 @@
     "idiomIds": [
       "prendre-rdv",
       "vous-auriez"
+    ],
+    "dialogueOpener": {
+      "speaker": "La coiffeuse",
+      "line": "Salon Beauté, bonjour, que puis-je faire pour vous ?"
+    },
+    "wordBank": [
+      "rendez-vous",
+      "samedi",
+      "créneau",
+      "matin",
+      "après-midi",
+      "préférer"
     ]
   },
   {
@@ -232,6 +336,18 @@
     "idiomIds": [
       "je-voudrais",
       "pour-combien-de-personnes"
+    ],
+    "dialogueOpener": {
+      "speaker": "Le serveur",
+      "line": "Restaurant Le Jardin, bonjour, je vous écoute."
+    },
+    "wordBank": [
+      "réserver",
+      "table",
+      "personne",
+      "samedi",
+      "soir",
+      "nom"
     ]
   },
   {
@@ -255,6 +371,18 @@
     "idiomIds": [
       "depuis-que",
       "je-me-demandais-si"
+    ],
+    "dialogueOpener": {
+      "speaker": "La personne des RH",
+      "line": "Ressources humaines, bonjour, comment puis-je vous aider ?"
+    },
+    "wordBank": [
+      "salaire",
+      "retard",
+      "depuis",
+      "payer",
+      "vérifier",
+      "demander"
     ]
   },
   {
@@ -278,6 +406,18 @@
     "idiomIds": [
       "dans-les-plus-brefs-delais",
       "serait-il-possible-de"
+    ],
+    "dialogueOpener": {
+      "speaker": "Le conseiller",
+      "line": "Service client, bonjour, que puis-je faire pour vous ?"
+    },
+    "wordBank": [
+      "facture",
+      "payer",
+      "délai",
+      "reporter",
+      "possible",
+      "semaine"
     ]
   }
 ]
