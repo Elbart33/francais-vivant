@@ -16,8 +16,6 @@ export const arConfig = {
     backHome: "عود للصفحة الرئيسية",
     continueBtn: "الاستمرار",
     inputPlaceholder: "اكتب إجابتك هنا، كما ستقولها شفهيا...",
-    yourReplyLabel: "جوابك",
-    wordBankLabel: "كلمات مفيدة",
     analyzeButtonLoading: "جاري التحليل...",
     analyzeButtonIdle: "شوف التصحيح",
     savedText: "تم حفظ التقدم",
@@ -36,6 +34,8 @@ export const arConfig = {
     navToday: "اليوم",
     navReview: "للمراجعة",
     navProgress: "مسيرتي",
+    yourReplyLabel: "جوابك",
+    wordBankLabel: "Mots utiles",
   },
   branding: {
     pageTitle: "Arabe Vivant — parlez un arabe qui vous ressemble",
@@ -73,7 +73,17 @@ Ta mission, dans l'ordre :
 
 3. AMÉLIORATION — à partir de la version corrigée, propose une reformulation plus naturelle en darija parlée, sans changer le sens. Si la phrase corrigée est déjà naturelle, "improved" doit être identique à "corrected".
 
-4. EXPLICATIONS EN FRANÇAIS UNIQUEMENT — l'utilisateur est francophone, donc toute explication doit être rédigée en français, jamais en darija ou en arabe. Pour la correction ET pour l'amélioration, fournis une explication qui liste CHAQUE changement effectué, sous forme numérotée :
+4. CATÉGORISATION — détermine "correctionCategory", la nature dominante de la correction faite à l'étape 2, choisie STRICTEMENT parmi cette liste (un seul mot, en minuscules, en alphabet latin) :
+   - "genre" (masculin/féminin d'un nom ou d'un adjectif)
+   - "nombre" (singulier/pluriel/duel)
+   - "conjugaison" (temps, personne, accord du verbe)
+   - "phonologie" (confusion entre deux sons ou lettres proches pour un francophone)
+   - "orthographe" (lettre mal écrite sans lien avec la grammaire, par exemple hamza, alif maqsura)
+   - "lexique" (mot mal choisi pour le sens voulu)
+   - "aucune" (si correctionChanged est false)
+   Si plusieurs catégories s'appliquent, choisis la plus dominante ou la plus répétée dans la phrase.
+
+5. EXPLICATIONS EN FRANÇAIS UNIQUEMENT — l'utilisateur est francophone, donc toute explication doit être rédigée en français, jamais en darija ou en arabe. Pour la correction ET pour l'amélioration, fournis une explication qui liste CHAQUE changement effectué, sous forme numérotée :
    - Chaque changement est numéroté (1., 2., 3., etc. — utilise \\n pour séparer les lignes dans le texte JSON).
    - Le mot ou groupe de mots arabe concerné est cité tel quel en écriture arabe, entouré de doubles astérisques (exemple : **كلمة**) — ne translittère jamais un mot arabe en alphabet latin.
    - Après chaque mot cité, ajoute la raison du changement en français, en 2 à 5 mots maximum, très synthétique (exemple : "accord du féminin", "verbe mal conjugué").
@@ -87,6 +97,7 @@ Format JSON exact attendu, avec UNIQUEMENT des champs en français pour les expl
   "relevanceNoteFr": "",
   "corrected": "الجملة المصححة",
   "correctionChanged": true,
+  "correctionCategory": "genre",
   "correctionExplanationFr": "1. **كلمة** — raison courte\\n2. **كلمة أخرى** — raison courte",
   "improved": "الجملة المحسنة",
   "improvementChanged": true,
@@ -100,12 +111,13 @@ Ta mission :
 1. Détermine "isRelevant" (true/false) : la phrase répond-elle à la tâche demandée ? Si non, remplis "relevanceNoteFr" avec une phrase courte et bienveillante en français expliquant pourquoi. Si oui, laisse relevanceNoteFr vide.
 2. Corrige la phrase (grammaire, conjugaison, genre).
 3. Améliore la phrase pour qu'elle soit plus naturelle en darija parlée.
-4. L'utilisateur est francophone : rédige l'explication UNIQUEMENT en français, jamais en darija. Pour chaque changement, liste-le en numéroté (1., 2., etc.), avec le mot arabe concerné cité en écriture arabe entre doubles astérisques, suivi d'une raison courte en français (2 à 5 mots). Ne parle pas de pertinence dans cette explication.
+4. Détermine "correctionCategory" parmi : "genre", "nombre", "conjugaison", "phonologie", "orthographe", "lexique", ou "aucune" (si aucune correction).
+5. L'utilisateur est francophone : rédige l'explication UNIQUEMENT en français, jamais en darija. Pour chaque changement, liste-le en numéroté (1., 2., etc.), avec le mot arabe concerné cité en écriture arabe entre doubles astérisques, suivi d'une raison courte en français (2 à 5 mots). Ne parle pas de pertinence dans cette explication.
 
-Si tu n'as rien changé, laisse l'explication vide.
+Si tu n'as rien changé, laisse l'explication vide et correctionCategory="aucune".
 
 Réponds uniquement avec ce format JSON, sans texte ni markdown autour, sans aucun champ darija :
-{"isRelevant": true, "relevanceNoteFr": "", "corrected": "...", "correctionChanged": true, "correctionExplanationFr": "...", "improved": "...", "improvementChanged": true, "improvementExplanationFr": "..."}`,
+{"isRelevant": true, "relevanceNoteFr": "", "corrected": "...", "correctionChanged": true, "correctionCategory": "aucune", "correctionExplanationFr": "...", "improved": "...", "improvementChanged": true, "improvementExplanationFr": "..."}`,
   },
   reinforcementTips: {
     genre: {
