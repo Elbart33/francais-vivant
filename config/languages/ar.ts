@@ -32,6 +32,7 @@ export const arConfig = {
     improvedLabel: "النسخة المحسنة",
     alreadyNaturalMessage: "الصياغة ديالك كانت طبيعية من الأول.",
     toRememberLabel: "تذكر من هاد الوضعية",
+    toRememberToggle: "شوف التعابير اللي خاصك تحتفظ بيهم",
     navToday: "اليوم",
     navReview: "للمراجعة",
     navProgress: "مسيرتي",

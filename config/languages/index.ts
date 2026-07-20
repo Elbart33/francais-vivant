@@ -43,6 +43,7 @@ export interface LanguageConfig {
     improvedLabel: string;
     alreadyNaturalMessage: string;
     toRememberLabel: string;
+    toRememberToggle: string;
     navToday: string;
     navReview: string;
     navProgress: string;

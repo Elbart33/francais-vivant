@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import { AnalysisResult } from "@/types";
 import DiffView from "./DiffView";
 import CoachNote from "./CoachNote";
@@ -10,6 +12,7 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
   const t = config.situationFlow;
   const dir = config.dir;
   const lang = config.lang;
+  const [showIdioms, setShowIdioms] = useState(false);
 
   return (
     <div className="space-y-5 animate-fadeUp">
@@ -76,21 +79,32 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
       </section>
 
       {result.matchedIdioms.length > 0 && (
-        <section className="rounded-2xl border border-saffron/30 bg-saffron/10 p-5 dark:border-saffron/40 dark:bg-saffron/10">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-saffronDeep dark:text-saffron">
-            {t.toRememberLabel}
-          </p>
-          <ul className="space-y-3">
-            {result.matchedIdioms.map((idiom) => (
-              <li key={idiom.id}>
-                <p className="font-display text-xl sm:text-lg font-semibold text-ink dark:text-sand" dir="auto">
-                  {idiom.expression}
-                </p>
-                <p className="text-lg sm:text-base text-ink/70 dark:text-sand/70" dir="auto">{idiom.meaningFr}</p>
-                <p className="text-lg sm:text-base italic text-ink/50 dark:text-sand/50" dir="auto">« {idiom.example} »</p>
-              </li>
-            ))}
-          </ul>
+        <section className="rounded-2xl border border-saffron/30 bg-saffron/10 dark:border-saffron/40 dark:bg-saffron/10">
+          <button
+            type="button"
+            onClick={() => setShowIdioms((v) => !v)}
+            dir={dir}
+            lang={lang}
+            className={`flex w-full items-center justify-between gap-3 p-5 text-sm font-semibold uppercase tracking-wide text-saffronDeep transition-colors dark:text-saffron ${
+              dir === "rtl" ? "text-right" : "text-left"
+            }`}
+          >
+            <span>{showIdioms ? t.toRememberLabel : t.toRememberToggle}</span>
+            <span className={`text-lg transition-transform ${showIdioms ? "rotate-180" : ""}`}>▾</span>
+          </button>
+          {showIdioms && (
+            <ul className="animate-fadeUp space-y-3 px-5 pb-5">
+              {result.matchedIdioms.map((idiom) => (
+                <li key={idiom.id}>
+                  <p className="font-display text-xl sm:text-lg font-semibold text-ink dark:text-sand" dir="auto">
+                    {idiom.expression}
+                  </p>
+                  <p className="text-lg sm:text-base text-ink/70 dark:text-sand/70" dir="auto">{idiom.meaningFr}</p>
+                  <p className="text-lg sm:text-base italic text-ink/50 dark:text-sand/50" dir="auto">« {idiom.example} »</p>
+                </li>
+              ))}
+            </ul>
+          )}
         </section>
       )}
     </div>

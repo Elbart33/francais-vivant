@@ -32,6 +32,7 @@ export const frConfig = {
     improvedLabel: "Version améliorée",
     alreadyNaturalMessage: "Votre formulation était déjà naturelle.",
     toRememberLabel: "À retenir de cette situation",
+    toRememberToggle: "Voir les expressions à retenir",
     navToday: "Aujourd'hui",
     navReview: "À revoir",
     navProgress: "Mon chemin",
