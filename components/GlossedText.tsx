@@ -4,6 +4,15 @@ import { useRef, useState, useLayoutEffect } from "react";
 import { createPortal } from "react-dom";
 import idiomsData from "@/data/idioms";
 import lexiconData from "@/data/lexique";
+import Icon from "@/components/Icon";
+
+function speak(text: string, langCode: string) {
+  if (typeof window === "undefined" || !window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = langCode;
+  window.speechSynthesis.speak(utterance);
+}
 
 interface Idiom {
   id: string;
@@ -157,6 +166,17 @@ export default function GlossedText({
             </button>
             {isOpen && (
               <TooltipPortal anchorRef={anchorRef}>
+                <div className="mb-1.5 flex items-center gap-1.5">
+                  <span className="font-semibold text-ink dark:text-sand">{match.expression}</span>
+                  <button
+                    type="button"
+                    onClick={() => speak(match.expression, lang === "ar" ? "ar-SA" : "fr-FR")}
+                    aria-label="Écouter"
+                    className="text-zellige transition-colors hover:text-zellige2 dark:text-saffron dark:hover:text-saffronDeep"
+                  >
+                    <Icon name="speaker" className="h-4 w-4" />
+                  </button>
+                </div>
                 {match.type === "idiom" ? (
                   <>
                     <span dir="rtl" className="block text-ink/80 dark:text-sand/80">

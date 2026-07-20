@@ -1,4 +1,4 @@
-export type IconName = "stethoscope" | "phone" | "file" | "basket" | "card" | "message" | "bulb" | "target";
+export type IconName = "stethoscope" | "phone" | "file" | "basket" | "card" | "message" | "bulb" | "target" | "speaker";
 export interface Comprehension {
   speaker: string;
   prompt: string;

@@ -71,6 +71,16 @@ const paths: Record<IconName, JSX.Element> = {
       strokeLinejoin="round"
     />
   ),
+  speaker: (
+    <path
+      d="M4 9v6h3.5L13 19V5L7.5 9H4ZM16 8.5a4 4 0 0 1 0 7M18.5 6a7.5 7.5 0 0 1 0 12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  ),
   card: (
     <path
       d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11ZM3 10h18M6.5 14.5h4"
