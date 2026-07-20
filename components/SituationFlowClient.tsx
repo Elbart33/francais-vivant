@@ -247,32 +247,32 @@ export default function SituationFlowClient({ id }: { id: string }) {
       {step === "input" && (
         <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
           {situation.dialogueOpener && (
-            <div dir={dir} className="flex items-start gap-3 rounded-xl bg-mist p-3 dark:bg-zellige/15">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zellige text-base font-bold text-sand dark:bg-saffron dark:text-ink">
-                {situation.dialogueOpener.speaker.charAt(0)}
+            <div dir={dir} className="flex items-start gap-2.5 rounded-lg bg-zellige/[0.06] p-3 dark:bg-zellige/20">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zellige/15 dark:bg-sand/10">
+                <Icon name="message" className="h-3.5 w-3.5 text-zellige dark:text-sand" />
               </div>
               <div className="min-w-0">
-                <p dir={dir} lang={lang} className="text-base font-bold leading-tight text-zellige dark:text-saffron">
+                <p dir={dir} lang={lang} className="text-sm font-semibold text-zellige dark:text-sand">
                   {situation.dialogueOpener.speaker}
                 </p>
-                <p dir={dir} lang={lang} className="mt-0.5 text-sm italic leading-snug text-ink/70 dark:text-sand/70">
+                <p dir={dir} lang={lang} className="mt-0.5 text-sm italic leading-snug text-ink/60 dark:text-sand/60">
                   {situation.dialogueOpener.line}
                 </p>
               </div>
             </div>
           )}
           {visibleWordBank.length > 0 && (
-            <div className="rounded-lg border border-ink/10 bg-white/40 p-2.5 dark:border-sand/10 dark:bg-ink/20">
-              <p dir={dir} lang={lang} className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
+            <div>
+              <p dir={dir} lang={lang} className="mb-1 text-xs text-ink/40 dark:text-sand/40">
                 {t.wordBankLabel}
               </p>
-              <div className="flex flex-wrap gap-x-1 gap-y-0.5">
+              <div className="flex flex-wrap gap-x-1.5 gap-y-1">
                 {visibleWordBank.map((word) => (
                   <span
                     key={word}
                     dir={dir}
                     lang={lang}
-                    className="rounded-full bg-sand/50 px-2 py-0.5 text-xs italic text-ink/60 dark:bg-saffron/15 dark:text-saffron"
+                    className="rounded-full border border-ink/10 px-2 py-0.5 text-xs italic text-ink/50 dark:border-sand/15 dark:text-sand/50"
                   >
                     {word}
                   </span>
@@ -285,7 +285,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
             idiomIds={situation.idiomIds}
             dir={dir}
             lang={lang}
-            className="text-base sm:text-sm font-semibold text-ink dark:text-sand"
+            className="text-lg sm:text-base font-semibold leading-relaxed text-ink dark:text-sand"
           />
           <p dir={dir} lang={lang} className="text-base sm:text-sm text-ink/50 dark:text-sand/50">
             {situation.starterHint}
