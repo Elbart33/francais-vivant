@@ -175,7 +175,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
 
       {step === "comprehension" && (
         <div className="animate-fadeUp space-y-5 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
-          <div className="rounded-xl bg-mist p-4 dark:bg-ink/60">
+          <div className="rounded-xl bg-mist p-4 dark:bg-zellige/15">
             <p dir={dir} lang={lang} className="mb-2 text-base sm:text-sm font-bold uppercase tracking-wide text-zellige dark:text-saffron">
               {situation.comprehension.speaker}
             </p>
@@ -247,7 +247,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
       {step === "input" && (
         <div className="animate-fadeUp space-y-4 rounded-2xl border border-ink/10 bg-white/60 p-6 dark:border-sand/10 dark:bg-ink/40">
           {situation.dialogueOpener && (
-            <div dir={dir} className="flex items-start gap-3 rounded-xl bg-mist p-3 dark:bg-ink/60">
+            <div dir={dir} className="flex items-start gap-3 rounded-xl bg-mist p-3 dark:bg-zellige/15">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zellige text-base font-bold text-sand dark:bg-saffron dark:text-ink">
                 {situation.dialogueOpener.speaker.charAt(0)}
               </div>
@@ -272,7 +272,7 @@ export default function SituationFlowClient({ id }: { id: string }) {
                     key={word}
                     dir={dir}
                     lang={lang}
-                    className="rounded-full bg-sand/50 px-2 py-0.5 text-xs italic text-ink/60 dark:bg-ink/60 dark:text-sand/60"
+                    className="rounded-full bg-sand/50 px-2 py-0.5 text-xs italic text-ink/60 dark:bg-saffron/15 dark:text-saffron"
                   >
                     {word}
                   </span>
