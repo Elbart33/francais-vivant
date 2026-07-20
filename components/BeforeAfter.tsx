@@ -8,6 +8,7 @@ import { getLanguageConfig } from "@/config/languages";
 export default function BeforeAfter({ result }: { result: AnalysisResult }) {
   const hasCorrections = result.correctionNotes.length > 0;
   const hasImprovements = result.improvementNotes.length > 0;
+  const improvedDiffersFromCorrected = result.improved !== result.corrected;
   const config = getLanguageConfig();
   const t = config.situationFlow;
   const dir = config.dir;
@@ -20,7 +21,7 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
         <p className="mb-1 text-sm font-semibold uppercase tracking-wide text-ink/40 dark:text-sand/40">
           {t.startingPointLabel}
         </p>
-        <p className="text-xl sm:text-lg leading-relaxed text-ink/60 dark:text-sand/60" dir="auto">
+        <p className="text-base text-ink/40 dark:text-sand/40" dir="auto">
           {result.original}
         </p>
       </div>
@@ -53,28 +54,26 @@ export default function BeforeAfter({ result }: { result: AnalysisResult }) {
             {t.noErrorMessage}
           </p>
         )}
-      </section>
 
-      <section className="rounded-2xl border border-zellige/25 bg-zellige/[0.04] p-5 dark:border-zellige/40 dark:bg-zellige/10">
-        <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-zellige2 dark:text-saffron">
-          {t.improvedLabel}
-        </p>
-        <DiffView segments={result.improvementDiff} />
-        {hasImprovements ? (
-          <div className="mt-4 space-y-2">
-            {result.improvementNotes.map((note) => (
-              <CoachNote
-                key={note.ruleId}
-                explanationFr={note.explanationFr}
-                explanationDarija={note.explanationDarija}
-                tone="amelioration"
-              />
-            ))}
+        {improvedDiffersFromCorrected && (
+          <div className="mt-5 border-t border-clay/15 pt-4 dark:border-rose/20">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-zellige2 dark:text-saffron">
+              {t.improvedLabel}
+            </p>
+            <DiffView segments={result.improvementDiff} />
+            {hasImprovements && (
+              <div className="mt-4 space-y-2">
+                {result.improvementNotes.map((note) => (
+                  <CoachNote
+                    key={note.ruleId}
+                    explanationFr={note.explanationFr}
+                    explanationDarija={note.explanationDarija}
+                    tone="amelioration"
+                  />
+                ))}
+              </div>
+            )}
           </div>
-        ) : (
-          <p dir={dir} lang={lang} className="mt-3 text-lg sm:text-base text-ink/50 dark:text-sand/50">
-            {t.alreadyNaturalMessage}
-          </p>
         )}
       </section>
 
